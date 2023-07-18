@@ -1,0 +1,13 @@
+type HttpCodesTypes = Record<string, number>;
+
+export const HttpCodes: HttpCodesTypes = {
+  SUCCESS: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+  UNAUTHORIZED: 401,
+  UNAUTHORIZED_LOGOUT: 418,
+  NOT_FOUND: 404,
+  AWAITING_LIBERATION: 419,
+  APPLICATION_EXCEPTION: 420,
+  INTERNAL_SERVER_ERROR: 500,
+};
