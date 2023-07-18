@@ -4,7 +4,7 @@ import { Button as StyledButton } from "./styles";
 import { IViewProps } from "./types";
 import { theme } from "@resources/theme";
 
-const Button = ({
+const ButtonOutline = ({
   children,
   loading = false,
   disabled = false,
@@ -36,4 +36,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default ButtonOutline;

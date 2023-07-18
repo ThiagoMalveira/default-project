@@ -1,9 +1,7 @@
 export interface IPaletteBrand {
   regular: string;
-  darkest: string;
   dark: string;
   light: string;
-  lightest: string;
 }
 
 export interface IPaletteGradienteBrand {

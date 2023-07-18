@@ -43,9 +43,7 @@ const IconContainer = ({ title, name, width, height, onCallback }: IProps) => {
       const type: typeIcons = icon?.type;
 
       actionsByType[type](icon);
-    } catch {
-      //retunr
-    }
+    } catch {}
   };
 
   useEffect(() => {

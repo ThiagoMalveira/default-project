@@ -2,19 +2,17 @@ import styled from "@emotion/styled";
 
 import { DefaultProps } from "@resources/types";
 
-export const Container = styled.div`
+export const Container = styled.div<DefaultProps>`
   display: flex;
-  justify-content: space-between;
+  background-color: ${({ theme }) => theme.palette.primary.dark};
+  justify-content: space-around;
   align-items: center;
   height: 60px;
-  padding: 30px 0 0 0;
+  padding: 30px 30px 30px 10px;
   margin: 0 0 8px;
+  border-bottom: 1px solid ${({ theme }) => theme.palette.secondary.dark};
 `;
-export const WrapperLogo = styled.div`
-  flex: calc(32% - 20px);
-  margin-right: 20px;
-  height: 60px;
-`;
+export const WrapperLogo = styled.div``;
 export const WrapperMenu = styled.div`
   display: flex;
   flex: 1;
@@ -23,7 +21,7 @@ export const WrapperMenu = styled.div`
   align-items: center;
 `;
 
-export const WrapperAvatar = styled.div`
+export const WrapperButton = styled.div`
   width: 50px;
   height: 50px;
   cursor: pointer;

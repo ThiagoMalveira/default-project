@@ -9,10 +9,9 @@ export const Container = styled.div<DefaultProps>`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: ${({ theme }) => theme.palette.info.dark};
+  background-color: ${({ theme }) => theme.palette.primary.dark};
 `;
 
 export const WrapperContent = styled.div<DefaultProps>`

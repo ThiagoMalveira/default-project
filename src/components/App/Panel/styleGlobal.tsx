@@ -12,7 +12,7 @@ export const StyleGlobal = (): ReactElement => (
       }
 
       body {
-        background: ${theme.palette.neutral.darkest};
+        background: ${theme.palette.primary.light};
       }
     `}
   />

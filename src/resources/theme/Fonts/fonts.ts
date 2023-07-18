@@ -16,16 +16,16 @@ const fontWeight: IFontWeight = {
 };
 
 export const fonts: IFontFamily = {
-  normal: 'Helvetica, "Trebuchet MS", Verdana, sans-serif',
-  black: "InterBlack",
-  bold: "InterBold",
-  extraBold: "InterExtraBold",
-  extraLight: "InterExtraLight",
-  light: "InterLight",
-  medium: "InterMedium",
-  regular: "InterRegular",
-  semiBold: "InterSemiBold",
-  thin: "InterThin",
+  normal: "Lato, Verdana, sans-serif",
+  black: "LatoBlack",
+  bold: "LatoBold",
+  extraBold: "LatoExtraBold",
+  extraLight: "LatoExtraLight",
+  light: "LatoLight",
+  medium: "LatoMedium",
+  regular: "LatoRegular",
+  semiBold: "LatoSemiBold",
+  thin: "LatoThin",
 };
 
 export const typography: IFontsTypography = {

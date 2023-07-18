@@ -1,15 +1,15 @@
 import { PropsWithChildren, ReactElement } from "react";
 import { Global, ThemeProvider, css } from "@emotion/react";
 
-import InterBlack from "@assets/fonts/Inter-Black.ttf";
-import InterBold from "@assets/fonts/Inter-Bold.ttf";
-import InterExtraBold from "@assets/fonts/Inter-ExtraBold.ttf";
-import InterExtraLight from "@assets/fonts/Inter-ExtraLight.ttf";
-import InterLight from "@assets/fonts/Inter-Light.ttf";
-import InterMedium from "@assets/fonts/Inter-Medium.ttf";
-import InterRegular from "@assets/fonts/Inter-Regular.ttf";
-import InterSemiBold from "@assets/fonts/Inter-SemiBold.ttf";
-import InterThin from "@assets/fonts/Inter-Thin.ttf";
+import LatoBlack from "@assets/fonts/Lato-Black.ttf";
+import LatoBold from "@assets/fonts/Lato-Bold.ttf";
+import LatoExtraBold from "@assets/fonts/Lato-ExtraBold.ttf";
+import LatoExtraLight from "@assets/fonts/Lato-ExtraLight.ttf";
+import LatoLight from "@assets/fonts/Lato-Light.ttf";
+import LatoMedium from "@assets/fonts/Lato-Medium.ttf";
+import LatoRegular from "@assets/fonts/Lato-Regular.ttf";
+import LatoSemiBold from "@assets/fonts/Lato-SemiBold.ttf";
+import LatoThin from "@assets/fonts/Lato-Thin.ttf";
 import NeueMetanaRegular from "@assets/fonts/NeueMetana-Regular.otf";
 import { theme } from "@resources/theme";
 
@@ -33,57 +33,57 @@ export const StyleGlobal = (): ReactElement => (
       }
 
       @font-face {
-        font-family: "InterBlack";
-        src: local("InterBlack"), local("Inter-Black"),
-          url(${InterBlack}) format("truetype");
+        font-family: "LatoBlack";
+        src: local("LatoBlack"), local("Lato-Black"),
+          url(${LatoBlack}) format("truetype");
       }
 
       @font-face {
-        font-family: "InterBold";
-        src: local("InterBold"), local("Inter-Bold"),
-          url(${InterBold}) format("truetype");
+        font-family: "LatoBold";
+        src: local("LatoBold"), local("Lato-Bold"),
+          url(${LatoBold}) format("truetype");
       }
 
       @font-face {
-        font-family: "InterExtraBold";
-        src: local("InterExtraBold"), local("Inter-Extra-Bold"),
-          url(${InterExtraBold}) format("truetype");
+        font-family: "LatoExtraBold";
+        src: local("LatoExtraBold"), local("Lato-Extra-Bold"),
+          url(${LatoExtraBold}) format("truetype");
       }
 
       @font-face {
-        font-family: "InterExtraLight";
-        src: local("InterExtraLight"), local("Inter-Extra-Light"),
-          url(${InterExtraLight}) format("truetype");
+        font-family: "LatoExtraLight";
+        src: local("LatoExtraLight"), local("Lato-Extra-Light"),
+          url(${LatoExtraLight}) format("truetype");
       }
 
       @font-face {
-        font-family: "InterLight";
-        src: local("InterLight"), local("Inter-Light"),
-          url(${InterLight}) format("truetype");
+        font-family: "LatoLight";
+        src: local("LatoLight"), local("Lato-Light"),
+          url(${LatoLight}) format("truetype");
       }
 
       @font-face {
-        font-family: "InterMedium";
-        src: local("InterMedium"), local("Inter-Medium"),
-          url(${InterMedium}) format("truetype");
+        font-family: "LatoMedium";
+        src: local("LatoMedium"), local("Lato-Medium"),
+          url(${LatoMedium}) format("truetype");
       }
 
       @font-face {
-        font-family: "InterRegular";
-        src: local("InterRegular"), local("Inter-Regular"),
-          url(${InterRegular}) format("truetype");
+        font-family: "LatoRegular";
+        src: local("LatoRegular"), local("Lato-Regular"),
+          url(${LatoRegular}) format("truetype");
       }
 
       @font-face {
-        font-family: "InterSemiBold";
-        src: local("InterSemiBold"), local("Inter-Semi-Bold"),
-          url(${InterSemiBold}) format("truetype");
+        font-family: "LatoSemiBold";
+        src: local("LatoSemiBold"), local("Lato-Semi-Bold"),
+          url(${LatoSemiBold}) format("truetype");
       }
 
       @font-face {
-        font-family: "InterThin";
-        src: local("InterThin"), local("Inter-Thin"),
-          url(${InterThin}) format("truetype");
+        font-family: "LatoThin";
+        src: local("LatoThin"), local("Lato-Thin"),
+          url(${LatoThin}) format("truetype");
       }
 
       @font-face {
