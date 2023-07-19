@@ -30,11 +30,11 @@ export const clearStorage = async () => {
   return localStorage.clear();
 };
 
-export const removeStorage = async (key = "ufundCookpitWeb") => {
+export const removeStorage = async (key = "konekte") => {
   return localStorage.removeItem(`persist:${key}`);
 };
 
-export const getStorage = async (key = "ufundCookpitWeb") => {
+export const getStorage = async (key = "konekte") => {
   return localStorage.getItem(`persist:${key}`);
 };
 
