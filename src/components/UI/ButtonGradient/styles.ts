@@ -6,8 +6,8 @@ import styled from "@emotion/styled";
 export const Button = styled.button<IStyleProps & DefaultProps>`
   background: linear-gradient(
     237deg,
-    ${({ theme }) => theme.palette.secondary.regular} 0%,
-    ${({ theme }) => theme.palette.secondary.light} 100%
+    ${({ theme }) => theme.palette.gradiente.primary.darkest} 0%,
+    ${({ theme }) => theme.palette.gradiente.primary.dark} 100%
   );
   ${({ width }) => width && `width: ${width}px`};
   ${({ height }) => height && `height: ${height}px`};

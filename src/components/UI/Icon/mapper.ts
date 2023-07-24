@@ -1,5 +1,5 @@
 import { typeIcons } from "./types";
-import { dashboardSVG, logoSVG } from "./styles";
+import { dashboardSVG, logoSVG, whatsAppSVG } from "./styles";
 
 export const mapIcons = [
   {
@@ -18,6 +18,15 @@ export const mapIcons = [
     dimensions: {
       width: 1051,
       height: 741,
+    },
+  },
+  {
+    name: "whatsapp",
+    type: typeIcons.SVG,
+    element: whatsAppSVG,
+    dimensions: {
+      width: 96,
+      height: 96,
     },
   },
 ];

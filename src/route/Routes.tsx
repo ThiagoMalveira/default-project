@@ -1,4 +1,4 @@
-import React from "react";
+import { Fragment } from "react";
 import { Routes as ListRoutes, Route } from "react-router-dom";
 
 // import { Authenticate } from "@resources/helpers/authenticated";
@@ -20,7 +20,7 @@ import PathScreens from "./PathScreens";
 
 const Routes = () => {
   return (
-    <React.Fragment>
+    <Fragment>
       <ListRoutes>
         {/*<Route index element={PathScreens.SIGN_IN} />
         <Route path="*" element={PathScreens.NOT_FOUND} />
@@ -38,7 +38,7 @@ const Routes = () => {
         />
         */}
       </ListRoutes>
-    </React.Fragment>
+    </Fragment>
   );
 };
 

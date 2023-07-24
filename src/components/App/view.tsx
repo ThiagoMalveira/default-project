@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment, FunctionComponent } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
@@ -11,7 +11,7 @@ import { store, persistor } from "@store/index";
 
 import "react-toastify/dist/ReactToastify.css";
 
-const App: React.FC = () => {
+const App: FunctionComponent = () => {
   return (
     <Fragment>
       <Provider store={store}>

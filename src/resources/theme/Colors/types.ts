@@ -7,19 +7,17 @@ export interface IPaletteBrand {
 export interface IPaletteGradienteBrand {
   darkest: string;
   dark: string;
-  light: string;
 }
 
 export interface IPaletteGradiente {
   primary: IPaletteGradienteBrand;
-  secondary: IPaletteGradienteBrand;
-  tertiary: IPaletteGradienteBrand;
 }
 
 export interface IPalette {
   primary: IPaletteBrand;
   secondary: IPaletteBrand;
   neutral: IPaletteBrand;
+  text: IPaletteBrand;
   error: IPaletteBrand;
   success: IPaletteBrand;
   warning: IPaletteBrand;

@@ -10,28 +10,50 @@ export const Container = styled.div`
 export const ContainerContent = styled.div<DefaultProps>`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+  padding: 0 300px;
   background-color: ${({ theme }) => theme.palette.primary.dark};
   max-height: 660px;
+
 `;
 
 export const ContainerText = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 250px;
   margin: 10px 0;
 `;
+
+export const WrapperIcon = styled.div<DefaultProps>`
+  height: 96px;
+  width: 96px;
+  left: calc(100% - 600px);
+  position: absolute;
+`
+
+export const ContainerStep = styled.div`
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+`
+
+export const ContainerTitle = styled.div`
+  display: flex;
+  padding: 60px 60px;
+  align-items: center;
+  max-width: 625px;
+  justify-content: center;
+  text-align: center;
+`
 
 export const ContainerTextLighter = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 250px;
 `;
 
 export const ContentsLeft = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 0 0 250px;
   justify-content: center;
   align-items: flex-start;
 `;
@@ -55,7 +77,6 @@ export const WrapperButton = styled.div`
   padding: 10px;
   display: flex;
   align-items: center;
-  padding: 0 0 0 250px;
   margin: 20px 0;
 `;
 

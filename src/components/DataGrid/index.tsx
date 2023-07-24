@@ -1,13 +1,65 @@
-import React, { createElement } from "react";
+import { FunctionComponent } from "react";
 
-import { IProps, IGridHeader, IGridData, IViewProps } from "./types";
-import View from "./view";
+import Typography, { FontType } from "@components/UI/Typography";
+import { generateKey } from "@resources/utils/generateKey";
 
-const DataGridContainer: React.FC<IProps> = ({ header, data }) => {
-  const viewProps: IViewProps = { header, data };
+import { IViewProps } from "./types";
+import { Container, Row, Column } from "./styles";
+import { formatToMoney } from "@resources/utils/forNumber";
 
-  return createElement(View, viewProps);
+const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
+  return (
+    <Container>
+      <Row>
+        {header.map((headerItem) => (
+          <Column
+            align={headerItem.styles.align}
+            grid={headerItem.grid}
+            key={generateKey()}
+          >
+            {typeof headerItem.label === "string" ? (
+              <Typography fontType={FontType.bold} size={13}>
+                {headerItem.label}
+              </Typography>
+            ) : (
+              <>{headerItem.label}</>
+            )}
+          </Column>
+        ))}
+      </Row>
+      {data.map((dataItem, dataIndex) => (
+        <Row key={`${dataIndex}-${String(dataItem)}`} item>
+          {header.map((headerItem, headerIndex) => {
+            const element = dataItem.values[headerItem.value];
+
+            return (
+              <Column
+                align={headerItem.styles.align}
+                grid={headerItem.grid}
+                key={`${headerIndex}-${String(headerItem.label)}`}
+              >
+                <>
+                  {headerItem.field === "value" && (
+                    <Typography
+                      fontType={headerItem.styles.fontType}
+                      size={headerItem.styles.fontSize}
+                    >
+                      {typeof element === "number"
+                        ? `R$ ${formatToMoney(element)}`
+                        : element && element}
+                    </Typography>
+                  )}
+
+                  {headerItem.field === "select" && <>{dataItem.select}</>}
+                  {headerItem.field === "interaction" && <>{dataItem.action}</>}
+                </>
+              </Column>
+            );
+          })}
+        </Row>
+      ))}
+    </Container>
+  );
 };
 
-export default DataGridContainer;
-export type { IGridHeader, IGridData };
+export default DataGrid;

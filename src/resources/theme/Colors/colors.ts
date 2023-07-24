@@ -16,6 +16,11 @@ export const palette: IPalette = {
     regular: "#878787",
     light: "#F4F3ED",
   },
+  text: {
+    dark: "#2E2E2E",
+    regular: "#C9B680",
+    light: "#9D9D9D",
+  },
   error: {
     dark: "#B71E15",
     regular: "#EA534A",
@@ -38,19 +43,8 @@ export const palette: IPalette = {
   },
   gradiente: {
     primary: {
-      darkest: "#088F93",
-      dark: "#08D1A1",
-      light: "#16C8BF",
-    },
-    secondary: {
-      darkest: "#4CA8B2",
-      dark: "",
-      light: "#2FD3C6",
-    },
-    tertiary: {
-      darkest: "#056A67",
-      dark: "",
-      light: "#4BA492",
+      darkest: "#EAD47F",
+      dark: "#B79B65",
     },
   },
 };
