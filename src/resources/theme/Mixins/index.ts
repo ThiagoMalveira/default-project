@@ -4,7 +4,7 @@ import { theme } from "@resources/theme";
 
 type Css = ReturnType<typeof css>;
 
-export default {
+const mixins = {
   skeletonKeyFrames: () => keyframes`
     0% {
       opacity: 0.1;
@@ -122,35 +122,35 @@ export default {
         font-family: ${theme.typography.fonts.medium};
         font-size: 16px;
         line-height: 24px;
-        color: ${theme.palette.neutral.darkest};
+        color: ${theme.palette.neutral.regular};
       `,
       regular: css`
         font-family: ${theme.typography.fonts.regular};
         font-size: 16px;
         line-height: 24px;
         letter-spacing: 0.02em;
-        color: ${theme.palette.neutral.darkest};
+        color: ${theme.palette.neutral.regular};
       `,
       light: css`
         font-family: ${theme.typography.fonts.light};
         font-size: 16px;
         line-height: 28px;
         letter-spacing: 0.02em;
-        color: ${theme.palette.neutral.darkest};
+        color: ${theme.palette.neutral.regular};
       `,
       extraLight: css`
         font-family: ${theme.typography.fonts.extraLight};
         font-size: 16px;
         line-height: 28px;
         letter-spacing: 0.02em;
-        color: ${theme.palette.neutral.darkest};
+        color: ${theme.palette.neutral.regular};
       `,
       thin: css`
         font-family: ${theme.typography.fonts.thin};
         font-size: 16px;
         line-height: 28px;
         letter-spacing: 0.02em;
-        color: ${theme.palette.neutral.darkest};
+        color: ${theme.palette.neutral.regular};
       `,
     }[type]),
 
@@ -160,3 +160,5 @@ export default {
       secondary: css``,
     }[type]),
 };
+
+export default mixins

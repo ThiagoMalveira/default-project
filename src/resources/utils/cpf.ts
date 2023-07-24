@@ -9,7 +9,7 @@ const isRepeatingChars = (str) =>
   str.split("").every((elem) => elem === str[0]);
 
 const toSumOfProducts = (multiplier) => (result, num) =>
-  // eslint-disable-next-line no-plusplus
+   
   result + num * multiplier--;
 
 const getSumOfProducts = (list, multiplier) =>

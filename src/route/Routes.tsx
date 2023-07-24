@@ -8,8 +8,7 @@ import { Routes as ListRoutes, Route } from "react-router-dom";
 import PathRoutes from "./PathRoutes";
 import PathScreens from "./PathScreens";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-/*const PrivateRoute = ({ children }: any) => {
+/*const PrivateRoute = ({ children }: ReactNode) => {
   const isAuthenticated = Authenticate();
 
   return isAuthenticated ? (

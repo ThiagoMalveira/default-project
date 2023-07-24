@@ -8,8 +8,8 @@ export const palette: IPalette = {
   },
   secondary: {
     dark: "#716E6A",
-    regular: "#e1e1e1",
-    light: "#F4F3ED",
+    regular: "#EAD47F ",
+    light: "#B79B65",
   },
   neutral: {
     dark: "#2B928D",
@@ -32,9 +32,9 @@ export const palette: IPalette = {
     light: "#F7C06E",
   },
   info: {
-    dark: "#2581A7",
-    regular: "#43AAD5",
-    light: "#6DBDDE",
+    dark: "#E8D29B",
+    regular: "#FFFFFF",
+    light: "#9D9D9D",
   },
   gradiente: {
     primary: {

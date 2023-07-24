@@ -1,28 +1,23 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
-
 import { IStyleProps } from "./types";
 import { DefaultProps } from "@resources/types";
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
 export const Button = styled.button<IStyleProps & DefaultProps>`
-  ${({ theme }) => theme.mixins.shadow()};
-  ${({ height }) => height && `height: ${height}px`};
-
+  background: linear-gradient(
+    237deg,
+    ${({ theme }) => theme.palette.secondary.regular} 0%,
+    ${({ theme }) => theme.palette.secondary.light} 100%
+  );
   ${({ width }) => width && `width: ${width}px`};
-  ${({ widthFull }) => widthFull && `width: 100%`};
-
-  ${({ bgColor }) => bgColor && `background-color: ${bgColor}`};
-  ${({ buttonTextColor }) => buttonTextColor && `color: ${buttonTextColor}`};
-  padding: 0 15px;
-  border-radius: 6px;
-  border: ${({ outline, theme }) =>
-    outline ? `2px solid ${theme.palette.primary.dark}` : "none"};
-
+  ${({ height }) => height && `height: ${height}px`};
   cursor: pointer;
   font-family: ${({ theme }) => theme.typography.fonts.normal};
+  border: none;
   font-size: 14px;
   font-weight: bold;
   transition: 0.5s;
+  border-radius: 100px;
 
   &:hover {
     opacity: 0.8;

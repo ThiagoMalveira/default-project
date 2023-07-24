@@ -17,7 +17,7 @@ export const translateUrlParam = (url: string, obj: Record<string, string>) => {
 };
 
 export const hidePart = (phoneNumber: string): string => {
-  // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+   
   return `(xx) xxxxx-${phoneNumber.slice(7)}`;
 };
 

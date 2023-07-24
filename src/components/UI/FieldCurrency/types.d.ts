@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface IViewProps {
   error?: boolean;
   label?: string;
