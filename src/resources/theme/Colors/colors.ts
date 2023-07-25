@@ -12,9 +12,9 @@ export const palette: IPalette = {
     light: "#B79B65",
   },
   neutral: {
-    dark: "#2B928D",
+    dark: "#ECDCAD",
     regular: "#878787",
-    light: "#F4F3ED",
+    light: "#FBFBFB",
   },
   text: {
     dark: "#2E2E2E",

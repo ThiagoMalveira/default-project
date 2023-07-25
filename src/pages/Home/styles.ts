@@ -30,7 +30,7 @@ export const WrapperIcon = styled.div<DefaultProps>`
   position: absolute;
 `
 
-export const ContainerStep = styled.div`
+export const ContainerWhatsApp = styled.div`
   display: flex;
   
   align-items: center;
@@ -57,6 +57,19 @@ export const ContentsLeft = styled.div`
   justify-content: center;
   align-items: flex-start;
 `;
+
+export const ContainerStep = styled.div<DefaultProps>`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid ${({ theme }) => theme.palette.neutral.light};
+` 
+
+export const ContainerPartners = styled.div`
+  padding: 48px 0;
+  display: flex;
+  justify-content: center;
+`
 
 export const AllTextsLighter = styled.div`
   display: flex;

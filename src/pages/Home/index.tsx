@@ -1,9 +1,10 @@
-import Typography from "@components/UI/Typography";
-import * as S from "./styles";
-import { theme } from "@resources/theme";
 import Header from "@components/App/Panel/Header";
-import Icon from "@components/UI/Icon";
 import ButtonGradient from "@components/UI/ButtonGradient";
+import Card from "@components/UI/Card";
+import Icon from "@components/UI/Icon";
+import Typography from "@components/UI/Typography";
+import { theme } from "@resources/theme";
+import * as S from "./styles";
 
 const Home = () => {
   return (
@@ -76,7 +77,7 @@ const Home = () => {
           <Icon name="dashboard" />
         </S.ContainerImage>
       </S.ContainerContent>
-      <S.ContainerStep>
+      <S.ContainerWhatsApp>
         <S.ContainerTitle>
           <Typography
             size={32}
@@ -96,7 +97,24 @@ const Home = () => {
         <S.WrapperIcon>
           <Icon name="whatsapp"/>
         </S.WrapperIcon>
+      </S.ContainerWhatsApp>
+      <S.ContainerStep>
+        <Card iconName={'document'} step={'1'} title={'Cadastre sua empresa'} description={'Você envia os dados básicos de sua empresa como CNPJ e segmento, e retornamos com a aprovação da parceria.'}/>
+        <Card iconName={'products'} step={'2'} title={'Cadastre seus produtos'} description={'Você cadastra os principais produtos de seu catálogo, e nós inserimos nos melhores canais de vendas.'}/>
+        <Card iconName={'money'} step={'3'} title={'Acompanhe suas vendas'} description={'Tudo pronto! Após selecionarmos os canais de venda, seu produto estará disponível para milhões de potenciais clientes.'}/>
+        <Card iconName={'up'} step={'4'} title={'Gerencie seu faturamento'} description={'Acompanhe as estatísticas de sua operação direto do painel do parceiro.'}/>
       </S.ContainerStep>
+
+      <S.ContainerPartners>
+        <Typography
+          align="center"
+          size={32}
+          weight="400"
+          color={theme.palette.text.dark}
+        >
+          Alguns parceiros Konekte
+        </Typography>
+      </S.ContainerPartners>
     </S.Container>
   );
 };

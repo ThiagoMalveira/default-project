@@ -1,5 +1,5 @@
 import { typeIcons } from "./types";
-import { dashboardSVG, logoSVG, whatsAppSVG } from "./styles";
+import { dashboardSVG, documentSVG, logoSVG, moneySVG, productsSVG, upSVG, whatsAppSVG } from "./styles";
 
 export const mapIcons = [
   {
@@ -27,6 +27,42 @@ export const mapIcons = [
     dimensions: {
       width: 96,
       height: 96,
+    },
+  },
+  {
+    name: "document",
+    type: typeIcons.SVG,
+    element: documentSVG,
+    dimensions: {
+      width: 40,
+      height: 40,
+    },
+  },
+  {
+    name: "products",
+    type: typeIcons.SVG,
+    element: productsSVG,
+    dimensions: {
+      width: 40,
+      height: 40,
+    },
+  },
+  {
+    name: "up",
+    type: typeIcons.SVG,
+    element: upSVG,
+    dimensions: {
+      width: 40,
+      height: 40,
+    },
+  },
+  {
+    name: "money",
+    type: typeIcons.SVG,
+    element: moneySVG,
+    dimensions: {
+      width: 40,
+      height: 40,
     },
   },
 ];
