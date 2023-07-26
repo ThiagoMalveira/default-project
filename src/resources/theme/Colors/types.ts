@@ -1,26 +1,27 @@
 export interface IPaletteBrand {
-  regular: string;
-  dark: string;
-  light: string;
+  regular: string
+  dark: string
+  light: string
+  lightest: string
 }
 
 export interface IPaletteGradienteBrand {
-  darkest: string;
-  dark: string;
+  darkest: string
+  dark: string
 }
 
 export interface IPaletteGradiente {
-  primary: IPaletteGradienteBrand;
+  primary: IPaletteGradienteBrand
 }
 
 export interface IPalette {
-  primary: IPaletteBrand;
-  secondary: IPaletteBrand;
-  neutral: IPaletteBrand;
-  text: IPaletteBrand;
-  error: IPaletteBrand;
-  success: IPaletteBrand;
-  warning: IPaletteBrand;
-  info: IPaletteBrand;
-  gradiente: IPaletteGradiente;
+  primary: IPaletteBrand
+  secondary: IPaletteBrand
+  neutral: IPaletteBrand
+  text: IPaletteBrand
+  error: IPaletteBrand
+  success: IPaletteBrand
+  warning: IPaletteBrand
+  info: IPaletteBrand
+  gradiente: IPaletteGradiente
 }

@@ -1,9 +1,17 @@
-import { typeIcons } from "./types";
-import { dashboardSVG, documentSVG, logoSVG, moneySVG, productsSVG, upSVG, whatsAppSVG } from "./styles";
+import {
+  dashboardSVG,
+  documentSVG,
+  logoSVG,
+  moneySVG,
+  productsSVG,
+  upSVG,
+  whatsAppSVG,
+} from './styles'
+import { typeIcons } from './types'
 
 export const mapIcons = [
   {
-    name: "logo",
+    name: 'logo',
     type: typeIcons.SVG,
     element: logoSVG,
     dimensions: {
@@ -12,7 +20,7 @@ export const mapIcons = [
     },
   },
   {
-    name: "dashboard",
+    name: 'dashboard',
     type: typeIcons.SVG,
     element: dashboardSVG,
     dimensions: {
@@ -21,7 +29,7 @@ export const mapIcons = [
     },
   },
   {
-    name: "whatsapp",
+    name: 'whatsapp',
     type: typeIcons.SVG,
     element: whatsAppSVG,
     dimensions: {
@@ -30,7 +38,7 @@ export const mapIcons = [
     },
   },
   {
-    name: "document",
+    name: 'document',
     type: typeIcons.SVG,
     element: documentSVG,
     dimensions: {
@@ -39,7 +47,7 @@ export const mapIcons = [
     },
   },
   {
-    name: "products",
+    name: 'products',
     type: typeIcons.SVG,
     element: productsSVG,
     dimensions: {
@@ -48,7 +56,7 @@ export const mapIcons = [
     },
   },
   {
-    name: "up",
+    name: 'up',
     type: typeIcons.SVG,
     element: upSVG,
     dimensions: {
@@ -57,7 +65,7 @@ export const mapIcons = [
     },
   },
   {
-    name: "money",
+    name: 'money',
     type: typeIcons.SVG,
     element: moneySVG,
     dimensions: {
@@ -65,4 +73,4 @@ export const mapIcons = [
       height: 40,
     },
   },
-];
+]

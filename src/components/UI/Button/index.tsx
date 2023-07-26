@@ -1,8 +1,8 @@
-import Loading from "@components/Loading";
+import Loading from '@components/Loading'
 
-import { Button as StyledButton } from "./styles";
-import { IViewProps } from "./types";
-import { theme } from "@resources/theme";
+import { theme } from '@resources/theme'
+import { Button as StyledButton } from './styles'
+import { IViewProps } from './types'
 
 const Button = ({
   children,
@@ -14,11 +14,15 @@ const Button = ({
   onClick,
   type,
   cursor,
+  bgColor,
+  buttonTextColor,
+  borderRadius,
 }: IViewProps) => {
   return (
     <StyledButton
-      bgColor={theme.palette.primary.dark}
-      buttonTextColor={theme.palette.primary.light}
+      bgColor={bgColor || theme.palette.primary.dark}
+      buttonTextColor={buttonTextColor || theme.palette.primary.light}
+      borderRadius={borderRadius}
       disabled={disabled}
       height={height}
       type={type}
@@ -33,7 +37,7 @@ const Button = ({
         children
       )}
     </StyledButton>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button
