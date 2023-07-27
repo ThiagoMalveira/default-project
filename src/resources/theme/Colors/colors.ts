@@ -11,19 +11,19 @@ export const palette: IPalette = {
     dark: '#716E6A',
     regular: '#EAD47F ',
     light: '#B79B65',
-    lightest: '',
+    lightest: '#DCDCDC',
   },
   neutral: {
     dark: '#ECDCAD',
     regular: '#878787',
     light: '#FBFBFB',
-    lightest: '',
+    lightest: '#CECECE',
   },
   text: {
     dark: '#2E2E2E',
     regular: '#C9B680',
     light: '#9D9D9D',
-    lightest: '',
+    lightest: '#FFFFFF',
   },
   error: {
     dark: '#B71E15',

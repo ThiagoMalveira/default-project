@@ -1,5 +1,3 @@
-import { IStyleProps } from '@components/UI/Icon/types'
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { DefaultProps } from '@resources/types'
 
@@ -14,18 +12,29 @@ export const ContainerContent = styled.div<DefaultProps>`
   padding: 0 300px;
   background-color: ${({ theme }) => theme.palette.primary.dark};
   max-height: 660px;
+
+  @media (max-width: 1818px) {
+    padding: 0 0;
+  }
 `
 
 export const ContainerText = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 482px;
+  width: 100%;
   margin: 10px 0;
+`
+
+export const WrapperIconSlider = styled.div<DefaultProps>`
+  height: 96px;
+  width: 96px;
 `
 
 export const WrapperIcon = styled.div<DefaultProps>`
   height: 96px;
   width: 96px;
-  left: calc(100% - 600px);
+  left: calc(100% - 10%);
   position: absolute;
 `
 
@@ -55,6 +64,8 @@ export const ContentsLeft = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  max-width: 482px;
+  width: 482px;
 `
 
 export const ContainerStep = styled.div<DefaultProps>`
@@ -83,22 +94,59 @@ export const Image = styled.img`
 `
 
 export const ImageSLA = styled.img`
-  padding: 50px 0;
+  padding: 50px 0px 50px 50px;
 `
 
 export const ImageChannel = styled.img`
   padding: 0px 10px;
 `
 
-export const ContainerWhatPartnersSays = styled.div``
+export const ImageBePartner = styled.img`
+  padding: 0px 10px;
+`
+
+export const ContainerWhatPartnersSays = styled.div`
+  padding: 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ContainerBePartner = styled.div<DefaultProps>`
+  display: flex;
+  background-color: ${({ theme }) => theme.palette.primary.dark};
+  max-height: 521px;
+  height: 100vh;
+  flex-direction: row;
+  padding: 50px 70px;
+  justify-content: center;
+  display: flex;
+  justify-content: space-evenly;
+`
+
+export const ContainerTitleWhatPartnersSays = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 1280px;
+  width: 100%;
+  justify-content: space-between;
+`
+
+export const ContainerContentWhatPartnersSays = styled.div`
+  display: flex;
+  flex-direction: row;
+  max-width: 1280px;
+  width: 100%;
+  justify-content: space-between;
+`
 
 export const ContainerSLAInside = styled.div<DefaultProps>`
-  padding: 40px 150px;
   display: flex;
   border-radius: 20px;
   height: 600px;
-  width: 1200px;
-  max-width: 1200px;
+  width: 100vw;
+  justify-content: space-evenly;
   box-shadow: 0px 15px 30px 0px #e6ddc5;
   background: linear-gradient(
     237deg,
@@ -114,11 +162,34 @@ export const ContainerTextChannel = styled.div<DefaultProps>`
   justify-content: center;
 `
 
+export const ContainerTextPartner = styled.div<DefaultProps>`
+  max-width: 478px;
+  padding: 20px 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+export const ContainerQuestions = styled.div<DefaultProps>`
+  display: flex;
+  padding: 50px;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
+
+export const WrapperQuestions = styled.div<DefaultProps>``
+
+export const WrapperTextBePartner = styled.div<DefaultProps>`
+  max-width: 372px;
+  width: 100vw;
+`
+
 export const ContainerTextSLA = styled.div<DefaultProps>`
   max-width: 510px;
-  width: 510px;
+  width: 100vw;
   display: flex;
-  padding: 10px;
+  padding: 100px;
   flex-direction: column;
   justify-content: space-evenly;
 `
@@ -135,7 +206,7 @@ export const ContainerChannel = styled.div<DefaultProps>`
 `
 
 export const ContainerSLA = styled.div<DefaultProps>`
-  padding: 80px 150px;
+  padding: 80px 370px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -161,7 +232,7 @@ export const ContainerImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 -200px;
+  flex-shrink: 0;
 `
 
 export const WrapperButton = styled.div`
@@ -171,31 +242,7 @@ export const WrapperButton = styled.div`
   margin: 20px 0;
 `
 
-export const Button = styled.button<IStyleProps & DefaultProps>`
-  background: linear-gradient(
-    237deg,
-    ${({ theme }) => theme.palette.secondary.regular} 0%,
-    ${({ theme }) => theme.palette.secondary.light} 100%
-  );
-  ${({ width }) => width && `width: ${width}px`};
-  ${({ height }) => height && `height: ${height}px`};
-  cursor: pointer;
-  font-family: ${({ theme }) => theme.typography.fonts.normal};
-  border: none;
-  font-size: 14px;
-  font-weight: bold;
-  transition: 0.5s;
-  border-radius: 100px;
-
-  &:hover {
-    opacity: 0.8;
-
-    ${({ theme }) => {
-      return css`
-        li a: {
-          color: ${theme.palette.secondary.dark};
-        }
-      `
-    }}
-  }
+export const WrapperTitleQuestions = styled.div`
+  display: flex;
+  align-items: center;
 `
