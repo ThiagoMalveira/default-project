@@ -11,6 +11,7 @@ export const ContainerContent = styled.div<DefaultProps>`
   justify-content: space-evenly;
   padding: 0 300px;
   background-color: ${({ theme }) => theme.palette.primary.dark};
+  height: 100vh;
   max-height: 660px;
 
   @media (max-width: 1818px) {
