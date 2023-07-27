@@ -1,12 +1,12 @@
-import Typography, { FontType } from "@components/UI/Typography";
-import { theme } from "@resources/theme";
-import { Container } from "./styles";
-import Icon from "@components/UI/Icon";
-import { IProps } from "./types";
-import { useGoBack } from "@hooks/useGoBack";
+import Typography, { FontType } from '@components/UI/Typography'
+import { theme } from '@resources/theme'
+import { Container } from './styles'
+import Icon from '@components/UI/Icon'
+import { IProps } from './types'
+import { useGoBack } from '@hooks/useGoBack'
 
 const BackButton = ({ title }: IProps) => {
-  const handleGoBack = useGoBack();
+  const handleGoBack = useGoBack()
 
   return (
     <Container>
@@ -19,7 +19,7 @@ const BackButton = ({ title }: IProps) => {
         {title}
       </Typography>
     </Container>
-  );
-};
+  )
+}
 
-export default BackButton;
+export default BackButton

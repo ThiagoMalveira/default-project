@@ -5,7 +5,7 @@ export interface IViewProps {
   loading?: boolean
   disabled?: boolean
   height?: number
-  onClick?: () => void | string | promise
+  onClick?: () => void | string | Promise
   outline?: boolean
   secondary?: boolean
   width?: number

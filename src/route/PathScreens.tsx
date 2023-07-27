@@ -1,7 +1,7 @@
-import Home from "@pages/Home";
+import Home from '@pages/Home'
 
 const PathScreens = {
   PANEL_HOME: <Home />,
-};
+}
 
-export default PathScreens;
+export default PathScreens

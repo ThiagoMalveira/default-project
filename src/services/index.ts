@@ -1,2 +1,2 @@
-export { endpoints } from "./endpoints";
-export * from "./api";
+export { endpoints } from './endpoints'
+export * from './api'

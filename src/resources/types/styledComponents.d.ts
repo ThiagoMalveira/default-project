@@ -1,7 +1,7 @@
-import "@emotion/styled";
+import '@emotion/styled'
 
-import { ITheme } from "@resources/theme";
+import { ITheme } from '@resources/theme'
 
-declare module "@emotion/styled" {
-  export type DefaultTheme = ITheme;
+declare module '@emotion/styled' {
+  export type DefaultTheme = ITheme
 }

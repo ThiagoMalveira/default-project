@@ -88,6 +88,7 @@ const Footer = () => {
         <Separator verticalSize={10} />
         <S.WrapperInstagram>
           <Icon name="instagram" />
+          <Separator horizontalSize={4} />
           <Typography
             align="center"
             size={18}

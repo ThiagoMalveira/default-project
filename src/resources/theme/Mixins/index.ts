@@ -1,8 +1,8 @@
-import { css, keyframes } from "@emotion/react";
+import { css, keyframes } from '@emotion/react'
 
-import { theme } from "@resources/theme";
+import { theme } from '@resources/theme'
 
-type Css = ReturnType<typeof css>;
+type Css = ReturnType<typeof css>
 
 const mixins = {
   skeletonKeyFrames: () => keyframes`
@@ -28,13 +28,13 @@ const mixins = {
     }
   `,
 
-  transition: (time = "0.25s") => css`
+  transition: (time = '0.25s') => css`
     -webkit-transition: all ${time};
     -moz-transition: all ${time};
     transition: all ${time};
   `,
 
-  transitionIn: (type = "all", time = "0.25s") => css`
+  transitionIn: (type = 'all', time = '0.25s') => css`
     -webkit-transition: ${type} ${time};
     -moz-transition: ${type} ${time};
     transition: ${type} ${time};
@@ -51,7 +51,7 @@ const mixins = {
   `,
 
   disabledStyle: (disabled = false) => css`
-    opacity: ${disabled ? 0.6 : ""};
+    opacity: ${disabled ? 0.6 : ''};
     cursor: ${disabled && `default`};
   `,
 
@@ -88,7 +88,7 @@ const mixins = {
           ${theme.palette.gradiente.tertiary.darkest}
         );
       `,
-    }[type]),
+    })[type],
 
   fonts: (type): Css =>
     ({
@@ -152,13 +152,13 @@ const mixins = {
         letter-spacing: 0.02em;
         color: ${theme.palette.neutral.regular};
       `,
-    }[type]),
+    })[type],
 
   button: (type): Css =>
     ({
       primary: css``,
       secondary: css``,
-    }[type]),
-};
+    })[type],
+}
 
 export default mixins

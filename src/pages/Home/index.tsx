@@ -109,7 +109,6 @@ const Home = () => {
               size={32}
               color={theme.palette.text.regular}
             >
-              {' '}
               produtos, valores, promoções e estoques disponíveis.
             </Typography>
           </Typography>

@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { DefaultProps } from "@resources/types";
+import styled from '@emotion/styled'
+import { DefaultProps } from '@resources/types'
 
 export const Container = styled.div`
   margin: 30px 0 0 0;
@@ -7,8 +7,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
+`
 
 export const Title = styled.h1<DefaultProps>`
   color: ${({ theme }) => theme.palette.info[5]};
-`;
+`

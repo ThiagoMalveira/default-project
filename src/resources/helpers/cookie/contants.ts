@@ -1,3 +1,3 @@
 export const cookieVariabels = {
-  systemSession: "system-session",
-};
+  systemSession: 'system-session',
+}

@@ -1,14 +1,14 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
-import { Fonts } from "@resources/types/mixins";
+import { Fonts } from '@resources/types/mixins'
 
-import { ILineProps, IItemProps } from "./types";
+import { ILineProps, IItemProps } from './types'
 
 const alignTypes = {
-  left: "flex-start",
-  center: "center",
-  right: "flex-end",
-};
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end',
+}
 
 const Grid = styled.div<ILineProps & IItemProps>`
   width: 100%;
@@ -22,10 +22,10 @@ const Grid = styled.div<ILineProps & IItemProps>`
       justify-content: space-between;
       align-items: center;
       align-self: center;
-      margin: ${mv}px ${mh}px ${mv < 0 ? "0" : mv}px ${mh}px;
+      margin: ${mv}px ${mh}px ${mv < 0 ? '0' : mv}px ${mh}px;
       padding: 0;
   `}
-`;
+`
 const Item = styled.div<IItemProps>`
   display: flex;
   flex: 2 1 auto;
@@ -39,11 +39,11 @@ const Item = styled.div<IItemProps>`
   ${({ letterSpacing }) => letterSpacing && `letter-spacing:${letterSpacing}`};
   ${({ size }) => size && `font-size: ${size}px`};
   ${({ weight }) => weight && `font-weight: ${weight}`};
-  ${({ clickable }) => clickable && "cursor: pointer"};
+  ${({ clickable }) => clickable && 'cursor: pointer'};
 
   &:first-of-type {
     margin: 0;
   }
-`;
+`
 
-export { Grid as DataGrid, Item as DataGridItem, Fonts as FontsType };
+export { Grid as DataGrid, Item as DataGridItem, Fonts as FontsType }

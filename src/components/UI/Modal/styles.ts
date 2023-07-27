@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
-import { DefaultProps } from "@resources/types";
+import { DefaultProps } from '@resources/types'
 
-import { IStylesProps } from "./types";
+import { IStylesProps } from './types'
 
 export const Container = styled.div<DefaultProps & IStylesProps>`
   visibility: hidden;
@@ -29,7 +29,7 @@ export const Container = styled.div<DefaultProps & IStylesProps>`
     visibility: visible;
     opacity: 1;
   `};
-`;
+`
 
 export const WrapperModal = styled.div<DefaultProps & IStylesProps>`
   display: flex;
@@ -40,7 +40,7 @@ export const WrapperModal = styled.div<DefaultProps & IStylesProps>`
   padding-top: 20px;
   ${({ paddingBottom }) =>
     paddingBottom && `padding-bottom: ${paddingBottom}px`};
-`;
+`
 
 export const WrapperContent = styled.div<DefaultProps & IStylesProps>`
   display: flex;
@@ -61,7 +61,7 @@ export const WrapperContent = styled.div<DefaultProps & IStylesProps>`
     transform: translate(0, 0);
     opacity: 1;
   `};
-`;
+`
 
 export const Body = styled.div`
   display: flex;
@@ -70,7 +70,7 @@ export const Body = styled.div`
   flex: 1;
   width: 100%;
   text-align: center;
-`;
+`
 
 export const Footer = styled.div<IStylesProps>`
   display: flex;
@@ -80,12 +80,12 @@ export const Footer = styled.div<IStylesProps>`
   min-height: 50px;
   width: 100%;
   margin: 10px 0;
-`;
+`
 
 export const WrapperButtonFooter = styled.div<IStylesProps>`
   min-width: ${({ widthBtFooter }) => widthBtFooter};
   margin: ${({ marginBtFooter }) => marginBtFooter};
-`;
+`
 
 export const WrapperIcon = styled.div<DefaultProps>`
   display: flex;
@@ -98,4 +98,4 @@ export const WrapperIcon = styled.div<DefaultProps>`
   position: absolute;
   top: -38px;
   right: -25px;
-`;
+`

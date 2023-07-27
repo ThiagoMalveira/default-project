@@ -1,10 +1,10 @@
-import { Fragment } from "react";
+import { Fragment } from 'react'
 
-import Header from "./Header";
+import Header from './Header'
 
-import { Container, WrapperContent, Content } from "./styles";
-import { StyleGlobal } from "./styleGlobal";
-import { IProps } from "./types";
+import { Container, WrapperContent, Content } from './styles'
+import { StyleGlobal } from './styleGlobal'
+import { IProps } from './types'
 
 const Panel = ({ children }: IProps) => {
   return (
@@ -17,7 +17,7 @@ const Panel = ({ children }: IProps) => {
         </WrapperContent>
       </Container>
     </Fragment>
-  );
-};
+  )
+}
 
-export default Panel;
+export default Panel

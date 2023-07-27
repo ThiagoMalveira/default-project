@@ -1,9 +1,9 @@
-import { ClipLoader } from "react-spinners";
+import { ClipLoader } from 'react-spinners'
 
-import { theme } from "@resources/theme";
+import { theme } from '@resources/theme'
 
-import { WrapperLoading } from "./styles";
-import { IViewProps } from "./types";
+import { WrapperLoading } from './styles'
+import { IViewProps } from './types'
 
 const Loading = ({
   loading = true,
@@ -14,7 +14,7 @@ const Loading = ({
     <WrapperLoading>
       <ClipLoader size={size} color={color} loading={loading} />
     </WrapperLoading>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading

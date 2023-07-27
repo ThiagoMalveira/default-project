@@ -1,12 +1,12 @@
 export interface IKeyArgHeader {
-  index: number;
-  field: string;
+  index: number
+  field: string
 }
 
 export interface IArgsApiHeader {
-  authorization: IKeyArgHeader;
+  authorization: IKeyArgHeader
 }
 
 export interface IServiceContants {
-  argsApiHeader: IArgsApiHeader;
+  argsApiHeader: IArgsApiHeader
 }

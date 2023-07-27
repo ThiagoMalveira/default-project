@@ -1,15 +1,15 @@
-import { Fragment, FunctionComponent } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
+import { Fragment, FunctionComponent } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react'
 
-import Routes from "@route/Routes";
+import Routes from '@route/Routes'
 
-import { StyleGlobal, DesignSystemProvider } from "@components/DesignSystem";
-import { store, persistor } from "@store/index";
+import { StyleGlobal, DesignSystemProvider } from '@components/DesignSystem'
+import { store, persistor } from '@store/index'
 
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css'
 
 const App: FunctionComponent = () => {
   return (
@@ -26,7 +26,7 @@ const App: FunctionComponent = () => {
         </PersistGate>
       </Provider>
     </Fragment>
-  );
-};
+  )
+}
 
-export default App;
+export default App

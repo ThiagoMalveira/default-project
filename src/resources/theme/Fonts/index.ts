@@ -1,2 +1,2 @@
-export { typography } from "./fonts";
-export * from "./types";
+export { typography } from './fonts'
+export * from './types'

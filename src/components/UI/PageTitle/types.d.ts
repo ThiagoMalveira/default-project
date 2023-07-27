@@ -1,9 +1,9 @@
-import { ReactElement, ReactText } from "react";
+import { ReactElement, ReactText } from 'react'
 
-import { DefaultProps } from "@resources/types";
+import { DefaultProps } from '@resources/types'
 
 export interface IViewProps extends DefaultProps {
-  children?: ReactElement | ReactText | string;
-  color?: string;
-  size?: number;
+  children?: ReactElement | ReactText | string
+  color?: string
+  size?: number
 }

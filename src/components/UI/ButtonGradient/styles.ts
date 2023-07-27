@@ -1,7 +1,7 @@
-import { IStyleProps } from "./types";
-import { DefaultProps } from "@resources/types";
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
+import { IStyleProps } from './types'
+import { DefaultProps } from '@resources/types'
+import { css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 export const Button = styled.button<IStyleProps & DefaultProps>`
   background: linear-gradient(
@@ -27,7 +27,7 @@ export const Button = styled.button<IStyleProps & DefaultProps>`
         li a: {
           color: ${theme.palette.secondary.dark};
         }
-      `;
+      `
     }}
   }
-`;
+`

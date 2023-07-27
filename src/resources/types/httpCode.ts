@@ -1,4 +1,4 @@
-type HttpCodesTypes = Record<string, number>;
+type HttpCodesTypes = Record<string, number>
 
 export const HttpCodes: HttpCodesTypes = {
   SUCCESS: 200,
@@ -10,4 +10,4 @@ export const HttpCodes: HttpCodesTypes = {
   AWAITING_LIBERATION: 419,
   APPLICATION_EXCEPTION: 420,
   INTERNAL_SERVER_ERROR: 500,
-};
+}

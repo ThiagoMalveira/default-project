@@ -1,7 +1,7 @@
-import { useAppSelector } from "@hooks/store";
+import { useAppSelector } from '@hooks/store'
 
 export const Authenticate = (): boolean => {
-  const { credentials } = useAppSelector((state) => state.auth);
+  const { credentials } = useAppSelector((state) => state.auth)
 
-  return !!credentials?.accessToken;
-};
+  return !!credentials?.accessToken
+}

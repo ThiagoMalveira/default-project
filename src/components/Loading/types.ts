@@ -1,5 +1,5 @@
 export interface IViewProps {
-  loading?: boolean;
-  color?: string;
-  size?: number;
+  loading?: boolean
+  color?: string
+  size?: number
 }

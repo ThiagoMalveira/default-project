@@ -1,11 +1,11 @@
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify'
 
 const HandleNotification = (type: string, msg: string): void => {
   const notification = () => {
-    toast[type](msg);
-  };
+    toast[type](msg)
+  }
 
-  notification();
-};
+  notification()
+}
 
-export default HandleNotification;
+export default HandleNotification

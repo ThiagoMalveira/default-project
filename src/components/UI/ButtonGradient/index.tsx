@@ -1,8 +1,8 @@
-import Loading from "@components/Loading";
+import Loading from '@components/Loading'
 
-import { Button as StyledButton } from "./styles";
-import { IViewProps } from "./types";
-import { theme } from "@resources/theme";
+import { Button as StyledButton } from './styles'
+import { IViewProps } from './types'
+import { theme } from '@resources/theme'
 
 const ButtonGradient = ({
   children,
@@ -33,7 +33,7 @@ const ButtonGradient = ({
         children
       )}
     </StyledButton>
-  );
-};
+  )
+}
 
-export default ButtonGradient;
+export default ButtonGradient

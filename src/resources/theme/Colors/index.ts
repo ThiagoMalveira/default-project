@@ -1,2 +1,2 @@
-export { palette } from "./colors";
-export * from "./types";
+export { palette } from './colors'
+export * from './types'

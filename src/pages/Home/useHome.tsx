@@ -1,11 +1,11 @@
-import { useAppSelector } from "@hooks/store";
+import { useAppSelector } from '@hooks/store'
 
 const Home = () => {
-  const userDetail = useAppSelector((state) => state.userDetail);
+  const userDetail = useAppSelector((state) => state.userDetail)
 
   return {
     userDetail,
-  };
-};
+  }
+}
 
-export default Home;
+export default Home

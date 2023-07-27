@@ -6,34 +6,34 @@ import {
   IFontWeight,
   IFontFamily,
   IFontsTypography,
-} from "./types";
+} from './types'
 
 const fontWeight: IFontWeight = {
   light: fontWeightLight,
   regular: fontWeightRegular,
   medium: fontWeightMedium,
   bold: fontWeightBold,
-};
+}
 
 export const fonts: IFontFamily = {
-  normal: "Lato, Verdana, sans-serif",
-  black: "LatoBlack",
-  bold: "LatoBold",
-  extraBold: "LatoExtraBold",
-  extraLight: "LatoExtraLight",
-  light: "LatoLight",
-  medium: "LatoMedium",
-  regular: "LatoRegular",
-  semiBold: "LatoSemiBold",
-  thin: "LatoThin",
-};
+  normal: 'Lato, Verdana, sans-serif',
+  black: 'LatoBlack',
+  bold: 'LatoBold',
+  extraBold: 'LatoExtraBold',
+  extraLight: 'LatoExtraLight',
+  light: 'LatoLight',
+  medium: 'LatoMedium',
+  regular: 'LatoRegular',
+  semiBold: 'LatoSemiBold',
+  thin: 'LatoThin',
+}
 
 export const typography: IFontsTypography = {
   lineHeight: {
-    tight: "100%",
-    medium: "130%",
-    loose: "150%",
-    xLoose: "200%",
+    tight: '100%',
+    medium: '130%',
+    loose: '150%',
+    xLoose: '200%',
   },
   fontSize: {
     xxxsmall: 10,
@@ -47,4 +47,4 @@ export const typography: IFontsTypography = {
   },
   fontWeight,
   fonts,
-};
+}

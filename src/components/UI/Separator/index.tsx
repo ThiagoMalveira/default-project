@@ -1,5 +1,5 @@
-import SpaceWrapper from "@components/UI/SpaceWrapper";
-import { IViewProps } from "./types";
+import SpaceWrapper from '@components/UI/SpaceWrapper'
+import { IViewProps } from './types'
 
 const Separator = ({
   verticalSize = 0,
@@ -10,6 +10,6 @@ const Separator = ({
     margin={`${verticalSize}px ${horizontalSize}px`}
     displayLine={displayLine}
   />
-);
+)
 
-export default Separator;
+export default Separator

@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
-import { DefaultProps } from "@resources/types";
+import { DefaultProps } from '@resources/types'
 
 export const Container = styled.div<DefaultProps>`
   display: flex;
@@ -10,15 +10,15 @@ export const Container = styled.div<DefaultProps>`
   height: 60px;
   padding: 30px 30px 30px 10px;
   border-bottom: 1px solid ${({ theme }) => theme.palette.secondary.dark};
-`;
-export const WrapperLogo = styled.div``;
+`
+export const WrapperLogo = styled.div``
 export const WrapperMenu = styled.div`
   display: flex;
   flex: 1;
   height: 40px;
   justify-content: flex-end;
   align-items: center;
-`;
+`
 
 export const WrapperButton = styled.div`
   width: 250px;
@@ -30,4 +30,4 @@ export const WrapperButton = styled.div`
       visibility: visible;
     }
   }
-`;
+`

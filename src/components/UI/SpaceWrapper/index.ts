@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
-import { IViewProps } from "./types";
+import { IViewProps } from './types'
 
 const SpaceWrapper = styled.div<IViewProps>`
   ${({ margin }) => margin && `margin: ${margin}`};
@@ -9,7 +9,7 @@ const SpaceWrapper = styled.div<IViewProps>`
     displayLine
       ? `solid 1px
    ${theme.palette.info.dark}`
-      : "none"};
-`;
+      : 'none'};
+`
 
-export default SpaceWrapper;
+export default SpaceWrapper

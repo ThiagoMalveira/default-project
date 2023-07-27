@@ -1,18 +1,18 @@
-import { useTheme } from "@emotion/react";
+import { useTheme } from '@emotion/react'
 
-import { DefaultProps } from "@resources/types";
-import Separator from "@components/UI/Separator";
+import { DefaultProps } from '@resources/types'
+import Separator from '@components/UI/Separator'
 
-import { IViewProps } from "./types";
-import * as SC from "./styles";
-import Typography, { FontType } from "../Typography";
+import { IViewProps } from './types'
+import * as SC from './styles'
+import Typography, { FontType } from '../Typography'
 
 const Field = ({
   inputRef,
   inputWidth = 100,
   inputHeight = 48,
   widthFull = false,
-  name = "",
+  name = '',
 
   labelTop,
   labelLeft,
@@ -22,19 +22,19 @@ const Field = ({
   marginInputLeft,
   marginInputRight,
 
-  labelColor = "",
+  labelColor = '',
 
   maxLength = 50,
-  testID = "InputComponentID",
+  testID = 'InputComponentID',
   onChange,
   placeholder,
-  type = "text",
+  type = 'text',
   value,
   onBlur,
   focus = false,
-  errorMessage = "",
+  errorMessage = '',
 }: IViewProps) => {
-  const theme: DefaultProps | any = useTheme();
+  const theme: DefaultProps | any = useTheme()
 
   const inputs = {
     default: () => (
@@ -69,9 +69,9 @@ const Field = ({
         </Typography>
       </SC.ContainerInput>
     ),
-  };
+  }
 
-  const inputActive = inputs["default"]();
+  const inputActive = inputs['default']()
 
   return (
     <SC.Container>
@@ -105,7 +105,7 @@ const Field = ({
         </>
       </SC.Content>
     </SC.Container>
-  );
-};
+  )
+}
 
-export default Field;
+export default Field

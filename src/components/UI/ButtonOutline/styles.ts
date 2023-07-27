@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
 
-import { IStyleProps } from "./types";
-import { DefaultProps } from "@resources/types";
+import { IStyleProps } from './types'
+import { DefaultProps } from '@resources/types'
 
 export const Button = styled.button<IStyleProps & DefaultProps>`
   ${({ theme }) => theme.mixins.shadow()};
@@ -31,7 +31,7 @@ export const Button = styled.button<IStyleProps & DefaultProps>`
         li a: {
           color: ${theme.palette.secondary.dark};
         }
-      `;
+      `
     }}
   }
-`;
+`

@@ -1,2 +1,2 @@
-export * from "./contants";
-export * from "./cookie";
+export * from './contants'
+export * from './cookie'

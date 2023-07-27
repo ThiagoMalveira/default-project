@@ -1,9 +1,9 @@
-import Icon from "@components/UI/Icon";
-import Typography from "@components/UI/Typography";
-import ButtonOutline from "@components/UI/ButtonOutline";
+import Icon from '@components/UI/Icon'
+import Typography from '@components/UI/Typography'
+import ButtonOutline from '@components/UI/ButtonOutline'
 
-import { Container, WrapperButton, WrapperLogo } from "./styles";
-import { theme } from "@resources/theme";
+import { Container, WrapperButton, WrapperLogo } from './styles'
+import { theme } from '@resources/theme'
 
 const Header = () => {
   return (
@@ -24,7 +24,7 @@ const Header = () => {
         </ButtonOutline>
       </WrapperButton>
     </Container>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

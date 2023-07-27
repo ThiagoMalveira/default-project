@@ -1,7 +1,7 @@
-import Separator from "@components/UI/Separator";
+import Separator from '@components/UI/Separator'
 
-import { IViewProps } from "./types";
-import { Container, Label, CurrencyInput } from "./styles";
+import { IViewProps } from './types'
+import { Container, Label, CurrencyInput } from './styles'
 
 const FieldCurrency = ({
   label,
@@ -38,7 +38,7 @@ const FieldCurrency = ({
         />
       </Container>
     </Container>
-  );
-};
+  )
+}
 
-export default FieldCurrency;
+export default FieldCurrency

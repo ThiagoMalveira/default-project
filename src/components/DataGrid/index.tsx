@@ -1,11 +1,11 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent } from 'react'
 
-import Typography, { FontType } from "@components/UI/Typography";
-import { generateKey } from "@resources/utils/generateKey";
+import Typography, { FontType } from '@components/UI/Typography'
+import { generateKey } from '@resources/utils/generateKey'
 
-import { IViewProps } from "./types";
-import { Container, Row, Column } from "./styles";
-import { formatToMoney } from "@resources/utils/forNumber";
+import { IViewProps } from './types'
+import { Container, Row, Column } from './styles'
+import { formatToMoney } from '@resources/utils/forNumber'
 
 const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
   return (
@@ -17,7 +17,7 @@ const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
             grid={headerItem.grid}
             key={generateKey()}
           >
-            {typeof headerItem.label === "string" ? (
+            {typeof headerItem.label === 'string' ? (
               <Typography fontType={FontType.bold} size={13}>
                 {headerItem.label}
               </Typography>
@@ -30,7 +30,7 @@ const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
       {data.map((dataItem, dataIndex) => (
         <Row key={`${dataIndex}-${String(dataItem)}`} item>
           {header.map((headerItem, headerIndex) => {
-            const element = dataItem.values[headerItem.value];
+            const element = dataItem.values[headerItem.value]
 
             return (
               <Column
@@ -39,27 +39,27 @@ const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
                 key={`${headerIndex}-${String(headerItem.label)}`}
               >
                 <>
-                  {headerItem.field === "value" && (
+                  {headerItem.field === 'value' && (
                     <Typography
                       fontType={headerItem.styles.fontType}
                       size={headerItem.styles.fontSize}
                     >
-                      {typeof element === "number"
+                      {typeof element === 'number'
                         ? `R$ ${formatToMoney(element)}`
                         : element && element}
                     </Typography>
                   )}
 
-                  {headerItem.field === "select" && <>{dataItem.select}</>}
-                  {headerItem.field === "interaction" && <>{dataItem.action}</>}
+                  {headerItem.field === 'select' && <>{dataItem.select}</>}
+                  {headerItem.field === 'interaction' && <>{dataItem.action}</>}
                 </>
               </Column>
-            );
+            )
           })}
         </Row>
       ))}
     </Container>
-  );
-};
+  )
+}
 
-export default DataGrid;
+export default DataGrid

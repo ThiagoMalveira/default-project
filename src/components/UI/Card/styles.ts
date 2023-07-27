@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { DefaultProps } from "@resources/types";
+import styled from '@emotion/styled'
+import { DefaultProps } from '@resources/types'
 
 export const Container = styled.div`
   margin: 0 0 0 0;
@@ -22,7 +22,6 @@ export const Title = styled.div`
 
 export const Description = styled.div`
   display: flex;
-  
 `
 
 export const WrapperIcon = styled.div<DefaultProps>`
@@ -30,7 +29,7 @@ export const WrapperIcon = styled.div<DefaultProps>`
   width: 107px;
   height: 107px;
   border-radius: 50%;
-  background-color: ${({theme}) => theme.palette.neutral.dark};
+  background-color: ${({ theme }) => theme.palette.neutral.dark};
   align-items: center;
   justify-content: center;
 `

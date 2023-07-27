@@ -1,12 +1,12 @@
-import { Fragment } from "react";
-import { Routes as ListRoutes, Route } from "react-router-dom";
+import { Fragment } from 'react'
+import { Routes as ListRoutes, Route } from 'react-router-dom'
 
 // import { Authenticate } from "@resources/helpers/authenticated";
 
 // import Panel from "@components/App/Panel";
 
-import PathRoutes from "./PathRoutes";
-import PathScreens from "./PathScreens";
+import PathRoutes from './PathRoutes'
+import PathScreens from './PathScreens'
 
 /*const PrivateRoute = ({ children }: ReactNode) => {
   const isAuthenticated = Authenticate();
@@ -39,7 +39,7 @@ const Routes = () => {
         */}
       </ListRoutes>
     </Fragment>
-  );
-};
+  )
+}
 
-export default Routes;
+export default Routes

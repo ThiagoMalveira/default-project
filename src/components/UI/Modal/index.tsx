@@ -1,4 +1,4 @@
-import Button from "@components/UI/Button";
+import Button from '@components/UI/Button'
 
 import {
   Body,
@@ -8,13 +8,13 @@ import {
   Footer,
   WrapperButtonFooter,
   WrapperIcon,
-} from "./styles";
-import { IProps } from "./types";
+} from './styles'
+import { IProps } from './types'
 
 const typesAlignFooter = {
-  HORIZONTAL: "horizontal",
-  VERTICAL: "vertical",
-};
+  HORIZONTAL: 'horizontal',
+  VERTICAL: 'vertical',
+}
 
 const Modal = ({
   show = true,
@@ -24,9 +24,9 @@ const Modal = ({
   bgColor,
   height = 260,
   width = 400,
-  children = "",
-  btCancelTitle = "",
-  btConfirmTitle = "",
+  children = '',
+  btCancelTitle = '',
+  btConfirmTitle = '',
   btConfirmDisabled = false,
   btOutline = true,
   alignVertical = false,
@@ -35,22 +35,22 @@ const Modal = ({
 }: IProps) => {
   const footerSetup = {
     horizontal: {
-      direction: "row-reverse",
-      widthButton: "100px",
-      margin: "0 0 0 10px ",
+      direction: 'row-reverse',
+      widthButton: '100px',
+      margin: '0 0 0 10px ',
     },
     vertical: {
-      direction: "column",
-      widthButton: "100%",
-      margin: "5px 0 0 0",
+      direction: 'column',
+      widthButton: '100%',
+      margin: '5px 0 0 0',
     },
-  };
+  }
 
   const footerDirection = alignVertical
     ? typesAlignFooter.VERTICAL
-    : typesAlignFooter.HORIZONTAL;
+    : typesAlignFooter.HORIZONTAL
 
-  const footerSetupSelected = footerSetup[footerDirection];
+  const footerSetupSelected = footerSetup[footerDirection]
 
   return (
     <Container isOpen={show}>
@@ -107,7 +107,7 @@ const Modal = ({
         {!!bottomView && bottomView}
       </WrapperModal>
     </Container>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

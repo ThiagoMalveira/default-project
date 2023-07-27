@@ -1,18 +1,18 @@
 export const getEnvOrThrow = <T extends Record<string, string>>(
-  env: T
+  env: T,
 ): string => {
-  const [envName, envValue] = Object.entries(env)[0];
+  const [envName, envValue] = Object.entries(env)[0]
 
-  console.log(envValue, `Missing environment variable ${envName}`);
+  console.log(envValue, `Missing environment variable ${envName}`)
 
-  return envValue;
-};
+  return envValue
+}
 
 export const getEnvOrDefault = <T extends Record<string, string | undefined>>(
   env: T,
-  defaultValue: string
+  defaultValue: string,
 ): string => {
-  const [, envValue] = Object.entries(env)[0];
+  const [, envValue] = Object.entries(env)[0]
 
-  return envValue ?? defaultValue;
-};
+  return envValue ?? defaultValue
+}

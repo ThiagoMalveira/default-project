@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
-import { DefaultProps } from "@resources/types";
+import { DefaultProps } from '@resources/types'
 
 export const Container = styled.div<DefaultProps>`
   max-width: ${({ theme }) => theme.layout.desktop.dimensions.large.maxWidth};
@@ -10,14 +10,14 @@ export const Container = styled.div<DefaultProps>`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: table;
   }
 
   &:after {
     clear: both;
   }
-`;
+`
 export const Row = styled.div<{ item?: boolean } & DefaultProps>`
   display: flex;
   width: 100%;
@@ -29,7 +29,7 @@ export const Row = styled.div<{ item?: boolean } & DefaultProps>`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: table;
   }
 
@@ -52,7 +52,7 @@ export const Row = styled.div<{ item?: boolean } & DefaultProps>`
       background: ${theme.palette.common[10]}50;
     }
   `}
-`;
+`
 
 export const Column = styled.div<{ grid: number; align: string }>`
   display: flex;
@@ -63,10 +63,10 @@ export const Column = styled.div<{ grid: number; align: string }>`
   width: 100%;
   margin: 0 2px;
   justify-content: ${({ align }) =>
-    align === "left" ? "flex-start" : "flex-end"};
+    align === 'left' ? 'flex-start' : 'flex-end'};
 
   @media only screen and (min-width: 768px) {
-    width: ${({ grid }) => (grid ? (grid / 12) * 100 : "8:33")}%;
+    width: ${({ grid }) => (grid ? (grid / 12) * 100 : '8:33')}%;
   }
 
   &:first-of-type {
@@ -76,4 +76,4 @@ export const Column = styled.div<{ grid: number; align: string }>`
   &:last-child {
     margin: 0px 0px 0px 2px;
   }
-`;
+`

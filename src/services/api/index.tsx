@@ -1,91 +1,91 @@
-import axios, { AxiosInstance } from "axios";
-import { Navigate } from "react-router-dom";
+import axios, { AxiosInstance } from 'axios'
+import { Navigate } from 'react-router-dom'
 
-import { HttpCodes } from "@resources/types/httpCode";
-import PathRoutes from "@route/PathRoutes";
-import { IKeyArgHeader } from "@resources/types/service";
-import { store } from "@store/index";
+import { HttpCodes } from '@resources/types/httpCode'
+import PathRoutes from '@route/PathRoutes'
+import { IKeyArgHeader } from '@resources/types/service'
+import { store } from '@store/index'
 
-import { ApiGateway } from "./configs/GatewayConfig";
+import { ApiGateway } from './configs/GatewayConfig'
 
-let instance: null | AxiosInstance = null;
+let instance: null | AxiosInstance = null
 
 export const getApiHeader = (args: IKeyArgHeader[] = []) => {
-  const header = { headers: {} };
+  const header = { headers: {} }
 
-  if (!args.length) return header;
+  if (!args.length) return header
 
-  const arrayArgValues = [store.getState().auth.credentials?.accessToken];
+  const arrayArgValues = [store.getState().auth.credentials?.accessToken]
 
   args.forEach((arg: IKeyArgHeader) => {
-    if (!arrayArgValues[arg.index]) return;
+    if (!arrayArgValues[arg.index]) return
 
-    header.headers[arg.field] = arrayArgValues[arg.index];
-  });
+    header.headers[arg.field] = arrayArgValues[arg.index]
+  })
 
-  return header;
-};
+  return header
+}
 
 const checkInstanceAuth = (instanceItem: AxiosInstance) => {
   instanceItem.interceptors.request.use(
     async (config) => {
-      if (!config.headers) return Promise.reject(config.headers);
+      if (!config.headers) return Promise.reject(config.headers)
 
-      const statesStore = store.getState();
+      const statesStore = store.getState()
 
       if (statesStore.auth?.credentials?.accessToken) {
         config.headers.Authorization =
-          statesStore.auth?.credentials?.accessToken;
+          statesStore.auth?.credentials?.accessToken
       }
 
-      return Promise.resolve(config);
+      return Promise.resolve(config)
     },
     async (error) => {
-      return Promise.reject(error);
-    }
-  );
-};
+      return Promise.reject(error)
+    },
+  )
+}
 
 const checkResponseAuth = (instanceItem: AxiosInstance) => {
   instanceItem.interceptors.response.use(
     (response) => {
-      return response;
+      return response
     },
     async (error) => {
       if (error.response === undefined) {
         return Promise.reject({
           message: error.message,
           config: error.config,
-        });
+        })
       }
 
       if (error.response.status === HttpCodes.UNAUTHORIZED) {
         // store.dispatch(deleteAuth());
 
-        const statesStore = store.getState();
+        const statesStore = store.getState()
 
         if (!statesStore.auth?.credentials?.accessToken) {
-          return <Navigate to={PathRoutes.SIGN_OUT} replace />;
+          return <Navigate to={PathRoutes.SIGN_OUT} replace />
         }
       }
-    }
-  );
-};
+    },
+  )
+}
 
 export const getApiInstance = () => {
   if (instance) {
-    checkInstanceAuth(instance);
-    checkResponseAuth(instance);
+    checkInstanceAuth(instance)
+    checkResponseAuth(instance)
 
-    return instance;
+    return instance
   }
 
-  const INITIAL_SETTING = ApiGateway();
+  const INITIAL_SETTING = ApiGateway()
 
-  instance = axios.create(INITIAL_SETTING);
+  instance = axios.create(INITIAL_SETTING)
 
-  checkInstanceAuth(instance);
-  checkResponseAuth(instance);
+  checkInstanceAuth(instance)
+  checkResponseAuth(instance)
 
-  return instance;
-};
+  return instance
+}

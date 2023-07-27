@@ -1,8 +1,8 @@
-import { IViewProps } from "./types";
-import { Wrapper } from "./styles";
+import { IViewProps } from './types'
+import { Wrapper } from './styles'
 
 const Icon = ({ title, element, dimensions, onCallback }: IViewProps) => {
-  const IconRender = element;
+  const IconRender = element
 
   return (
     element && (
@@ -10,7 +10,7 @@ const Icon = ({ title, element, dimensions, onCallback }: IViewProps) => {
         <IconRender width={dimensions.width} height={dimensions.height} />
       </Wrapper>
     )
-  );
-};
+  )
+}
 
-export default Icon;
+export default Icon

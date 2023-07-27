@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
-import { DefaultProps } from "@resources/types";
+import { DefaultProps } from '@resources/types'
 
 export const WrapperLoading = styled.div<DefaultProps>`
   justify-content: center;
@@ -9,4 +9,4 @@ export const WrapperLoading = styled.div<DefaultProps>`
   padding: 30px;
   padding: 0px;
   margin: 0px;
-`;
+`

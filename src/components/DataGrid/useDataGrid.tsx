@@ -1,3 +1,3 @@
-import { IGridHeader, IGridData } from "./types";
+import { IGridHeader, IGridData } from './types'
 
-export type { IGridHeader, IGridData };
+export type { IGridHeader, IGridData }
