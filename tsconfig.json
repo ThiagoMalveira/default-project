@@ -65,8 +65,9 @@
     "node_modules"
   ],
   "include": [
-    "./index.d.ts",
-    "./src/**/*"
+    "src",
+    "custom.d.ts",
+    "vite-env.d.ts"
   ],
   "references": [
     {

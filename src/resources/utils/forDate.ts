@@ -1,6 +1,6 @@
+import { months } from '@resources/helpers/utils'
 import dayjs from 'dayjs'
 import 'dayjs/locale/en'
-import { months } from '@resources/helpers/utils'
 
 export const formatStringDate = (date: string, dateFormat = 'DD/MM/YYYY') => {
   const dt = dayjs(date?.split('T')[0] || date)

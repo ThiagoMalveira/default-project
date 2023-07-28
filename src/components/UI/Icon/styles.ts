@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 
+import ChannelImage_PNG from '@assets/images/ChannelImage.png'
 import { ReactComponent as Aspas_SVG } from '@assets/images/aspas.svg'
 import { ReactComponent as Dashboard_SVG } from '@assets/images/dashboardimage.svg'
 import { ReactComponent as Document_SVG } from '@assets/images/document.svg'
@@ -14,8 +15,11 @@ import { ReactComponent as Slider_SVG } from '@assets/images/slider.svg'
 import { ReactComponent as Up_SVG } from '@assets/images/up.svg'
 import { ReactComponent as WhatsApp_SVG } from '@assets/images/whatsApp.svg'
 import { ReactComponent as WhatsAppFooter_SVG } from '@assets/images/whatsapp-footer.svg'
-
 export const Wrapper = styled.div``
+
+export const ChannelImage = styled.img({
+  src: { ChannelImage_PNG },
+})
 
 export const AspasSVG = styled(Aspas_SVG)``
 export const dashboardSVG = styled(Dashboard_SVG)``

@@ -1,5 +1,6 @@
 import {
   AspasSVG,
+  ChannelImage,
   PlusSVG,
   SliderSVG,
   dashboardSVG,
@@ -138,6 +139,15 @@ export const mapIcons = [
     name: 'instagram',
     type: typeIcons.SVG,
     element: instagramSVG,
+    dimensions: {
+      width: 27,
+      height: 27,
+    },
+  },
+  {
+    name: 'channelImage',
+    type: typeIcons.PNG,
+    element: ChannelImage,
     dimensions: {
       width: 27,
       height: 27,
