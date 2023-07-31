@@ -1,6 +1,8 @@
 import {
   AspasSVG,
   ChannelImage,
+  EyeClosedSVG,
+  EyeOpenedSVG,
   PlusSVG,
   SliderSVG,
   dashboardSVG,
@@ -8,6 +10,7 @@ import {
   emailSVG,
   instagramSVG,
   logoSVG,
+  logoWhiteSVG,
   minusSVG,
   moneySVG,
   productsSVG,
@@ -142,6 +145,33 @@ export const mapIcons = [
     dimensions: {
       width: 27,
       height: 27,
+    },
+  },
+  {
+    name: 'eyeClosed',
+    type: typeIcons.SVG,
+    element: EyeClosedSVG,
+    dimensions: {
+      width: 24,
+      height: 24,
+    },
+  },
+  {
+    name: 'eyeOpen',
+    type: typeIcons.SVG,
+    element: EyeOpenedSVG,
+    dimensions: {
+      width: 24,
+      height: 24,
+    },
+  },
+  {
+    name: 'logo-white',
+    type: typeIcons.SVG,
+    element: logoWhiteSVG,
+    dimensions: {
+      width: 167,
+      height: 42,
     },
   },
   {

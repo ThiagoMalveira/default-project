@@ -1,5 +1,5 @@
 const PathRoutes = {
-  // SIGN_IN: "/",
+  SIGN_IN: '/login',
   SIGN_OUT: '/sing-out',
 
   NOT_FOUND: '/404',

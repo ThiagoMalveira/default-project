@@ -1,8 +1,8 @@
 import Loading from '@components/Loading'
 
+import { theme } from '@resources/theme'
 import { Button as StyledButton } from './styles'
 import { IViewProps } from './types'
-import { theme } from '@resources/theme'
 
 const ButtonGradient = ({
   children,
@@ -14,10 +14,12 @@ const ButtonGradient = ({
   onClick,
   type,
   cursor,
+  borderRadius,
 }: IViewProps) => {
   return (
     <StyledButton
       bgColor={theme.palette.primary.dark}
+      borderRadius={borderRadius}
       buttonTextColor={theme.palette.primary.light}
       disabled={disabled}
       height={height}

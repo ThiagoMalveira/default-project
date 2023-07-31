@@ -12,6 +12,7 @@ export interface IViewProps {
   widthFull?: boolean
   cursor?: 'pointer'
   type?: 'reset' | 'submit' | 'button'
+  borderRadius?: number
 }
 
 export interface IStyleProps {
@@ -20,6 +21,7 @@ export interface IStyleProps {
   widthFull: boolean
   bgColor?: string
   buttonTextColor?: string
+  borderRadius?: number
   outline?: boolean
   cursor?: 'pointer'
 }

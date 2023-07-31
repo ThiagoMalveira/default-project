@@ -5,7 +5,10 @@ import { ReactComponent as Aspas_SVG } from '@assets/images/aspas.svg'
 import { ReactComponent as Dashboard_SVG } from '@assets/images/dashboardimage.svg'
 import { ReactComponent as Document_SVG } from '@assets/images/document.svg'
 import { ReactComponent as Email_SVG } from '@assets/images/email.svg'
+import { ReactComponent as EyeClosed_SVG } from '@assets/images/eye-closed.svg'
+import { ReactComponent as EyeOpen_SVG } from '@assets/images/eye-open.svg'
 import { ReactComponent as Instagram_SVG } from '@assets/images/instagram.svg'
+import { ReactComponent as LogoWhite_SVG } from '@assets/images/logo-white.svg'
 import { ReactComponent as Logo_SVG } from '@assets/images/logo.svg'
 import { ReactComponent as Minus_SVG } from '@assets/images/minus.svg'
 import { ReactComponent as Money_SVG } from '@assets/images/money.svg'
@@ -25,7 +28,10 @@ export const AspasSVG = styled(Aspas_SVG)``
 export const dashboardSVG = styled(Dashboard_SVG)``
 export const documentSVG = styled(Document_SVG)``
 export const emailSVG = styled(Email_SVG)``
+export const EyeClosedSVG = styled(EyeClosed_SVG)``
+export const EyeOpenedSVG = styled(EyeOpen_SVG)``
 export const instagramSVG = styled(Instagram_SVG)``
+export const logoWhiteSVG = styled(LogoWhite_SVG)``
 export const logoSVG = styled(Logo_SVG)``
 export const moneySVG = styled(Money_SVG)``
 export const minusSVG = styled(Minus_SVG)``

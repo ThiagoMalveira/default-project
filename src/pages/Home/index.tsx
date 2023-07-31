@@ -21,10 +21,14 @@ import Icon from '@components/UI/Icon'
 import Question from '@components/UI/Questions'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import { theme } from '@resources/theme'
+import PathRoutes from '@route/PathRoutes'
 import * as S from './styles'
 
 const Home = () => {
+  const { handleNavigate } = useHandleNavigate()
+
   return (
     <S.Container>
       <Header />
@@ -78,7 +82,11 @@ const Home = () => {
             </S.ContainerTextLighter>
           </S.AllTextsLighter>
           <S.WrapperButton>
-            <ButtonGradient width={248} height={60}>
+            <ButtonGradient
+              onClick={() => handleNavigate(PathRoutes.SIGN_IN)}
+              width={248}
+              height={60}
+            >
               <Typography
                 size={18}
                 weight="600"
@@ -222,6 +230,7 @@ const Home = () => {
               </Typography>
               <S.WrapperButton>
                 <Button
+                  onClick={() => handleNavigate(PathRoutes.SIGN_IN)}
                   bgColor={'#FFFFFF'}
                   buttonTextColor={'#8E7838'}
                   borderRadius={100}
@@ -263,7 +272,11 @@ const Home = () => {
           </Typography>
           <Separator verticalSize={20} />
           <S.WrapperButton>
-            <ButtonGradient width={248} height={60}>
+            <ButtonGradient
+              onClick={() => handleNavigate(PathRoutes.SIGN_IN)}
+              width={248}
+              height={60}
+            >
               <Typography
                 size={18}
                 weight="600"
@@ -343,7 +356,11 @@ const Home = () => {
           </S.WrapperTextBePartner>
           <Separator verticalSize={20} />
           <S.WrapperButton>
-            <ButtonGradient width={248} height={60}>
+            <ButtonGradient
+              onClick={() => handleNavigate(PathRoutes.SIGN_IN)}
+              width={248}
+              height={60}
+            >
               <Typography
                 size={18}
                 weight="600"

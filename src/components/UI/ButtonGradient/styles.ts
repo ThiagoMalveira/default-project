@@ -1,7 +1,7 @@
-import { IStyleProps } from './types'
-import { DefaultProps } from '@resources/types'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
+import { DefaultProps } from '@resources/types'
+import { IStyleProps } from './types'
 
 export const Button = styled.button<IStyleProps & DefaultProps>`
   background: linear-gradient(
@@ -11,6 +11,8 @@ export const Button = styled.button<IStyleProps & DefaultProps>`
   );
   ${({ width }) => width && `width: ${width}px`};
   ${({ height }) => height && `height: ${height}px`};
+  ${({ borderRadius }) =>
+    (borderRadius && `border-radius: ${borderRadius}px`) || '6px'};
   cursor: pointer;
   font-family: ${({ theme }) => theme.typography.fonts.normal};
   border: none;

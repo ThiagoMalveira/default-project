@@ -41,13 +41,13 @@ export const palette: IPalette = {
     dark: '#F1960E',
     regular: '#F4AC40',
     light: '#F7C06E',
-    lightest: '',
+    lightest: '#AD8D31',
   },
   info: {
     dark: '#E8D29B',
     regular: '#FFFFFF',
     light: '#9D9D9D',
-    lightest: '',
+    lightest: '#E9E9E9',
   },
   gradiente: {
     primary: {

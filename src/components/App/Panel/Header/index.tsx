@@ -1,11 +1,15 @@
+import ButtonOutline from '@components/UI/ButtonOutline'
 import Icon from '@components/UI/Icon'
 import Typography from '@components/UI/Typography'
-import ButtonOutline from '@components/UI/ButtonOutline'
 
-import { Container, WrapperButton, WrapperLogo } from './styles'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import { theme } from '@resources/theme'
+import PathRoutes from '@route/PathRoutes'
+import { Container, WrapperButton, WrapperLogo } from './styles'
 
 const Header = () => {
+  const { handleNavigate } = useHandleNavigate()
+
   return (
     <Container>
       <WrapperLogo>
@@ -13,7 +17,11 @@ const Header = () => {
       </WrapperLogo>
 
       <WrapperButton>
-        <ButtonOutline width={192} height={60}>
+        <ButtonOutline
+          onClick={() => handleNavigate(PathRoutes.SIGN_IN)}
+          width={192}
+          height={60}
+        >
           <Typography
             size={14}
             align="flex-start"

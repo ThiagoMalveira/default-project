@@ -12,12 +12,14 @@ export interface IViewProps {
   widthFull?: boolean
   cursor?: 'pointer'
   type?: 'reset' | 'submit' | 'button'
+  borderRadius?: number
 }
 
 export interface IStyleProps {
   height: number
   width: number
   widthFull: boolean
+  borderRadius?: number
   bgColor?: string
   buttonTextColor?: string
   outline?: boolean

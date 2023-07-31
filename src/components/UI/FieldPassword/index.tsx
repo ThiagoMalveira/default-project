@@ -4,7 +4,7 @@ import Typography, { FontType } from '../Typography'
 import * as SC from './styles'
 import { IViewProps } from './types'
 
-const Field = ({
+const FieldPassword = ({
   inputRef,
   inputWidth = 100,
   inputHeight = 48,
@@ -97,4 +97,4 @@ const Field = ({
   )
 }
 
-export default Field
+export default FieldPassword

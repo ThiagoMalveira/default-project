@@ -1,8 +1,8 @@
 import Loading from '@components/Loading'
 
+import { theme } from '@resources/theme'
 import { Button as StyledButton } from './styles'
 import { IViewProps } from './types'
-import { theme } from '@resources/theme'
 
 const ButtonOutline = ({
   children,
@@ -14,11 +14,13 @@ const ButtonOutline = ({
   onClick,
   type,
   cursor,
+  borderRadius,
 }: IViewProps) => {
   return (
     <StyledButton
       bgColor={theme.palette.primary.dark}
       buttonTextColor={theme.palette.primary.light}
+      borderRadius={borderRadius}
       disabled={disabled}
       height={height}
       type={type}

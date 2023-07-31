@@ -1,11 +1,11 @@
-import { useAppSelector } from '@hooks/store'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
 
-const Home = () => {
-  const userDetail = useAppSelector((state) => state.userDetail)
+const useHome = () => {
+  const { handleNavigate } = useHandleNavigate()
 
   return {
-    userDetail,
+    handleNavigate,
   }
 }
 
-export default Home
+export default useHome

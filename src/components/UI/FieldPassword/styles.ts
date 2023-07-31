@@ -17,7 +17,13 @@ export const Content = styled.div`
 
 export const ContainerInput = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+`
+
+export const WrapperIcon = styled.div`
+  position: absolute;
+  left: calc(100% - 17%);
+  top: calc(100% - 47%);
 `
 
 export const Input = styled.input<DefaultProps & IinputStyle>`

@@ -1,19 +1,18 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import storage from 'redux-persist/lib/storage'
-import { persistReducer, persistStore } from 'redux-persist'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import authReducer, { authLogout } from '@store/auth/slice'
 import { Reducer } from 'redux'
+import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 import thunk from 'redux-thunk'
 
 const reducers = combineReducers({
-  // auth: authReducer,
+  auth: authReducer,
 })
 
 const persistConfig = {
   key: 'konekte',
   storage,
-  whitelist: [
-    // 'user',
-  ],
+  whitelist: ['auth'],
 }
 
 const persistedReducer: Reducer = persistReducer(persistConfig, reducers)
@@ -39,5 +38,6 @@ export const getStorage = async (key = 'konekte') => {
 }
 
 export const clearStore = () => {
-  // deleteAuth()
+  authLogout()
+  store.dispatch(authLogout())
 }

@@ -22,14 +22,15 @@ const Routes = () => {
   return (
     <Fragment>
       <ListRoutes>
-        {/*<Route index element={PathScreens.SIGN_IN} />
+        <Route index element={PathScreens.PANEL_HOME} />
+        {/*
         <Route path="*" element={PathScreens.NOT_FOUND} />
         <Route path={PathRoutes.SIGN_OUT} element={PathScreens.SIGN_OUT} />
         <Route
           path={PathRoutes.RECOVER_PASSWORD}
           element={PathScreens.RECOVER_PASSWORD}
         />*/}
-        <Route path={PathRoutes.PANEL_HOME} element={PathScreens.PANEL_HOME} />
+        <Route path={PathRoutes.SIGN_IN} element={PathScreens.PANEL_SIGN_IN} />
 
         {/* Private Routes 
         <Route
