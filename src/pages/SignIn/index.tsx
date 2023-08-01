@@ -1,48 +1,23 @@
-import Login_PNG from '@assets/images/login.png'
+import ImageLogin from '@components/ImageLogin'
 import ButtonGradient from '@components/UI/ButtonGradient'
 import Field from '@components/UI/Field'
 import FieldPassword from '@components/UI/FieldPassword'
-import Icon from '@components/UI/Icon'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
 import { theme } from '@resources/theme'
+import PathRoutes from '@route/PathRoutes'
 import * as S from './styles'
 import useSignIn from './useSignIn'
 
 const SignIn = () => {
   const { togglePasswordType, passwordType, showPassword, formik } = useSignIn()
+  const { handleNavigate } = useHandleNavigate()
 
   return (
     <S.Container>
-      <S.ContainerImage>
-        <S.WrapperLogo>
-          <Icon name="logo-white" />
-        </S.WrapperLogo>
-        <S.WrapperImage>
-          <img src={Login_PNG} alt="KONEKTE" />
-        </S.WrapperImage>
-        <S.WrapperText>
-          <Typography
-            align="center"
-            size={24}
-            weight="300"
-            lineHeight="29px"
-            color={theme.palette.text.dark}
-          >
-            Tecnologia que conecta sua empresa aos {''}
-            <Typography
-              align="center"
-              size={24}
-              weight="700"
-              lineHeight="29px"
-              color={theme.palette.text.dark}
-            >
-              melhores canais digitais.
-            </Typography>
-          </Typography>
-        </S.WrapperText>
-      </S.ContainerImage>
+      <ImageLogin />
       <S.WrapperForm>
         <S.WrapperTitle>
           <Typography
@@ -65,8 +40,8 @@ const SignIn = () => {
             placeholder={'E-mail de acesso'}
             name="email"
             {...formik.getFieldProps('email')}
+            errorMessage={formik.errors.email}
           />
-          <Separator displayLine={true} horizontalSize={0} />
           <Separator verticalSize={20} />
           <S.WrapperField>
             <FieldPassword
@@ -79,12 +54,12 @@ const SignIn = () => {
               placeholder={'Senha de acesso'}
               name="password"
               {...formik.getFieldProps('password')}
+              errorMessage={formik.errors.password}
             />
             <S.WrapperIcon onClick={() => togglePasswordType()}>
               {showPassword ? <Visibility /> : <VisibilityOff />}
             </S.WrapperIcon>
           </S.WrapperField>
-          <Separator displayLine={true} horizontalSize={0} />
         </S.WrapperFields>
         <S.WrapperButton>
           <ButtonGradient
@@ -92,6 +67,7 @@ const SignIn = () => {
             width={504}
             height={59}
             borderRadius={100}
+            type="button"
           >
             <Typography
               size={18}
@@ -114,7 +90,7 @@ const SignIn = () => {
           </Typography>
         </S.WrapperForgotPassword>
         <Separator verticalSize={80} />
-        <S.WrapperSignUp>
+        <S.WrapperSignUp onClick={() => handleNavigate(PathRoutes.SIGN_UP)}>
           <Typography
             align="center"
             size={18}

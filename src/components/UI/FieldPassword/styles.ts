@@ -17,7 +17,7 @@ export const Content = styled.div`
 
 export const ContainerInput = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `
 
 export const WrapperIcon = styled.div`

@@ -47,6 +47,8 @@ const FieldPassword = ({
           widthFull={widthFull}
           inputHeight={inputHeight}
         />
+        <Separator displayLine={true} horizontalSize={0} />
+        <Separator verticalSize={4} />
         <Typography
           size={16}
           align="flex-start"

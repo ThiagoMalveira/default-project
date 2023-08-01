@@ -1,10 +1,11 @@
 import {
-  AspasSVG,
   ChannelImage,
   EyeClosedSVG,
   EyeOpenedSVG,
   PlusSVG,
   SliderSVG,
+  aspasSVG,
+  calendarSVG,
   dashboardSVG,
   documentSVG,
   emailSVG,
@@ -96,7 +97,7 @@ export const mapIcons = [
   {
     name: 'aspas',
     type: typeIcons.SVG,
-    element: AspasSVG,
+    element: aspasSVG,
     dimensions: {
       width: 21,
       height: 21,
@@ -181,6 +182,15 @@ export const mapIcons = [
     dimensions: {
       width: 27,
       height: 27,
+    },
+  },
+  {
+    name: 'CalendarSVG',
+    type: typeIcons.SVG,
+    element: calendarSVG,
+    dimensions: {
+      width: 167,
+      height: 42,
     },
   },
 ]

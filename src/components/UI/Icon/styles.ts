@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 
 import ChannelImage_PNG from '@assets/images/ChannelImage.png'
 import { ReactComponent as Aspas_SVG } from '@assets/images/aspas.svg'
+import { ReactComponent as Calendar_SVG } from '@assets/images/calendar.svg'
 import { ReactComponent as Dashboard_SVG } from '@assets/images/dashboardimage.svg'
 import { ReactComponent as Document_SVG } from '@assets/images/document.svg'
 import { ReactComponent as Email_SVG } from '@assets/images/email.svg'
@@ -24,7 +25,8 @@ export const ChannelImage = styled.img({
   src: { ChannelImage_PNG },
 })
 
-export const AspasSVG = styled(Aspas_SVG)``
+export const aspasSVG = styled(Aspas_SVG)``
+export const calendarSVG = styled(Calendar_SVG)``
 export const dashboardSVG = styled(Dashboard_SVG)``
 export const documentSVG = styled(Document_SVG)``
 export const emailSVG = styled(Email_SVG)``

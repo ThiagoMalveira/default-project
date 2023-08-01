@@ -31,6 +31,7 @@ const Routes = () => {
           element={PathScreens.RECOVER_PASSWORD}
         />*/}
         <Route path={PathRoutes.SIGN_IN} element={PathScreens.PANEL_SIGN_IN} />
+        <Route path={PathRoutes.SIGN_UP} element={PathScreens.PANEL_SIGN_UP} />
 
         {/* Private Routes 
         <Route

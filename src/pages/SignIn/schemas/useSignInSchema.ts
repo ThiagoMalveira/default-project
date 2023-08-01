@@ -5,7 +5,7 @@ export const useSignInSchema = Yup.object().shape({
   email: Yup.string()
     .required('Campo obrigatório')
     .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Insira um e-mail válido!'),
-  password: Yup.string().required(),
+  password: Yup.string().required('Campo obrigatório'),
 })
 
 export const initialValues: InitialValues = {
