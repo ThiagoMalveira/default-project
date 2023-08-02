@@ -1,3 +1,4 @@
+import { HandleError } from '@resources/helpers/handleError'
 import { HttpCodes } from '@resources/types/httpCode'
 import {
   IAuthSignInResponse,
@@ -13,25 +14,30 @@ export const AuthService = {
     email: string,
     password: string,
   ): Promise<IAuthSignInResponse> => {
-    const api = getApiInstance()
+    try {
+      const api = getApiInstance()
 
-    const header = getApiHeader()
+      const header = getApiHeader()
 
-    const payload: IRequest = {
-      email,
-      password,
-    }
+      const payload: IRequest = {
+        email,
+        password,
+      }
 
-    const response: AxiosResponse = await api.post(
-      endpoints.URL.auth.signIn,
-      payload,
-      header,
-    )
+      const response: AxiosResponse = await api.post(
+        endpoints.URL.auth.signIn,
+        payload,
+        header,
+      )
 
-    if (![HttpCodes.SUCCESS, HttpCodes.CREATED].includes(response.status)) {
+      if (![HttpCodes.SUCCESS, HttpCodes.CREATED].includes(response.status)) {
+        return initialAuthState
+      }
+
+      return response.data
+    } catch (err) {
+      HandleError(err)
       return initialAuthState
     }
-
-    return response.data
   },
 }

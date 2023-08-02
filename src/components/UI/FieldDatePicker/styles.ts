@@ -41,7 +41,6 @@ export const WrapperIcon = styled.div<DefaultProps>`
 
 export const WrapperDatePicker = styled.div`
   height: 40px;
-  margin: -45px 0 0 0px;
   position: absolute;
   z-index: 999;
 `

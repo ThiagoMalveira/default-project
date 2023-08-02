@@ -13,3 +13,8 @@ export type InitialValues = {
     },
   ]
 }
+
+export type Segmento = {
+  segmentoId: string
+  segmentoNome: string
+}

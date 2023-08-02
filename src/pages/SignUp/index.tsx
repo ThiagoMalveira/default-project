@@ -2,6 +2,7 @@ import ImageLogin from '@components/ImageLogin'
 import ButtonGradient from '@components/UI/ButtonGradient'
 import Field from '@components/UI/Field'
 import FieldDatePicker from '@components/UI/FieldDatePicker'
+import FieldSelect from '@components/UI/FieldSelect'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
@@ -10,7 +11,8 @@ import * as S from './styles'
 import useSignUp from './useSignUp'
 
 const SignUp = () => {
-  const { step, formik } = useSignUp()
+  const { step, formik, handleDateChange, selectedDate, segmentos } =
+    useSignUp()
 
   return (
     <S.Container>
@@ -79,10 +81,11 @@ const SignUp = () => {
           />
           <S.WrapperFieldRow>
             <FieldDatePicker
+              onChange={handleDateChange}
               labelTop="Data de fundação"
               labelColor={theme.palette.text.dark}
               maxDate={new Date()}
-              {...formik.getFieldProps('clienteDataFundacao')}
+              selectedDate={selectedDate}
             />
             <Separator horizontalSize={10} />
             <Field
@@ -107,13 +110,12 @@ const SignUp = () => {
               errorMessage={formik.errors.clienteInscricaoEstadual}
             />
           </S.WrapperFieldRow>
-          <Field
-            marginInputLeft={20}
-            marginInputRight={20}
+          <FieldSelect
             inputWidth={504}
             labelTop="Segmentos de atuação"
+            multiple
             labelColor={theme.palette.text.dark}
-            placeholder={'Selecione até X segmentos'}
+            list={segmentos}
             {...formik.getFieldProps('segmentos')}
             //errorMessage={formik.errors.segmentos}
           />

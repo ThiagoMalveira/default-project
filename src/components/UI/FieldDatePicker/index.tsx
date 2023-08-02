@@ -1,6 +1,5 @@
 import Typography, { FontType } from '@components/UI/Typography'
 import { theme } from '@resources/theme'
-import Dayjs from 'dayjs'
 import { memo, useState } from 'react'
 import DatePicker, { registerLocale } from 'react-datepicker'
 
@@ -14,22 +13,16 @@ import Separator from '../Separator'
 
 export const FieldDatePicker = ({
   onChange,
-  maxDate = null,
-  minDate = null,
-  filterDate = () => false,
-  selected = undefined,
+  value,
+
+  selectedDate,
   labelTop,
   labelColor = '',
 }: IProps) => {
-  registerLocale('pt-BR', ptBR)
-
   const [isOpen, setIsOpen] = useState(false)
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric' }
 
-  const handleChange = (e) => {
-    onChange(Dayjs(e[0]).format('MM/YYYY'))
-
-    setIsOpen(!isOpen)
-  }
+  registerLocale('pt-BR', ptBR)
 
   const handleClick = (e) => {
     setIsOpen(!isOpen)
@@ -46,22 +39,21 @@ export const FieldDatePicker = ({
           color={theme.palette.secondary.dark}
           size={14}
         >
-          {selected ? selected : 'MM/AAAA'}
+          {selectedDate
+            ? selectedDate.toLocaleString('pt-BR', options)
+            : 'DD/MM/AAAA'}
         </Typography>
       </SC.WrapperDate>
 
       {isOpen && (
         <SC.WrapperDatePicker>
           <DatePicker
-            showYearPicker
-            selectsRange={true}
-            onChange={handleChange}
+            selected={selectedDate}
+            onChange={onChange}
+            value={value}
             inline
-            dateFormat="MM/yyyy"
+            dateFormat="yyyy-MM-dd"
             locale="pt-BR"
-            minDate={minDate}
-            maxDate={maxDate}
-            filterDate={filterDate}
           />
         </SC.WrapperDatePicker>
       )}

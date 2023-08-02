@@ -3,9 +3,9 @@ import { InitialValues } from '../types'
 
 export const useSignInSchema = Yup.object().shape({
   email: Yup.string()
-    .required('Campo obrigatório')
+    .required('Preencha seu e-mail')
     .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Insira um e-mail válido!'),
-  password: Yup.string().required('Campo obrigatório'),
+  password: Yup.string(),
 })
 
 export const initialValues: InitialValues = {

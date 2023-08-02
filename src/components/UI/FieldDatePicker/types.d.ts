@@ -1,9 +1,10 @@
 export interface IProps {
-  onChange: (date: string) => void
+  onChange: (date: Date) => void
   minDate?: Date | null | undefined
   maxDate?: Date | null | undefined
   filterDate?(date: Date): boolean
-  selected?: string
+  selectedDate: Date | null
   labelTop: string
   labelColor?: string
+  value: string
 }
