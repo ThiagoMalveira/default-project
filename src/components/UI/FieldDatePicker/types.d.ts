@@ -3,8 +3,9 @@ export interface IProps {
   minDate?: Date | null | undefined
   maxDate?: Date | null | undefined
   filterDate?(date: Date): boolean
-  selectedDate: Date | null
+  selectedDate: string | null
   labelTop: string
   labelColor?: string
-  value: string
+
+  errorMessage: string | undefined
 }

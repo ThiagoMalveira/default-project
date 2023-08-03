@@ -24,7 +24,7 @@ const FieldSelect = ({
         <Separator verticalSize={marginInputTop || 1} />
       </>
       <S.Select
-        onChange={(item) => (onChange ? onChange(item.target.value) : {})}
+        onChange={onChange}
         inputHeight={inputHeight}
         inputWidth={inputWidth}
         borderColor={'#E8D29B'}
@@ -34,7 +34,7 @@ const FieldSelect = ({
         textTransform={textTransform}
       >
         {list.map((item) => (
-          <S.Option key={item.segmentoId} value={item.segmentoNome}>
+          <S.Option key={item.segmentoId} value={item.segmentoId}>
             {item.segmentoNome}
           </S.Option>
         ))}

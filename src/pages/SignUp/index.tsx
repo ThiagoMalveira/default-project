@@ -7,12 +7,20 @@ import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
 import { theme } from '@resources/theme'
+import { ChangeEvent } from 'react'
 import * as S from './styles'
 import useSignUp from './useSignUp'
 
 const SignUp = () => {
-  const { step, formik, handleDateChange, selectedDate, segmentos } =
-    useSignUp()
+  const {
+    step,
+    formik,
+    handleDateChange,
+    selectedDate,
+    segmentos,
+    loading,
+    handleSignUp,
+  } = useSignUp()
 
   return (
     <S.Container>
@@ -86,6 +94,7 @@ const SignUp = () => {
               labelColor={theme.palette.text.dark}
               maxDate={new Date()}
               selectedDate={selectedDate}
+              errorMessage={formik.errors.clienteDataFundacao}
             />
             <Separator horizontalSize={10} />
             <Field
@@ -113,11 +122,17 @@ const SignUp = () => {
           <FieldSelect
             inputWidth={504}
             labelTop="Segmentos de atuação"
-            multiple
             labelColor={theme.palette.text.dark}
             list={segmentos}
-            {...formik.getFieldProps('segmentos')}
-            //errorMessage={formik.errors.segmentos}
+            onChange={(event: ChangeEvent<HTMLSelectElement>) => {
+              const selectedOptions = Array.from(event.target.options)
+                .filter((option) => option.selected)
+                .map((option) => ({
+                  segmentoId: Number(option.value),
+                  segmentoNome: option.text,
+                }))
+              formik.setFieldValue('segmentos', selectedOptions)
+            }}
           />
           <Field
             marginInputLeft={20}
@@ -155,7 +170,8 @@ const SignUp = () => {
         </S.WrapperFields>
         <S.WrapperButton>
           <ButtonGradient
-            onClick={formik.handleSubmit}
+            onClick={handleSignUp}
+            loading={loading}
             width={504}
             height={59}
             borderRadius={100}

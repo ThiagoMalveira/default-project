@@ -1,4 +1,4 @@
-export type InitialValues = {
+export type IRequestClient = {
   clienteCnpj: string
   clienteDataFundacao: string | null
   clienteInscricaoMunicipal: number | null

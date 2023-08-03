@@ -4,9 +4,9 @@ import {
   IAuthSignInResponse,
   initialAuthState,
 } from '@resources/types/services'
-import { getApiHeader, getApiInstance } from '@services/api'
 import { endpoints } from '@services/endpoints'
 import { AxiosResponse } from 'axios'
+import { getApiHeader, getApiInstance } from '..'
 import { IRequest } from './types'
 
 export const AuthService = {

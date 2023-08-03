@@ -3,5 +3,8 @@ export const endpoints = {
     auth: {
       signIn: 'auth/login',
     },
+    clients: {
+      createClient: 'api/clientes',
+    },
   },
 }

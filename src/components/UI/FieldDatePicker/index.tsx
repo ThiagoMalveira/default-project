@@ -3,6 +3,7 @@ import { theme } from '@resources/theme'
 import { memo, useState } from 'react'
 import DatePicker, { registerLocale } from 'react-datepicker'
 
+import { parse } from 'date-fns'
 import * as SC from './styles'
 import { IProps } from './types'
 
@@ -13,21 +14,24 @@ import Separator from '../Separator'
 
 export const FieldDatePicker = ({
   onChange,
-  value,
-
   selectedDate,
   labelTop,
   labelColor = '',
+
+  errorMessage = '',
 }: IProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const options = { year: 'numeric', month: 'numeric', day: 'numeric' }
 
   registerLocale('pt-BR', ptBR)
 
   const handleClick = (e) => {
     setIsOpen(!isOpen)
+
     e.preventDefault()
   }
+
+  const dateValue =
+    selectedDate !== null ? parse(selectedDate, 'dd/MM/yyyy', new Date()) : null
 
   return (
     <SC.Container>
@@ -39,24 +43,32 @@ export const FieldDatePicker = ({
           color={theme.palette.secondary.dark}
           size={14}
         >
-          {selectedDate
-            ? selectedDate.toLocaleString('pt-BR', options)
-            : 'DD/MM/AAAA'}
+          {selectedDate ? selectedDate : 'DD/MM/AAAA'}
         </Typography>
       </SC.WrapperDate>
 
       {isOpen && (
         <SC.WrapperDatePicker>
           <DatePicker
-            selected={selectedDate}
+            allowSameDay
+            selected={dateValue}
             onChange={onChange}
-            value={value}
             inline
-            dateFormat="yyyy-MM-dd"
+            dateFormat="dd-MM-yyyy"
             locale="pt-BR"
           />
         </SC.WrapperDatePicker>
       )}
+      <Separator verticalSize={4} />
+      <Typography
+        size={16}
+        align="flex-start"
+        lineHeight="15px"
+        weight="400"
+        fontType={FontType.bold}
+      >
+        {errorMessage}
+      </Typography>
     </SC.Container>
   )
 }

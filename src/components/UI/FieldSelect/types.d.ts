@@ -1,8 +1,10 @@
+import { ChangeEvent } from 'react'
+
 export interface IProps {
   inputWidth?: number
   inputHeight?: number
   list: Segmento[]
-  onChange?: (value: string) => void
+  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void
   textAlign?: string
   textColor?: string
   backgroundColor?: string
@@ -14,7 +16,7 @@ export interface IProps {
 }
 
 export type Segmento = {
-  segmentoId: string
+  segmentoId: number
   segmentoNome: string
 }
 
