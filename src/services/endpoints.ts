@@ -6,5 +6,8 @@ export const endpoints = {
     clients: {
       createClient: 'api/clientes',
     },
+    segment: {
+      getSegments: 'api/segmentos',
+    },
   },
 }

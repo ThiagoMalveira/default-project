@@ -5,6 +5,7 @@ import FieldDatePicker from '@components/UI/FieldDatePicker'
 import FieldSelect from '@components/UI/FieldSelect'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
 import { theme } from '@resources/theme'
 import { ChangeEvent } from 'react'
@@ -17,43 +18,19 @@ const SignUp = () => {
     formik,
     handleDateChange,
     selectedDate,
-    segmentos,
+    segments,
     loading,
     handleSignUp,
   } = useSignUp()
 
-  return (
-    <S.Container>
-      <ImageLogin />
-      <S.WrapperForm>
-        <S.WrapperStep>
-          <Typography
-            align="center"
-            size={16}
-            weight="400"
-            color={theme.palette.warning.lightest}
-          >
-            PASSO {step}
-          </Typography>
-        </S.WrapperStep>
-        <S.WrapperIcons>
-          <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-          {step > '1' ? (
-            <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-          ) : (
-            <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-          )}
-          {step > '2' ? (
-            <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-          ) : (
-            <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-          )}
-          {step > '3' ? (
-            <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-          ) : (
-            <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-          )}
-        </S.WrapperIcons>
+  const formSetup = {
+    '1': () => <Form />,
+    '2': () => <InAnalysis />,
+  }
+
+  const Form = () => {
+    return (
+      <>
         <S.WrapperTitle>
           <Typography
             align="center"
@@ -94,7 +71,7 @@ const SignUp = () => {
               labelColor={theme.palette.text.dark}
               maxDate={new Date()}
               selectedDate={selectedDate}
-              errorMessage={formik.errors.clienteDataFundacao}
+              errorMessage={formik.errors.clienteDataFoundation}
             />
             <Separator horizontalSize={10} />
             <Field
@@ -102,6 +79,7 @@ const SignUp = () => {
               marginInputRight={20}
               inputWidth={152}
               labelTop="Inscrição Municipal"
+              maxLength={11}
               labelColor={theme.palette.text.dark}
               placeholder={'Digite aqui'}
               {...formik.getFieldProps('clienteInscricaoMunicipal')}
@@ -113,6 +91,7 @@ const SignUp = () => {
               marginInputRight={20}
               inputWidth={152}
               labelTop="Inscrição Estadual"
+              maxLength={9}
               labelColor={theme.palette.text.dark}
               placeholder={'Digite aqui'}
               {...formik.getFieldProps('clienteInscricaoEstadual')}
@@ -123,7 +102,7 @@ const SignUp = () => {
             inputWidth={504}
             labelTop="Segmentos de atuação"
             labelColor={theme.palette.text.dark}
-            list={segmentos}
+            list={segments}
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
               const selectedOptions = Array.from(event.target.options)
                 .filter((option) => option.selected)
@@ -187,6 +166,76 @@ const SignUp = () => {
             </Typography>
           </ButtonGradient>
         </S.WrapperButton>
+      </>
+    )
+  }
+
+  const InAnalysis = () => {
+    return (
+      <>
+        <S.WrapperAnalysis>
+          <AccessTimeIcon sx={{ color: '#F39526', fontSize: 71 }} />
+          <S.WrapperTitle>
+            <Typography
+              align="center"
+              size={28}
+              weight="700"
+              color={theme.palette.text.dark}
+            >
+              Cadastro em análise
+            </Typography>
+          </S.WrapperTitle>
+          <S.WrapperDescription>
+            <Typography
+              align="center"
+              size={16}
+              weight="400"
+              color={theme.palette.text.dark}
+            >
+              Seus dados foram recebidos com sucesso! Nossa equipe validará os
+              dados e retornaremos por e-mail com os próximos passos.
+            </Typography>
+          </S.WrapperDescription>
+        </S.WrapperAnalysis>
+      </>
+    )
+  }
+
+  return (
+    <S.Container>
+      <ImageLogin />
+      <S.WrapperForm>
+        <S.WrapperTop>
+          <S.WrapperStep>
+            <Typography
+              align="center"
+              size={16}
+              weight="400"
+              color={theme.palette.warning.lightest}
+            >
+              PASSO {step}
+            </Typography>
+          </S.WrapperStep>
+          <S.WrapperIcons>
+            <Brightness1Icon sx={{ color: '#4BBA4F' }} />
+            {step > '1' ? (
+              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
+            ) : (
+              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
+            )}
+            {step > '2' ? (
+              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
+            ) : (
+              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
+            )}
+            {step > '3' ? (
+              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
+            ) : (
+              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
+            )}
+          </S.WrapperIcons>
+        </S.WrapperTop>
+        {formSetup[step]()}
       </S.WrapperForm>
     </S.Container>
   )

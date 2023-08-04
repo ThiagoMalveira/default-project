@@ -1,5 +1,5 @@
 import { useAppDispatch } from '@hooks/store'
-import { fetchAuth } from '@store/auth/actions'
+import { fetchAuth } from '@store/auth/action'
 import { useFormik } from 'formik'
 import { useCallback, useState } from 'react'
 import { initialValues, useSignInSchema } from './schemas/useSignInSchema'

@@ -59,7 +59,8 @@ export const FieldDatePicker = ({
           />
         </SC.WrapperDatePicker>
       )}
-      <Separator verticalSize={4} />
+      <Separator displayLine={true} horizontalSize={0} />
+      <Separator verticalSize={8} />
       <Typography
         size={16}
         align="flex-start"

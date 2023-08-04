@@ -2,11 +2,29 @@ import styled from '@emotion/styled'
 
 export const WrapperForm = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   width: 50%;
   height: 100vh;
+`
+
+export const WrapperAnalysis = styled.div`
+  display: flex;
+  height: 60vh;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+`
+
+export const WrapperTop = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 520px;
+  align-items: center;
 `
 
 export const Container = styled.div`
@@ -58,7 +76,7 @@ export const WrapperIcons = styled.div`
   width: 100%;
   max-width: 650px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 50px 0;
   &:after {
     content: '';
@@ -66,7 +84,7 @@ export const WrapperIcons = styled.div`
     max-width: 500px;
     border-bottom: 1px solid #ccc;
     position: absolute;
-    top: 223px;
+    top: 119px;
     z-index: -9999;
   }
 `

@@ -21,7 +21,7 @@ export const useSignUpSchema = Yup.object().shape({
 
       return isCNPJValid(value)
     }),
-  clienteDataFundacao: Yup.string().required('Campo obrigatório!'),
+  clienteDataFoundation: Yup.string().required('Campo obrigatório!'),
   clienteInscricaoMunicipal: Yup.number()
     .required('Campo obrigatório!')
     .typeError('Utilize apenas números'),
@@ -29,8 +29,13 @@ export const useSignUpSchema = Yup.object().shape({
     .required('Campo obrigatório!')
     .typeError('Utilize apenas números'),
   capacidadeEntrega: Yup.string().required('Campo obrigatório!'),
-  clienteEmailComercial: Yup.string().required('Campo obrigatório!'),
-  clienteTelefoneComercial: Yup.string(),
+  clienteEmailComercial: Yup.string()
+    .required('Campo obrigatório!')
+    .matches(/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i, 'E-mail inválido!'),
+  clienteTelefoneComercial: Yup.string().matches(
+    /^1\d\d(\d\d)?$|^0800 ?\d{3} ?\d{4}$|^(\(0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d\) ?|0?([1-9a-zA-Z][0-9a-zA-Z])?[1-9]\d[ .-]?)?(9|9[ .-])?[2-9]\d{3}[ .-]?\d{4}$/g,
+    'Telefone inválido!',
+  ),
   segmento: Yup.array()
     .of(SegmentoSchema)
     .min(1, 'Selecione pelo menos uma opção')
@@ -39,7 +44,7 @@ export const useSignUpSchema = Yup.object().shape({
 
 export const initialValues: InitialValues = {
   clienteCnpj: '',
-  clienteDataFundacao: '',
+  clienteDataFoundation: '',
   clienteInscricaoMunicipal: null,
   clienteInscricaoEstadual: null,
   capacidadeEntrega: '',

@@ -10,9 +10,8 @@ export const Container = styled.div<DefaultProps>`
 
 export const WrapperDate = styled.div<DefaultProps>`
   width: 152px;
-  height: 47px;
+  height: 48px;
   background: transparent;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.secondary.regular};
   border-radius: 3px;
   display: flex;
   align-items: center;
