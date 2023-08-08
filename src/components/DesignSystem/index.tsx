@@ -3,13 +3,9 @@ import { PropsWithChildren, ReactElement } from 'react'
 
 import LatoBlack from '@assets/fonts/Lato-Black.ttf'
 import LatoBold from '@assets/fonts/Lato-Bold.ttf'
-import LatoExtraLight from '@assets/fonts/Lato-ExtraLight.ttf'
 import LatoLight from '@assets/fonts/Lato-Light.ttf'
-import LatoMedium from '@assets/fonts/Lato-Medium.ttf'
 import LatoRegular from '@assets/fonts/Lato-Regular.ttf'
-import LatoSemiBold from '@assets/fonts/Lato-SemiBold.ttf'
 import LatoThin from '@assets/fonts/Lato-Thin.ttf'
-import NeueMetanaRegular from '@assets/fonts/NeueMetana-Regular.otf'
 import { theme } from '@resources/theme'
 
 export const DesignSystemProvider = ({
@@ -48,27 +44,11 @@ export const StyleGlobal = (): ReactElement => (
       }
 
       @font-face {
-        font-family: 'LatoExtraLight';
-        src:
-          local('LatoExtraLight'),
-          local('Lato-Extra-Light'),
-          url(${LatoExtraLight}) format('truetype');
-      }
-
-      @font-face {
         font-family: 'LatoLight';
         src:
           local('LatoLight'),
           local('Lato-Light'),
           url(${LatoLight}) format('truetype');
-      }
-
-      @font-face {
-        font-family: 'LatoMedium';
-        src:
-          local('LatoMedium'),
-          local('Lato-Medium'),
-          url(${LatoMedium}) format('truetype');
       }
 
       @font-face {
@@ -80,27 +60,11 @@ export const StyleGlobal = (): ReactElement => (
       }
 
       @font-face {
-        font-family: 'LatoSemiBold';
-        src:
-          local('LatoSemiBold'),
-          local('Lato-Semi-Bold'),
-          url(${LatoSemiBold}) format('truetype');
-      }
-
-      @font-face {
         font-family: 'LatoThin';
         src:
           local('LatoThin'),
           local('Lato-Thin'),
           url(${LatoThin}) format('truetype');
-      }
-
-      @font-face {
-        font-family: 'NeueMetanaRegular';
-        src:
-          local('NeueMetanaRegular'),
-          local('NeueMetana-Regular'),
-          url(${NeueMetanaRegular}) format('truetype');
       }
     `}
   />
