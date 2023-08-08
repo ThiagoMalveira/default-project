@@ -1,9 +1,8 @@
-import { PropsWithChildren, ReactElement } from 'react'
 import { Global, ThemeProvider, css } from '@emotion/react'
+import { PropsWithChildren, ReactElement } from 'react'
 
 import LatoBlack from '@assets/fonts/Lato-Black.ttf'
 import LatoBold from '@assets/fonts/Lato-Bold.ttf'
-import LatoExtraBold from '@assets/fonts/Lato-ExtraBold.ttf'
 import LatoExtraLight from '@assets/fonts/Lato-ExtraLight.ttf'
 import LatoLight from '@assets/fonts/Lato-Light.ttf'
 import LatoMedium from '@assets/fonts/Lato-Medium.ttf'
@@ -46,14 +45,6 @@ export const StyleGlobal = (): ReactElement => (
           local('LatoBold'),
           local('Lato-Bold'),
           url(${LatoBold}) format('truetype');
-      }
-
-      @font-face {
-        font-family: 'LatoExtraBold';
-        src:
-          local('LatoExtraBold'),
-          local('Lato-Extra-Bold'),
-          url(${LatoExtraBold}) format('truetype');
       }
 
       @font-face {
