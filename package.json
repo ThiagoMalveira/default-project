@@ -7,7 +7,7 @@
     "dev": "env-cmd -f .env.development vite",
     "start:dev": "env-cmd -f .env.development vite",
     "start:prod": "env-cmd -f .env.production vite",
-    "build:dev": "env-cmd -f .env.development tsc && vite build && aws s3 sync ./build/ s3://poc-react-app-hosted-s3-production  --acl public-read",
+    "build:dev": "env-cmd -f .env.development tsc && vite build && aws s3 sync ./build/ s3://www.konekte.com.br  --acl public-read",
     "build:prod": "env-cmd -f .env.production tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
