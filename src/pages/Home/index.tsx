@@ -107,14 +107,15 @@ const Home = () => {
           <Typography
             size={32}
             weight="700"
-            lineHeight="24px"
+            lineHeight="38px"
             color={theme.palette.text.dark}
             align="center"
           >
-            Acesse milhões de clientes com a Konekte. Você gerencia seus
+            Acesse milhões de clientes com a Konekte. Você gerencia seus{' '}
             <Typography
               align="center"
               size={32}
+              lineHeight="38px"
               color={theme.palette.text.regular}
             >
               produtos, valores, promoções e estoques disponíveis.
