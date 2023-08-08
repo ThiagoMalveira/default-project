@@ -42,7 +42,9 @@ const SignIn = () => {
             {...formik.getFieldProps('email')}
             errorMessage={formik.errors.email}
           />
+
           <Separator verticalSize={20} />
+
           <S.WrapperField>
             <FieldPassword
               type={passwordType}
