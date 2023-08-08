@@ -40,7 +40,7 @@ export const Row = styled.div<{ item?: boolean } & DefaultProps>`
   ${({ item, theme }) =>
     !item &&
     `
-    border-bottom: 2px solid ${theme.palette.common[2]}
+    border-bottom: 2px solid ${theme.palette.error.dark}
   `}
 
   ${({ item, theme }) =>
@@ -49,7 +49,7 @@ export const Row = styled.div<{ item?: boolean } & DefaultProps>`
     cursor: pointer;
 
     &:hover {
-      background: ${theme.palette.common[10]}50;
+      background: ${theme.palette.error.dark}50;
     }
   `}
 `
