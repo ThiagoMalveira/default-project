@@ -63,33 +63,6 @@ const mixins = {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   `,
 
-  gradient: (type): Css =>
-    ({
-      primary: css`
-        background-image: linear-gradient(
-          180deg,
-          ${theme.palette.gradiente.primary.light},
-          ${theme.palette.gradiente.primary.dark},
-          ${theme.palette.gradiente.primary.darkest}
-        );
-      `,
-      secondary: css`
-        background-image: linear-gradient(
-          180deg,
-          ${theme.palette.gradiente.primary.light},
-          ${theme.palette.gradiente.primary.dark},
-          ${theme.palette.gradiente.primary.darkest}
-        );
-      `,
-      tertiary: css`
-        background-image: linear-gradient(
-          180deg,
-          ${theme.palette.gradiente.tertiary.light},
-          ${theme.palette.gradiente.tertiary.darkest}
-        );
-      `,
-    })[type],
-
   fonts: (type): Css =>
     ({
       extraBold: css`
