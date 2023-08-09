@@ -194,6 +194,7 @@ const Home = () => {
                 align="start"
                 size={32}
                 weight="400"
+                lineHeight="38px"
                 color={theme.palette.primary.light}
               >
                 O hub de integração pensado para {''}
@@ -201,6 +202,7 @@ const Home = () => {
                   size={32}
                   weight="800"
                   align="start"
+                  lineHeight="38px"
                   color={theme.palette.primary.light}
                 >
                   indústrias e varejistas
