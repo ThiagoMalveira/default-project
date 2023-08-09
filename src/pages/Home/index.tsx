@@ -42,7 +42,11 @@ const Home = () => {
               color={theme.palette.info.regular}
             >
               Alcance
-              <Typography size={44} color={theme.palette.info.dark}>
+              <Typography
+                lineHeight="44px"
+                size={44}
+                color={theme.palette.info.dark}
+              >
                 {' '}
                 milhões{' '}
               </Typography>
@@ -52,6 +56,7 @@ const Home = () => {
             <Typography
               size={44}
               weight="700"
+              lineHeight="44px"
               color={theme.palette.info.regular}
             >
               {' '}
@@ -213,6 +218,7 @@ const Home = () => {
                 color={'#F1F1F1'}
                 size={20}
                 weight="400"
+                lineHeight="24px"
                 align="start"
               >
                 Somos uma plataforma que nasceu em 2017 com o sonho de criar uma
@@ -224,6 +230,7 @@ const Home = () => {
               <Typography
                 size={20}
                 weight="400"
+                lineHeight="24px"
                 align="start"
                 color={'#F1F1F1'}
               >
@@ -255,12 +262,14 @@ const Home = () => {
             align="start"
             size={32}
             weight="400"
+            lineHeight="38px"
             color={theme.palette.text.dark}
           >
             Inteligência e expertise para alocar os seus produtos {''}
             <Typography
               size={32}
               weight="800"
+              lineHeight="38px"
               align="start"
               color={theme.palette.text.regular}
             >
@@ -268,7 +277,13 @@ const Home = () => {
             </Typography>
           </Typography>
           <Separator verticalSize={20} />
-          <Typography size={20} weight="600" align="start" color={'#9D9D9D;'}>
+          <Typography
+            lineHeight="24px"
+            size={20}
+            weight="600"
+            align="start"
+            color={'#9D9D9D;'}
+          >
             Com curadoria e tecnologia, alocamos os seus produtos nos canais com
             mais chances de vender. Mais praticidade e eficiência para sua
             operação.
@@ -332,6 +347,7 @@ const Home = () => {
             align="start"
             size={40}
             weight="800"
+            lineHeight="48px"
             color={theme.palette.text.lightest}
           >
             Seja um parceiro Konekte {''}
@@ -339,6 +355,7 @@ const Home = () => {
             <Typography
               size={40}
               weight="400"
+              lineHeight="48px"
               align="start"
               color={theme.palette.text.lightest}
             >

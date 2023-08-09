@@ -60,7 +60,6 @@ export const WrapperForm = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50%;
-  padding: 160px 0;
 `
 
 export const WrapperTitle = styled.div`

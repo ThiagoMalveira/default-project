@@ -165,7 +165,6 @@ export const ContainerTextChannel = styled.div<DefaultProps>`
 
 export const ContainerTextPartner = styled.div<DefaultProps>`
   max-width: 478px;
-  padding: 20px 170px;
   display: flex;
   flex-direction: column;
   justify-content: center;
