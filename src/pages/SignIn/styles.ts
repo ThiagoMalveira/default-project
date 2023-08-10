@@ -51,7 +51,6 @@ export const WrapperText = styled.div<DefaultProps>`
   align-items: center;
   max-width: 400px;
   width: 100%;
-  padding: 50px;
 `
 
 export const WrapperForm = styled.div`
