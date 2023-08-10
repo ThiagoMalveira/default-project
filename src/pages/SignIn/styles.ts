@@ -76,4 +76,9 @@ export const WrapperButton = styled.div`
 
 export const WrapperForgotPassword = styled.div``
 
-export const WrapperSignUp = styled.div``
+export const WrapperSignUp = styled.div`
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
