@@ -5,6 +5,7 @@ import FieldDatePicker from '@components/UI/FieldDatePicker'
 import FieldSelect from '@components/UI/FieldSelect'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import { useGoBack } from '@hooks/useGoBack'
 import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
 import { theme } from '@resources/theme'
@@ -22,6 +23,8 @@ const SignUp = () => {
     loading,
     handleSignUp,
   } = useSignUp()
+
+  const { handleGoBack } = useGoBack()
 
   const formSetup = {
     '1': () => <Form />,
@@ -166,6 +169,17 @@ const SignUp = () => {
             </Typography>
           </ButtonGradient>
         </S.WrapperButton>
+        <S.WrapperGoBack onClick={handleGoBack}>
+          <Typography
+            align="center"
+            size={16}
+            weight="400"
+            color={theme.palette.secondary.dark}
+          >
+            Voltar
+          </Typography>
+        </S.WrapperGoBack>
+        <Separator horizontalSize={20} />
       </>
     )
   }

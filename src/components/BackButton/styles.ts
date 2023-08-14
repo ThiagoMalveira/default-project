@@ -7,6 +7,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `
 
 export const Title = styled.h1<DefaultProps>`

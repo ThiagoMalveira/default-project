@@ -88,3 +88,10 @@ export const WrapperIcons = styled.div`
     z-index: -9999;
   }
 `
+
+export const WrapperGoBack = styled.div`
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`

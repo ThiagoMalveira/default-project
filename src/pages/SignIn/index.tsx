@@ -4,6 +4,7 @@ import Field from '@components/UI/Field'
 import FieldPassword from '@components/UI/FieldPassword'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import { useGoBack } from '@hooks/useGoBack'
 import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
 import { theme } from '@resources/theme'
@@ -15,6 +16,7 @@ const SignIn = () => {
   const { togglePasswordType, passwordType, showPassword, formik } = useSignIn()
 
   const { handleNavigate } = useHandleNavigate()
+  const { handleGoBack } = useGoBack()
 
   return (
     <S.Container>
@@ -82,7 +84,9 @@ const SignIn = () => {
             </Typography>
           </ButtonGradient>
         </S.WrapperButton>
-        <S.WrapperForgotPassword>
+        <S.WrapperForgotPassword
+          onClick={() => handleNavigate(PathRoutes.FORGOT_PASSWORD)}
+        >
           <Typography
             align="center"
             size={16}
@@ -103,6 +107,19 @@ const SignIn = () => {
             Crie um novo cadastro
           </Typography>
         </S.WrapperSignUp>
+
+        <Separator verticalSize={40} />
+
+        <S.WrapperGoBack onClick={handleGoBack}>
+          <Typography
+            align="center"
+            size={16}
+            weight="400"
+            color={theme.palette.secondary.dark}
+          >
+            Voltar
+          </Typography>
+        </S.WrapperGoBack>
       </S.WrapperForm>
     </S.Container>
   )

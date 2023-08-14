@@ -73,9 +73,21 @@ export const WrapperButton = styled.div`
   padding: 50px 0;
 `
 
-export const WrapperForgotPassword = styled.div``
+export const WrapperForgotPassword = styled.div`
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
 
 export const WrapperSignUp = styled.div`
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
+
+export const WrapperGoBack = styled.div`
   &:hover {
     cursor: pointer;
     opacity: 0.8;

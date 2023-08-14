@@ -7,5 +7,5 @@ export const useGoBack = () => {
     navigate(-1)
   }
 
-  return handleGoBack
+  return { handleGoBack }
 }
