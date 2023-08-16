@@ -1,15 +1,14 @@
-import { Icon } from '@material-ui/core'
 import { Container } from './styles'
 
 type SidebarProps = {
-  IconName: string
+  Icon: any
   Text: string
 }
 
-const SidebarItem = ({ IconName, Text }: SidebarProps) => {
+const SidebarItem = ({ Icon, Text }: SidebarProps) => {
   return (
     <Container>
-      <Icon>{IconName}</Icon>
+      <Icon />
       {Text}
     </Container>
   )

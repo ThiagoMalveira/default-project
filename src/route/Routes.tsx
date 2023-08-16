@@ -36,6 +36,7 @@ const Routes = () => {
           path={PathRoutes.FORGOT_PASSWORD}
           element={PathScreens.FORGOT_PASSWORD}
         />
+        <Route path={PathRoutes.PARTNERS} element={PathScreens.PARTNERS} />
 
         {/* Private Routes 
         <Route
