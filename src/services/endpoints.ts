@@ -1,7 +1,7 @@
 export const endpoints = {
   URL: {
     auth: {
-      signIn: 'auth/login',
+      signIn: 'api/auth/signin',
     },
     clients: {
       createClient: 'api/clientes',

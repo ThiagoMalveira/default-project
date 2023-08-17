@@ -1,9 +1,14 @@
+import HeaderPartner from '@components/HeaderPartner'
 import Sidebar from '@components/Sidebar'
+import * as S from './styles'
 
 const Partners = () => {
   return (
     <>
-      <Sidebar />
+      <S.Container>
+        <Sidebar />
+        <HeaderPartner />
+      </S.Container>
     </>
   )
 }

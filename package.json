@@ -20,6 +20,8 @@
     "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.3",
+    "@mui/styled-engine-sc": "^5.12.0",
+    "@mui/x-data-grid": "^6.11.2",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "dayjs": "^1.11.8",
