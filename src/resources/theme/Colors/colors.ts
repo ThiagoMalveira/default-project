@@ -13,6 +13,12 @@ export const palette: IPalette = {
     light: '#B79B65',
     lightest: '#DCDCDC',
   },
+  tertiary: {
+    dark: '#CAB780',
+    regular: '',
+    light: '',
+    lightest: '',
+  },
   neutral: {
     dark: '#ECDCAD',
     regular: '#878787',

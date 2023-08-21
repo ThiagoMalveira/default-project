@@ -1,7 +1,11 @@
 import styled from '@emotion/styled'
 import { DefaultProps } from '@resources/types'
 
-export const Container = styled.div<DefaultProps>`
+type IProps = {
+  active?: boolean
+}
+
+export const Container = styled.div<DefaultProps & IProps>`
   display: flex;
   align-items: center;
   background-color: transparent;
@@ -15,6 +19,19 @@ export const Container = styled.div<DefaultProps>`
   > svg {
     margin: 0 20px;
   }
+
+  ${({ active }) =>
+    active &&
+    `
+    cursor: pointer;
+    opacity: 0.8;
+
+    background: linear-gradient(
+      152deg,
+      #424141 0%,
+      rgba(66, 65, 65, 0.71) 100%
+    );
+    color: #cab780;`}
 
   &:hover {
     cursor: pointer;

@@ -2,8 +2,8 @@ import axios, { AxiosInstance } from 'axios'
 import { Navigate } from 'react-router-dom'
 
 import { HttpCodes } from '@resources/types/httpCode'
-import PathRoutes from '@route/PathRoutes'
 import { IKeyArgHeader } from '@resources/types/service'
+import PathRoutes from '@route/PathRoutes'
 import { store } from '@store/index'
 
 import { ApiGateway } from './configs/GatewayConfig'
@@ -15,7 +15,7 @@ export const getApiHeader = (args: IKeyArgHeader[] = []) => {
 
   if (!args.length) return header
 
-  const arrayArgValues = [store.getState().auth.credentials?.accessToken]
+  const arrayArgValues = [store.getState().auth.credentials]
 
   args.forEach((arg: IKeyArgHeader) => {
     if (!arrayArgValues[arg.index]) return
@@ -33,9 +33,8 @@ const checkInstanceAuth = (instanceItem: AxiosInstance) => {
 
       const statesStore = store.getState()
 
-      if (statesStore.auth?.credentials?.accessToken) {
-        config.headers.Authorization =
-          statesStore.auth?.credentials?.accessToken
+      if (statesStore.auth?.credentials) {
+        config.headers.Authorization = statesStore.auth?.credentials
       }
 
       return Promise.resolve(config)

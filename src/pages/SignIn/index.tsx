@@ -13,7 +13,13 @@ import * as S from './styles'
 import useSignIn from './useSignIn'
 
 const SignIn = () => {
-  const { togglePasswordType, passwordType, showPassword, formik } = useSignIn()
+  const {
+    togglePasswordType,
+    passwordType,
+    showPassword,
+    formik,
+    authLoading,
+  } = useSignIn()
 
   const { handleNavigate } = useHandleNavigate()
   const { handleGoBack } = useGoBack()
@@ -73,6 +79,7 @@ const SignIn = () => {
             height={59}
             borderRadius={100}
             type="button"
+            loading={authLoading}
           >
             <Typography
               size={18}

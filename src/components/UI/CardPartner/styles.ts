@@ -16,6 +16,10 @@ export const ContainerDescription = styled.div<DefaultProps>`
   max-width: 326px;
   max-height: 114px;
   padding: 50px 0;
+
+  @media (max-width: 480px) {
+    padding: 20px 0 60px 0;
+  }
 `
 
 export const WrapperPhotoAndName = styled.div<DefaultProps>`

@@ -17,6 +17,7 @@ export interface IPaletteGradiente {
 export interface IPalette {
   primary: IPaletteBrand
   secondary: IPaletteBrand
+  tertiary: IPaletteBrand
   neutral: IPaletteBrand
   text: IPaletteBrand
   error: IPaletteBrand

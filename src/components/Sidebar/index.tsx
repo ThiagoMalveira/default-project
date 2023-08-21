@@ -18,7 +18,7 @@ const Sidebar = () => {
           </WrapperLogo>
           <Content>
             <SidebarItem Icon={HomeIcon} Text="Dashboard" />
-            <SidebarItem Icon={PersonIcon} Text="Parceiros" />
+            <SidebarItem Icon={PersonIcon} Text="Parceiros" Active />
             <SidebarItem Icon={ChecklistIcon} Text="Pedidos" />
             <SidebarItem Icon={InventoryIcon} Text="Produtos" />
             <SidebarItem Icon={AttachMoneyIcon} Text="Financeiro" />

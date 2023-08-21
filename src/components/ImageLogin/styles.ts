@@ -9,6 +9,10 @@ export const ContainerImage = styled.div<DefaultProps>`
   align-items: center;
   flex-direction: column;
   border-radius: 0px 30px 30px 0px;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `
 
 export const WrapperLogo = styled.div<DefaultProps>`

@@ -17,11 +17,7 @@ export function fetchAuth(
 
       if (!result) return dispatch(authError())
 
-      const credentials = {
-        token: result.access_token,
-      }
-
-      dispatch(authCredentials(credentials))
+      dispatch(authCredentials(result))
     } catch (err) {
       console.log(err)
       dispatch(authError())

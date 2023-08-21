@@ -1,10 +1,18 @@
-import { useAppDispatch } from '@hooks/store'
+import { useAppDispatch, useAppSelector } from '@hooks/store'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
+import HandleNotification from '@resources/helpers/handleNotification'
+import { typesNotification } from '@resources/types/notification'
+import PathRoutes from '@route/PathRoutes'
 import { fetchAuth } from '@store/auth/action'
 import { useFormik } from 'formik'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { initialValues, useSignInSchema } from './schemas/useSignInSchema'
 
 const useSignIn = () => {
+  const { authLoading, credentials, signError, user } = useAppSelector(
+    (state) => state.auth,
+  )
+  const { handleNavigate } = useHandleNavigate()
   const dispatch = useAppDispatch()
   const [passwordType, setPasswordType] = useState<'password' | 'text'>(
     'password',
@@ -27,6 +35,20 @@ const useSignIn = () => {
     fetchAuthenticate()
   }, [formik, fetchAuthenticate])
 
+  useEffect(() => {
+    if (!credentials) return
+
+    if (user.roles.includes('ROLE_ADMIN')) {
+      handleNavigate(PathRoutes.PARTNERS)
+    }
+  }, [user, credentials, handleNavigate])
+
+  useEffect(() => {
+    if (signError) {
+      HandleNotification(typesNotification.ERROR, 'Login e/ou senha incorretos')
+    }
+  }, [signError])
+
   const togglePasswordType = () => {
     if (passwordType === 'password') {
       setPasswordType('text')
@@ -39,7 +61,7 @@ const useSignIn = () => {
     }
   }
 
-  return { togglePasswordType, passwordType, showPassword, formik }
+  return { togglePasswordType, passwordType, showPassword, formik, authLoading }
 }
 
 export default useSignIn

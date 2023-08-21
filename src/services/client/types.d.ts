@@ -13,3 +13,7 @@ export type Segmento = {
   segmentoId: number
   segmentoNome: string
 }
+
+export type IGetClient = {
+  id: string
+}

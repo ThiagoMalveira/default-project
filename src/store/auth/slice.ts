@@ -1,7 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { IAuthState, ICredentials } from './types'
+import { IAuthState } from './types'
 
 export const initialState: IAuthState = {
+  user: {
+    id: null,
+    email: '',
+    role: [],
+    accesstoken: '',
+    tokenType: '',
+  },
   credentials: null,
   isLoading: false,
   error: false,
@@ -19,13 +26,14 @@ const auth = createSlice({
       }
     },
 
-    authCredentials(state, action: PayloadAction<ICredentials>) {
-      const credentials = {
-        token: action.payload.token,
+    authCredentials(state, action: PayloadAction<any>) {
+      return {
+        ...state,
+        user: action.payload,
+        error: false,
+        credentials: action.payload.accessToken,
+        isLoading: false,
       }
-      state.error = false
-      state.credentials = credentials
-      state.isLoading = false
     },
 
     authError(state) {

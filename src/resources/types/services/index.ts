@@ -1,9 +1,9 @@
 export interface IAuthSignInResponse {
-  access_token: string
+  accessToken: string
 }
 
 export const initialAuthState: IAuthSignInResponse = {
-  access_token: '',
+  accessToken: '',
 }
 
 export interface IVerificationCodeSendResponse {

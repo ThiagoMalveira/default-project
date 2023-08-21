@@ -11,6 +11,10 @@ export const Container = styled.div<DefaultProps & StyleProps>`
   ${({ open }) => (open ? `max-height: 144px;` : `max-height: 60px;`)};
   border: 1px solid ${({ theme }) => theme.palette.neutral.lightest};
   border-radius: 10px;
+
+  @media (max-width: 480px) {
+    ${({ open }) => (open ? `max-height: 144px;` : `max-height: 80px;`)};
+  }
 `
 
 export const WrapperTitle = styled.div<DefaultProps>`

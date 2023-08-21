@@ -50,17 +50,7 @@ const Home = () => {
                 {' '}
                 milhões{' '}
               </Typography>
-              de
-            </Typography>
-            <Separator verticalSize={10} />
-            <Typography
-              size={44}
-              weight="700"
-              lineHeight="44px"
-              color={theme.palette.info.regular}
-            >
-              {' '}
-              clientes de uma só vez
+              de clientes de uma só vez
             </Typography>
           </S.ContainerText>
           <S.AllTextsLighter>
@@ -191,71 +181,72 @@ const Home = () => {
             <S.Image src={arezzo} />
           </S.ContainerPartnersImage>
         </S.ContainerAllImages>
-        <S.ContainerSLA>
-          <S.ContainerSLAInside>
-            <S.ImageSLA src={slaImage} />
-            <S.ContainerTextSLA>
+      </S.ContainerPartners>
+      <S.ContainerSLA>
+        <S.ContainerSLAInside>
+          <S.ImageSLA src={slaImage} />
+          <S.ContainerTextSLA>
+            <Typography
+              align="start"
+              size={32}
+              weight="400"
+              lineHeight="38px"
+              color={theme.palette.primary.light}
+            >
+              O hub de integração pensado para {''}
               <Typography
-                align="start"
                 size={32}
-                weight="400"
+                weight="800"
+                align="start"
                 lineHeight="38px"
                 color={theme.palette.primary.light}
               >
-                O hub de integração pensado para {''}
-                <Typography
-                  size={32}
-                  weight="800"
-                  align="start"
-                  lineHeight="38px"
-                  color={theme.palette.primary.light}
-                >
-                  indústrias e varejistas
+                indústrias e varejistas
+              </Typography>
+            </Typography>
+            <Separator verticalSize={40} />
+            <Typography
+              color={'#F1F1F1'}
+              size={20}
+              weight="400"
+              lineHeight="24px"
+              align="start"
+            >
+              Somos uma plataforma que nasceu em 2017 com o sonho de criar uma
+              solução tecnológica que leve indústrias e varejistas a acessarem
+              novos canais de vendas eletrônicos como marketplace, ecommerces e
+              programas de fidelidade.
+            </Typography>
+            <Separator verticalSize={20} />
+            <Typography
+              size={20}
+              weight="400"
+              lineHeight="24px"
+              align="start"
+              color={'#F1F1F1'}
+            >
+              Sem custos de setup, fee mensal e venda mínima. Rápida, segura e
+              robusta para levar seus produtos a acessarem novos canais de
+              vendas.
+            </Typography>
+            <S.WrapperButton>
+              <Button
+                onClick={() => handleNavigate(PathRoutes.SIGN_IN)}
+                bgColor={'#FFFFFF'}
+                buttonTextColor={'#8E7838'}
+                borderRadius={100}
+                width={220}
+                height={58}
+              >
+                <Typography size={18} weight="600">
+                  Quero ser parceiro
                 </Typography>
-              </Typography>
-              <Separator verticalSize={40} />
-              <Typography
-                color={'#F1F1F1'}
-                size={20}
-                weight="400"
-                lineHeight="24px"
-                align="start"
-              >
-                Somos uma plataforma que nasceu em 2017 com o sonho de criar uma
-                solução tecnológica que leve indústrias e varejistas a acessarem
-                novos canais de vendas eletrônicos como marketplace, ecommerces
-                e programas de fidelidade.
-              </Typography>
-              <Separator verticalSize={20} />
-              <Typography
-                size={20}
-                weight="400"
-                lineHeight="24px"
-                align="start"
-                color={'#F1F1F1'}
-              >
-                Sem custos de setup, fee mensal e venda mínima. Rápida, segura e
-                robusta para levar seus produtos a acessarem novos canais de
-                vendas.
-              </Typography>
-              <S.WrapperButton>
-                <Button
-                  onClick={() => handleNavigate(PathRoutes.SIGN_IN)}
-                  bgColor={'#FFFFFF'}
-                  buttonTextColor={'#8E7838'}
-                  borderRadius={100}
-                  width={220}
-                  height={58}
-                >
-                  <Typography size={18} weight="600">
-                    Quero ser parceiro
-                  </Typography>
-                </Button>
-              </S.WrapperButton>
-            </S.ContainerTextSLA>
-          </S.ContainerSLAInside>
-        </S.ContainerSLA>
-      </S.ContainerPartners>
+              </Button>
+            </S.WrapperButton>
+          </S.ContainerTextSLA>
+        </S.ContainerSLAInside>
+      </S.ContainerSLA>
+
       <S.ContainerChannel>
         <S.ContainerTextChannel>
           <Typography
@@ -351,7 +342,6 @@ const Home = () => {
             color={theme.palette.text.lightest}
           >
             Seja um parceiro Konekte {''}
-            <Separator verticalSize={10} />
             <Typography
               size={40}
               weight="400"

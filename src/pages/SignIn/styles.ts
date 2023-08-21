@@ -6,6 +6,11 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+    max-width: 768px;
+  }
 `
 
 export const ContainerImage = styled.div<DefaultProps>`
@@ -31,10 +36,14 @@ export const WrapperField = styled.div<DefaultProps>`
 `
 
 export const WrapperIcon = styled.div`
-  position: relative;
+  position: absolute;
   display: flex;
+  left: 90%;
   align-items: center;
   justify-content: center;
+  @media (max-width: 1024px) {
+    left: 80%;
+  }
 `
 
 export const WrapperImage = styled.div<DefaultProps>`
@@ -59,6 +68,9 @@ export const WrapperForm = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50%;
+
+  @media (max-width: 1024px) {
+  }
 `
 
 export const WrapperTitle = styled.div`

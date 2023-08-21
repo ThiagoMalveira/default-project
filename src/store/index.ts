@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import authReducer, { authLogout } from '@store/auth/slice'
+import clientReducer from '@store/clients/slice'
 import segmentReducer from '@store/segment/slice'
 import { Reducer } from 'redux'
 import { persistReducer, persistStore } from 'redux-persist'
@@ -9,12 +10,13 @@ import thunk from 'redux-thunk'
 const reducers = combineReducers({
   auth: authReducer,
   segment: segmentReducer,
+  client: clientReducer,
 })
 
 const persistConfig = {
   key: 'konekte',
   storage,
-  whitelist: ['auth', 'segment'],
+  whitelist: ['auth', 'segment', 'client'],
 }
 
 const persistedReducer: Reducer = persistReducer(persistConfig, reducers)

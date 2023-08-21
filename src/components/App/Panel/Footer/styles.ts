@@ -10,6 +10,11 @@ export const Container = styled.div<DefaultProps>`
   height: 100vh;
   max-height: 242px;
   padding: 30px 30px 30px 10px;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    max-height: 600px;
+  }
 `
 
 export const WrapperLogo = styled.div<DefaultProps>``
