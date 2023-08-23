@@ -1,15 +1,20 @@
-import { IGridHeader } from '@components/DataGrid/types'
+import { IGridData, IGridHeader } from '@components/DataGrid/types'
 import { FontType } from '@components/UI/Typography'
-import { useAppDispatch } from '@hooks/store'
+import { useAppDispatch, useAppSelector } from '@hooks/store'
+import { theme } from '@resources/theme'
 import { fetchClients } from '@store/clients/action'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { IObjGrid } from './types'
 
 const usePartners = () => {
+  const { client } = useAppSelector((state) => state.client)
   const dispatch = useAppDispatch()
-  const columns: IGridHeader[] = [
+  const [data, setData] = useState<IGridData[]>([])
+
+  const header: IGridHeader[] = [
     {
       label: 'CNPJ',
-      grid: 2,
+      grid: 5,
       action: () => null,
       order: false,
       value: 'cnpj',
@@ -17,20 +22,22 @@ const usePartners = () => {
       styles: {
         align: 'left',
         fontType: FontType.bold,
-        fontSize: 14,
+        fontSize: 22,
+        color: `${theme.palette.text.dark}`,
       },
     },
     {
       label: 'ESTADO',
-      grid: 2,
+      grid: 5,
       action: () => null,
-      order: false,
+      order: true,
       value: 'estado',
       field: 'value',
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 14,
+        fontSize: 22,
+        color: `${theme.palette.text.dark}`,
       },
     },
     {
@@ -38,12 +45,13 @@ const usePartners = () => {
       grid: 5,
       action: () => null,
       order: false,
-      value: 'segment',
+      value: 'segmento',
       field: 'value',
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 14,
+        fontSize: 22,
+        color: `${theme.palette.text.dark}`,
       },
     },
     {
@@ -56,11 +64,12 @@ const usePartners = () => {
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 14,
+        fontSize: 22,
+        color: `${theme.palette.text.dark}`,
       },
     },
     {
-      label: '',
+      label: 'STATUS',
       grid: 3,
       action: () => null,
       order: false,
@@ -69,26 +78,52 @@ const usePartners = () => {
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 14,
+        fontSize: 22,
+        color: `${theme.palette.text.dark}`,
       },
     },
   ]
 
-  const rows = [
-    {
-      id: 1,
-      CNPJ: '00.000.000/0000-01',
-      estado: 'São Paulo',
-      segmento: 'Moda',
-      entrega: 'Brasil',
-    },
-  ]
+  const getObjDataGrid = ({ id, cnpj, segmento, status, index }: IObjGrid) => {
+    return {
+      id,
+      values: {
+        cnpj,
+        segmento,
+        status,
+        index,
+      },
+      select: '',
+      action: <></>,
+    }
+  }
+
+  useEffect(() => {
+    if (!client) return
+
+    let Clients: IGridData[] = []
+
+    if (client.lenght) {
+      Clients = client.map((client, index) => {
+        const item: IGridData = getObjDataGrid({
+          id: client.clienteId,
+          cnpj: client.clienteCnpj,
+          segmento: client.segmento[0].segmentoNome,
+          status: client.clientestatusaprovacao,
+          index,
+        })
+        console.log(item)
+        return item
+      })
+      setData(Clients)
+    }
+  }, [client])
 
   useEffect(() => {
     dispatch(fetchClients())
   }, [dispatch])
 
-  return { columns, rows }
+  return { data, header }
 }
 
 export default usePartners

@@ -23,6 +23,10 @@ export const WrapperMap = styled.div<DefaultProps>`
   display: flex;
   flex-direction: column;
   padding: 40px 0;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const WrapperContactUs = styled.div<DefaultProps>`
@@ -34,11 +38,20 @@ export const WrapperContactUs = styled.div<DefaultProps>`
 export const WrapperEmail = styled.div<DefaultProps>`
   display: flex;
   flex-direction: row;
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 `
 
 export const WrapperWhatsApp = styled.div<DefaultProps>`
   display: flex;
   flex-direction: row;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 `
 
 export const WrapperInstagram = styled.div<DefaultProps>`

@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
 
 import { DefaultProps } from '@resources/types'
+import { GridProps } from './types'
 
 export const Container = styled.div<DefaultProps>`
-  max-width: ${({ theme }) => theme.layout.desktop.dimensions.large.maxWidth};
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
@@ -20,9 +20,13 @@ export const Container = styled.div<DefaultProps>`
 `
 export const Row = styled.div<{ item?: boolean } & DefaultProps>`
   display: flex;
-  width: 100%;
-  height: auto;
   float: left;
+  width: 1280px;
+  max-width: 80vw;
+  background: ${({ theme }) => theme.palette.neutral.lightest};
+  max-height: 50px;
+  border-radius: 5px;
+  height: 100vh;
   box-sizing: border-box;
   padding: 5px 0;
   margin: 5px 0;
@@ -38,30 +42,25 @@ export const Row = styled.div<{ item?: boolean } & DefaultProps>`
   }
 
   ${({ item, theme }) =>
-    !item &&
-    `
-    border-bottom: 2px solid ${theme.palette.error.dark}
-  `}
-
-  ${({ item, theme }) =>
     item &&
     `
     cursor: pointer;
 
     &:hover {
-      background: ${theme.palette.error.dark}50;
+      background: ${theme.palette.tertiary.dark};
     }
   `}
 `
 
-export const Column = styled.div<{ grid: number; align: string }>`
+export const Column = styled.div<DefaultProps & GridProps>`
   display: flex;
   align-items: center;
-  padding: 0.25rem;
+  padding: 20px 10px;
   min-height: 1px;
   box-sizing: border-box;
   width: 100%;
-  margin: 0 2px;
+  margin: 0 2px 0 20px;
+  color: ${({ theme }) => theme.palette.text.dark};
   justify-content: ${({ align }) =>
     align === 'left' ? 'flex-start' : 'flex-end'};
 

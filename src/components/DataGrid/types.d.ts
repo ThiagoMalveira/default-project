@@ -13,6 +13,7 @@ export interface IGridHeader {
     align: 'left' | 'right'
     fontType: Fonts | undefined
     fontSize: number
+    color: string | undefined
   }
 }
 
@@ -33,4 +34,9 @@ export interface IProps {
 export interface IViewProps {
   header: IGridHeader[]
   data: IGridData[]
+}
+
+export type GridProps = {
+  grid: number
+  align: string
 }

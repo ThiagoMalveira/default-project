@@ -1,6 +1,6 @@
 export const ApiGateway = () => {
   const api = {
-    url: 'http://ec2-18-188-120-7.us-east-2.compute.amazonaws.com:8080/',
+    url: 'http://18.188.120.7:8080/',
   }
 
   return {

@@ -16,8 +16,6 @@ export const fetchClients = (): ThunkAction<
 
       const response = await ClientService.getClients()
 
-      console.log(response)
-
       if (response) {
         dispatch(clientSuccess(response))
 

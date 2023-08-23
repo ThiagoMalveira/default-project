@@ -1,10 +1,13 @@
 import Icon from '@components/UI/Icon'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import { theme } from '@resources/theme'
+import PathRoutes from '@route/PathRoutes'
 import * as S from './styles'
 
 const Footer = () => {
+  const { handleNavigate } = useHandleNavigate()
   return (
     <S.Container>
       <S.WrapperLogo>
@@ -26,6 +29,7 @@ const Footer = () => {
           lineHeight="27px"
           weight="600"
           color={theme.palette.text.light}
+          onClick={() => handleNavigate(PathRoutes.SIGN_UP)}
         >
           Seja parceiro
         </Typography>
@@ -35,6 +39,7 @@ const Footer = () => {
           lineHeight="27px"
           weight="600"
           color={theme.palette.text.light}
+          onClick={() => handleNavigate(PathRoutes.SIGN_IN)}
         >
           Entrar
         </Typography>
@@ -49,7 +54,11 @@ const Footer = () => {
           Fale conosco
         </Typography>
         <Separator verticalSize={10} />
-        <S.WrapperEmail>
+        <S.WrapperEmail
+          onClick={() =>
+            (window.location.href = 'mailto:contato@konekte.com.br')
+          }
+        >
           <Icon name="email" />
           <Separator horizontalSize={4} />
           <Typography
@@ -62,7 +71,9 @@ const Footer = () => {
             contato@konekte.com.br
           </Typography>
         </S.WrapperEmail>
-        <S.WrapperWhatsApp>
+        <S.WrapperWhatsApp
+          onClick={() => (window.location.href = 'tel: 11 99999-9999')}
+        >
           <Icon name="whatsAppFooter" />
           <Separator horizontalSize={4} />
           <Typography

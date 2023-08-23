@@ -9,12 +9,13 @@ export const WrapperLogo = styled.div`
   height: 100vh;
 `
 
-export const Container = styled.div`
+export const Container = styled.div<DefaultProps>`
   display: flex;
   flex-direction: row;
   width: 75vw;
   justify-content: space-between;
   align-items: flex-start;
+  background-color: ${({ theme }) => theme.palette.primary.light};
 `
 
 export const WrapperIcons = styled.div`

@@ -3,9 +3,9 @@ import { FunctionComponent } from 'react'
 import Typography, { FontType } from '@components/UI/Typography'
 import { generateKey } from '@resources/utils/generateKey'
 
-import { IViewProps } from './types'
-import { Container, Row, Column } from './styles'
 import { formatToMoney } from '@resources/utils/forNumber'
+import { Column, Container, Row } from './styles'
+import { IViewProps } from './types'
 
 const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
   return (
@@ -18,7 +18,12 @@ const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
             key={generateKey()}
           >
             {typeof headerItem.label === 'string' ? (
-              <Typography fontType={FontType.bold} size={13}>
+              <Typography
+                fontType={FontType.bold}
+                size={12}
+                color={headerItem.styles.color}
+                weight="600"
+              >
                 {headerItem.label}
               </Typography>
             ) : (

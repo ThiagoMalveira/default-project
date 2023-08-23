@@ -6,6 +6,7 @@ import { IKeyArgHeader } from '@resources/types/service'
 import PathRoutes from '@route/PathRoutes'
 import { store } from '@store/index'
 
+import { authLogout } from '@store/auth/slice'
 import { ApiGateway } from './configs/GatewayConfig'
 
 let instance: null | AxiosInstance = null
@@ -34,7 +35,7 @@ const checkInstanceAuth = (instanceItem: AxiosInstance) => {
       const statesStore = store.getState()
 
       if (statesStore.auth?.credentials) {
-        config.headers.Authorization = statesStore.auth?.credentials
+        config.headers.Authorization = `Bearer ${statesStore.auth?.credentials}`
       }
 
       return Promise.resolve(config)
@@ -59,12 +60,12 @@ const checkResponseAuth = (instanceItem: AxiosInstance) => {
       }
 
       if (error.response.status === HttpCodes.UNAUTHORIZED) {
-        // store.dispatch(deleteAuth());
+        store.dispatch(authLogout())
 
         const statesStore = store.getState()
 
-        if (!statesStore.auth?.credentials?.accessToken) {
-          return <Navigate to={PathRoutes.SIGN_OUT} replace />
+        if (!statesStore.auth?.credentials) {
+          return <Navigate to={PathRoutes.SIGN_IN} replace />
         }
       }
     },

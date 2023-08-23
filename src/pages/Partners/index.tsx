@@ -1,9 +1,11 @@
+import DataGrid from '@components/DataGrid'
 import HeaderPartner from '@components/HeaderPartner'
 import Sidebar from '@components/Sidebar'
 import * as S from './styles'
+import usePartners from './usePartners'
 
 const Partners = () => {
-  // const { columns, rows } = usePartners()
+  const { header, data } = usePartners()
 
   return (
     <>
@@ -13,7 +15,9 @@ const Partners = () => {
       </S.Container>
 
       <S.ContainerDataGrid>
-        {/*<DataGrid header={columns} data={rows} /> */}
+        <S.WrapperGrid>
+          <DataGrid header={header} data={data} />
+        </S.WrapperGrid>
       </S.ContainerDataGrid>
     </>
   )

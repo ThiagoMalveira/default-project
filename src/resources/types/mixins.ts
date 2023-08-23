@@ -8,5 +8,4 @@ export enum Fonts {
   light = 'light',
   extraLight = 'extraLight',
   thin = 'thin',
-  neueMetana = 'neueMetana',
 }

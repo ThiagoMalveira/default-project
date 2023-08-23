@@ -42,7 +42,13 @@ export const WrapperIcon = styled.div`
   align-items: center;
   justify-content: center;
   @media (max-width: 1024px) {
+    left: 60%;
+  }
+  @media (min-width: 481px) and (max-width: 780px) {
     left: 80%;
+  }
+  @media (min-width: 2539px) {
+    left: 83%;
   }
 `
 
