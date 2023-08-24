@@ -1,4 +1,4 @@
-import Typography, { FontType } from '@components/UI/Typography'
+import Typography from '@components/UI/Typography'
 import { useGoBack } from '@hooks/useGoBack'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import { theme } from '@resources/theme'
@@ -11,11 +11,7 @@ const BackButton = ({ title }: IProps) => {
   return (
     <S.Container onClick={handleGoBack}>
       <ArrowBackIcon />
-      <Typography
-        fontType={FontType.neueMetana}
-        color={theme.palette.text.dark}
-        size={18}
-      >
+      <Typography color={theme.palette.text.dark} size={18}>
         {title}
       </Typography>
     </S.Container>
