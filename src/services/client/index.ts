@@ -5,7 +5,7 @@ import { typesNotification } from '@resources/types/notification'
 import { translateUrlParam } from '@resources/utils/forString'
 import { AxiosResponse } from 'axios'
 import { endpoints, getApiHeader, getApiInstance } from '..'
-import { IGetClient, IRequestClient } from './types'
+import { IGetClient, IRequestClient, IUpdateStatus } from './types'
 
 export const ClientService = {
   createClient: async ({
@@ -77,6 +77,30 @@ export const ClientService = {
       })
 
       const response: AxiosResponse = await api.get(url, header)
+
+      return response.data
+    } catch (err) {
+      HandleError(err)
+    }
+  },
+  putClientStatus: async ({
+    clienteId,
+    clientestatusaprovacao,
+  }: IUpdateStatus): Promise<any> => {
+    try {
+      const api = getApiInstance()
+
+      const header = getApiHeader()
+
+      const payload = { clienteId, clientestatusaprovacao }
+
+      const response: AxiosResponse = await api.put(
+        endpoints.URL.clients.getClients,
+        payload,
+        header,
+      )
+
+      HandleNotification(typesNotification.SUCCESS, 'Alterado com sucesso!')
 
       return response.data
     } catch (err) {

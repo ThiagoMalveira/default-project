@@ -17,3 +17,8 @@ export type Segmento = {
 export type IGetClient = {
   id: string
 }
+
+export type IUpdateStatus = {
+  clienteId: string
+  clientestatusaprovacao: string
+}

@@ -32,7 +32,7 @@ export const palette: IPalette = {
     lightest: '#FFFFFF',
   },
   error: {
-    dark: '#B71E15',
+    dark: '#D55555',
     regular: '#EA534A',
     light: '#FF7A7A',
     lightest: '',
@@ -44,8 +44,8 @@ export const palette: IPalette = {
     lightest: '',
   },
   warning: {
-    dark: '#F1960E',
-    regular: '#F4AC40',
+    dark: '#e7dfd3',
+    regular: '#F39526',
     light: '#F7C06E',
     lightest: '#AD8D31',
   },

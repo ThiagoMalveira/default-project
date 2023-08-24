@@ -1,15 +1,26 @@
 import { IGridData, IGridHeader } from '@components/DataGrid/types'
+import SelectDataGrid from '@components/UI/SelectDataGrid'
 import { FontType } from '@components/UI/Typography'
 import { useAppDispatch, useAppSelector } from '@hooks/store'
+import HandleNotification from '@resources/helpers/handleNotification'
 import { theme } from '@resources/theme'
+import { typesNotification } from '@resources/types/notification'
+import { formatStringToCNPJ } from '@resources/utils/cnpj'
+import { ClientService } from '@services/client'
 import { fetchClients } from '@store/clients/action'
-import { useEffect, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
 import { IObjGrid } from './types'
 
 const usePartners = () => {
   const { client } = useAppSelector((state) => state.client)
   const dispatch = useAppDispatch()
   const [data, setData] = useState<IGridData[]>([])
+
+  const OPTIONS = [
+    { id: 1, value: 'PENDENTE' },
+    { id: 2, value: 'APROVADO' },
+    { id: 3, value: 'REPROVADO' },
+  ]
 
   const header: IGridHeader[] = [
     {
@@ -84,17 +95,57 @@ const usePartners = () => {
     },
   ]
 
-  const getObjDataGrid = ({ id, cnpj, segmento, status, index }: IObjGrid) => {
+  const getObjDataGrid = ({
+    id,
+    cnpj,
+    status,
+    estado,
+    segmento,
+    entrega,
+    index,
+  }: IObjGrid) => {
     return {
       id,
       values: {
         cnpj,
-        segmento,
         status,
+        estado,
+        segmento,
+        entrega,
         index,
       },
       select: '',
-      action: <></>,
+      action: (
+        <>
+          <SelectDataGrid
+            list={OPTIONS}
+            value={status}
+            inputWidth={150}
+            inputHeight={26}
+            backgroundColor={theme.palette.success.dark}
+            onChange={(event: ChangeEvent<HTMLSelectElement>) => {
+              const clientestatusaprovacao = event.target.value
+              const clienteId = id
+              try {
+                ClientService.putClientStatus({
+                  clienteId,
+                  clientestatusaprovacao,
+                })
+
+                HandleNotification(
+                  typesNotification.SUCCESS,
+                  'Alterado com sucesso!',
+                )
+              } catch (err) {
+                HandleNotification(
+                  typesNotification.ERROR,
+                  'Não foi possível alterar!',
+                )
+              }
+            }}
+          />
+        </>
+      ),
     }
   }
 
@@ -103,27 +154,29 @@ const usePartners = () => {
 
     let Clients: IGridData[] = []
 
-    if (client.lenght) {
-      Clients = client.map((client, index) => {
+    if (client?.length) {
+      Clients = client.map((clients, index) => {
         const item: IGridData = getObjDataGrid({
-          id: client.clienteId,
-          cnpj: client.clienteCnpj,
-          segmento: client.segmento[0].segmentoNome,
-          status: client.clientestatusaprovacao,
+          id: clients.clienteId,
+          cnpj: formatStringToCNPJ(clients.clienteCnpj),
+          estado: 'SP',
+          segmento: 'SAÚDE',
+          entrega: 'NACIONAL',
+          status: clients.clientestatusaprovacao,
           index,
         })
-        console.log(item)
         return item
       })
       setData(Clients)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [client])
 
   useEffect(() => {
     dispatch(fetchClients())
   }, [dispatch])
 
-  return { data, header }
+  return { data, header, client }
 }
 
 export default usePartners

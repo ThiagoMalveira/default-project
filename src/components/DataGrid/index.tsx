@@ -3,8 +3,9 @@ import { FunctionComponent } from 'react'
 import Typography, { FontType } from '@components/UI/Typography'
 import { generateKey } from '@resources/utils/generateKey'
 
+import Separator from '@components/UI/Separator'
 import { formatToMoney } from '@resources/utils/forNumber'
-import { Column, Container, Row } from './styles'
+import { AllRows, Column, Container, Row } from './styles'
 import { IViewProps } from './types'
 
 const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
@@ -33,35 +34,41 @@ const DataGrid: FunctionComponent<IViewProps> = ({ header, data }) => {
         ))}
       </Row>
       {data.map((dataItem, dataIndex) => (
-        <Row key={`${dataIndex}-${String(dataItem)}`} item>
+        <AllRows key={`${dataIndex}-${String(dataItem)}`} item>
           {header.map((headerItem, headerIndex) => {
             const element = dataItem.values[headerItem.value]
 
             return (
-              <Column
-                align={headerItem.styles.align}
-                grid={headerItem.grid}
-                key={`${headerIndex}-${String(headerItem.label)}`}
-              >
-                <>
-                  {headerItem.field === 'value' && (
-                    <Typography
-                      fontType={headerItem.styles.fontType}
-                      size={headerItem.styles.fontSize}
-                    >
-                      {typeof element === 'number'
-                        ? `R$ ${formatToMoney(element)}`
-                        : element && element}
-                    </Typography>
-                  )}
+              <>
+                <Column
+                  align={headerItem.styles.align}
+                  grid={headerItem.grid}
+                  key={`${headerIndex}-${String(headerItem.label)}`}
+                >
+                  <>
+                    {headerItem.field === 'value' && (
+                      <Typography
+                        fontType={headerItem.styles.fontType}
+                        size={headerItem.styles.fontSize}
+                        color={headerItem.styles.color}
+                      >
+                        {typeof element === 'number'
+                          ? `R$ ${formatToMoney(element)}`
+                          : element && element}
+                      </Typography>
+                    )}
 
-                  {headerItem.field === 'select' && <>{dataItem.select}</>}
-                  {headerItem.field === 'interaction' && <>{dataItem.action}</>}
-                </>
-              </Column>
+                    {headerItem.field === 'select' && <>{dataItem.select}</>}
+                    {headerItem.field === 'interaction' && (
+                      <>{dataItem.action}</>
+                    )}
+                  </>
+                </Column>
+                <Separator displayLine={true} verticalSize={100} />
+              </>
             )
           })}
-        </Row>
+        </AllRows>
       ))}
     </Container>
   )

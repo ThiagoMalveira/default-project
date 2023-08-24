@@ -12,10 +12,15 @@ export const WrapperLogo = styled.div`
 export const Container = styled.div<DefaultProps>`
   display: flex;
   flex-direction: row;
-  width: 75vw;
+  width: 100vw;
+  max-width: 65vw;
   justify-content: space-between;
   align-items: flex-start;
   background-color: ${({ theme }) => theme.palette.primary.light};
+
+  @media (min-width: 2539px) {
+    max-width: 84vw;
+  }
 `
 
 export const WrapperIcons = styled.div`

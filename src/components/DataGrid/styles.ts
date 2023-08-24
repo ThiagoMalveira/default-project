@@ -21,9 +21,9 @@ export const Container = styled.div<DefaultProps>`
 export const Row = styled.div<{ item?: boolean } & DefaultProps>`
   display: flex;
   float: left;
-  width: 1280px;
+  width: 2300px;
   max-width: 80vw;
-  background: ${({ theme }) => theme.palette.neutral.lightest};
+  background: ${({ theme }) => theme.palette.primary.lightest};
   max-height: 50px;
   border-radius: 5px;
   height: 100vh;
@@ -45,6 +45,7 @@ export const Row = styled.div<{ item?: boolean } & DefaultProps>`
     item &&
     `
     cursor: pointer;
+    
 
     &:hover {
       background: ${theme.palette.tertiary.dark};
@@ -60,7 +61,7 @@ export const Column = styled.div<DefaultProps & GridProps>`
   box-sizing: border-box;
   width: 100%;
   margin: 0 2px 0 20px;
-  color: ${({ theme }) => theme.palette.text.dark};
+  color: ${({ theme }) => theme.palette.secondary.dark};
   justify-content: ${({ align }) =>
     align === 'left' ? 'flex-start' : 'flex-end'};
 
@@ -75,4 +76,40 @@ export const Column = styled.div<DefaultProps & GridProps>`
   &:last-child {
     margin: 0px 0px 0px 2px;
   }
+`
+
+export const AllRows = styled.div<{ item?: boolean } & DefaultProps>`
+  display: flex;
+  float: left;
+  width: 2300px;
+  max-width: 80vw;
+  background: ${({ theme }) => theme.palette.primary.light};
+  border-bottom: 1px solid ${({ theme }) => theme.palette.info.lightest};
+  max-height: 65px;
+  border-radius: 5px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 5px 0;
+  margin: 5px 0;
+
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  ${({ item, theme }) =>
+    item &&
+    `
+    cursor: pointer;
+    
+
+    &:hover {
+      background: ${theme.palette.tertiary.dark};
+    }
+  `}
 `
