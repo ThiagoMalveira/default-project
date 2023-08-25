@@ -1,5 +1,6 @@
 import ModalSettings from '@components/ModalSettings'
 import Typography from '@components/UI/Typography'
+import usePageTitle from '@hooks/usePageTitle'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined'
@@ -10,12 +11,13 @@ import useHeaderPartner from './useHeaderPartner'
 
 const HeaderPartner = () => {
   const { handleChangeModal, isSettingOpen } = useHeaderPartner()
+  const { pageTitle } = usePageTitle()
 
   return (
     <S.Container>
       <S.WrapperLogo>
         <Typography color={theme.palette.text.dark} size={24} weight="600">
-          Dashboard
+          {pageTitle}
         </Typography>
       </S.WrapperLogo>
       <S.WrapperIcons>
