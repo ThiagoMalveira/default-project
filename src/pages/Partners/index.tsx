@@ -9,7 +9,7 @@ import * as S from './styles'
 import usePartners from './usePartners'
 
 const Partners = () => {
-  const { header, data, client } = usePartners()
+  const { header, data, client, setFilter, filter } = usePartners()
 
   return (
     <>
@@ -20,33 +20,53 @@ const Partners = () => {
 
       <S.ContainerDataGrid>
         <S.WrapperFilters>
-          <Typography
-            onClick={() => console.log('Set pending ')}
-            align="center"
-            size={28}
-            weight="700"
-            color={theme.palette.text.dark}
-          >
-            Pendentes
-          </Typography>
+          <S.ContainerFilter filter={filter}>
+            <Typography
+              onClick={() => setFilter('PENDENTE')}
+              align="center"
+              size={28}
+              weight="700"
+              color={
+                filter === 'PENDENTE'
+                  ? `${theme.palette.warning.lightest}`
+                  : `${theme.palette.text.dark}`
+              }
+            >
+              Pendentes
+            </Typography>
+          </S.ContainerFilter>
           <Separator horizontalSize={10} />
-          <Typography
-            align="center"
-            size={28}
-            weight="700"
-            color={theme.palette.text.dark}
-          >
-            Aprovados
-          </Typography>
+          <S.ContainerFilter filter={filter}>
+            <Typography
+              onClick={() => setFilter('APROVADO')}
+              align="center"
+              size={28}
+              weight="700"
+              color={
+                filter === 'APROVADO'
+                  ? `${theme.palette.warning.lightest}`
+                  : `${theme.palette.text.dark}`
+              }
+            >
+              Aprovados
+            </Typography>
+          </S.ContainerFilter>
           <Separator horizontalSize={10} />
-          <Typography
-            align="center"
-            size={28}
-            weight="700"
-            color={theme.palette.text.dark}
-          >
-            Reprovado
-          </Typography>
+          <S.ContainerFilter filter={filter}>
+            <Typography
+              onClick={() => setFilter('REPROVADO')}
+              align="center"
+              size={28}
+              weight="700"
+              color={
+                filter === 'REPROVADO'
+                  ? `${theme.palette.warning.lightest}`
+                  : `${theme.palette.text.dark}`
+              }
+            >
+              Reprovado
+            </Typography>
+          </S.ContainerFilter>
         </S.WrapperFilters>
         {!client ? (
           <Loading />

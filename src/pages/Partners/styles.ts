@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { DefaultProps } from '@resources/types'
+import { IPropsStyle } from './types'
 
 export const Container = styled.div<DefaultProps>`
   display: flex;
@@ -44,4 +45,43 @@ export const WrapperFilters = styled.div<DefaultProps>`
   width: 80vw;
   margin: 0 0 20px 330px;
   padding: 20px;
+`
+
+export const ContainerFilter = styled.div<IPropsStyle & DefaultProps>`
+  display: flex;
+  padding: 10px 0px;
+
+  ${({ filter, theme }) =>
+    filter === 'PENDENTE' &&
+    `
+    &:nth-child(1) {
+      border-bottom: 1px solid ${theme.palette.warning.lightest};
+    }
+    `}
+
+  ${({ filter, theme }) =>
+    filter === 'APROVADO' &&
+    `
+    &:nth-child(3){
+      
+      border-bottom: 1px solid ${theme.palette.warning.lightest};
+    }
+
+  `}
+
+  ${({ filter, theme }) =>
+    filter === 'REPROVADO' &&
+    `
+    &:nth-child(5){
+      
+      border-bottom: 1px solid ${theme.palette.warning.lightest};
+    }
+
+  `}
+
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `

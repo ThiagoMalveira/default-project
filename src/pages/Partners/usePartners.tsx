@@ -9,10 +9,15 @@ import { formatStringToCNPJ } from '@resources/utils/cnpj'
 import { ClientService } from '@services/client'
 import { fetchClients } from '@store/clients/action'
 import { ChangeEvent, useEffect, useState } from 'react'
+import ModalAprovado from './Components/ModalAprovado'
+import ModalReprovado from './Components/ModalReprovado'
 import { IObjGrid } from './types'
 
 const usePartners = () => {
   const { client } = useAppSelector((state) => state.client)
+  const [filter, setFilter] = useState<'PENDENTE' | 'APROVADO' | 'REPROVADO'>(
+    'PENDENTE',
+  )
   const dispatch = useAppDispatch()
   const [data, setData] = useState<IGridData[]>([])
 
@@ -126,11 +131,30 @@ const usePartners = () => {
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
               const clientestatusaprovacao = event.target.value
               const clienteId = id
+
+              const ModalSetup = {
+                APROVADO: () => (
+                  <ModalAprovado
+                    open={true}
+                    id={clienteId}
+                    status={clientestatusaprovacao}
+                  />
+                ),
+                REPROVADO: () => (
+                  <ModalReprovado
+                    open={true}
+                    id={clienteId}
+                    status={clientestatusaprovacao}
+                  />
+                ),
+              }
               try {
                 ClientService.putClientStatus({
                   clienteId,
                   clientestatusaprovacao,
                 })
+
+                ModalSetup[clientestatusaprovacao]()
 
                 HandleNotification(
                   typesNotification.SUCCESS,
@@ -154,13 +178,17 @@ const usePartners = () => {
 
     let Clients: IGridData[] = []
 
-    if (client?.length) {
-      Clients = client.map((clients, index) => {
+    const clientFiltered = client.filter(
+      (client) => client.clientestatusaprovacao === filter,
+    )
+
+    if (clientFiltered?.length) {
+      Clients = clientFiltered.map((clients, index) => {
         const item: IGridData = getObjDataGrid({
           id: clients.clienteId,
           cnpj: formatStringToCNPJ(clients.clienteCnpj),
-          estado: 'SP',
-          segmento: 'SAÚDE',
+          estado: clients?.clienteAddressUf || 'Sem estado',
+          segmento: clients?.segmentos[0]?.segmentoNome || 'Sem segmento',
           entrega: 'NACIONAL',
           status: clients.clientestatusaprovacao,
           index,
@@ -170,13 +198,13 @@ const usePartners = () => {
       setData(Clients)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [client])
+  }, [client, filter])
 
   useEffect(() => {
     dispatch(fetchClients())
   }, [dispatch])
 
-  return { data, header, client }
+  return { data, header, client, setFilter, filter }
 }
 
 export default usePartners

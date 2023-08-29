@@ -7,3 +7,7 @@ export type IObjGrid = {
   status: string
   index: number
 }
+
+export type IPropsStyle = {
+  filter: 'PENDENTE' | 'APROVADO' | 'REPROVADO'
+}
