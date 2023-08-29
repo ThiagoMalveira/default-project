@@ -1,6 +1,6 @@
 export const ApiGateway = () => {
   const api = {
-    url: 'http://18.188.120.7:8080/',
+    url: 'https://n7lnd0cuw2.execute-api.sa-east-1.amazonaws.com/konekt_dev',
   }
 
   return {

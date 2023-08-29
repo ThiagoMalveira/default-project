@@ -19,6 +19,7 @@ export const ContainerButton = styled.div<DefaultProps>`
 
 export const ContainerDataGrid = styled.div<DefaultProps>`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 93vh;
@@ -33,5 +34,14 @@ export const WrapperGrid = styled.div<DefaultProps>`
   width: 80vw;
   height: 80vh;
   margin: 0 0 0 330px;
+  padding: 20px;
+`
+
+export const WrapperFilters = styled.div<DefaultProps>`
+  background-color: ${({ theme }) => theme.palette.primary.light};
+  display: flex;
+  border-radius: 10px;
+  width: 80vw;
+  margin: 0 0 20px 330px;
   padding: 20px;
 `
