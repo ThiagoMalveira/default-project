@@ -21,6 +21,9 @@ export const Container = styled.div<DefaultProps>`
   @media (min-width: 2539px) {
     max-width: 84vw;
   }
+  @media (min-width: 1919px) {
+    max-width: 82vw;
+  }
 `
 
 export const WrapperIcons = styled.div`

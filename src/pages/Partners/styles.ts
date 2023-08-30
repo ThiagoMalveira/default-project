@@ -26,6 +26,15 @@ export const ContainerDataGrid = styled.div<DefaultProps>`
   height: 93vh;
   width: 100vw;
   background-color: ${({ theme }) => theme.palette.primary.lightest};
+
+  @media (max-width: 1919px) {
+    height: 90vh;
+    width: 100vw;
+  }
+  @media (max-width: 2559px) {
+    height: 93vh;
+    width: 100vw;
+  }
 `
 
 export const WrapperGrid = styled.div<DefaultProps>`
@@ -36,6 +45,10 @@ export const WrapperGrid = styled.div<DefaultProps>`
   height: 80vh;
   margin: 0 0 0 330px;
   padding: 20px;
+
+  @media (min-width: 1919px) {
+    margin: 0 0px 20px 330px;
+  }
 `
 
 export const WrapperFilters = styled.div<DefaultProps>`
@@ -43,7 +56,7 @@ export const WrapperFilters = styled.div<DefaultProps>`
   display: flex;
   border-radius: 10px;
   width: 80vw;
-  margin: 0 0 20px 330px;
+  margin: 20px 0 20px 330px;
   padding: 20px;
 `
 

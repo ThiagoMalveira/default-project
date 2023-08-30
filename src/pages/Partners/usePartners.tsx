@@ -9,8 +9,6 @@ import { formatStringToCNPJ } from '@resources/utils/cnpj'
 import { ClientService } from '@services/client'
 import { fetchClients } from '@store/clients/action'
 import { ChangeEvent, useEffect, useState } from 'react'
-import ModalAprovado from './Components/ModalAprovado'
-import ModalReprovado from './Components/ModalReprovado'
 import { IObjGrid } from './types'
 
 const usePartners = () => {
@@ -132,34 +130,18 @@ const usePartners = () => {
               const clientestatusaprovacao = event.target.value
               const clienteId = id
 
-              const ModalSetup = {
-                APROVADO: () => (
-                  <ModalAprovado
-                    open={true}
-                    id={clienteId}
-                    status={clientestatusaprovacao}
-                  />
-                ),
-                REPROVADO: () => (
-                  <ModalReprovado
-                    open={true}
-                    id={clienteId}
-                    status={clientestatusaprovacao}
-                  />
-                ),
-              }
               try {
                 ClientService.putClientStatus({
                   clienteId,
                   clientestatusaprovacao,
                 })
 
-                ModalSetup[clientestatusaprovacao]()
-
                 HandleNotification(
                   typesNotification.SUCCESS,
                   'Alterado com sucesso!',
                 )
+
+                dispatch(fetchClients())
               } catch (err) {
                 HandleNotification(
                   typesNotification.ERROR,
