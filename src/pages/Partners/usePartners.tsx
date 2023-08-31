@@ -11,13 +11,30 @@ import { fetchClients } from '@store/clients/action'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { IObjGrid } from './types'
 
+const ITEMS_PER_PAGE = 10
+
 const usePartners = () => {
   const { client } = useAppSelector((state) => state.client)
   const [filter, setFilter] = useState<'PENDENTE' | 'APROVADO' | 'REPROVADO'>(
     'PENDENTE',
   )
+
+  const [currentPage, setCurrentPage] = useState(1)
   const dispatch = useAppDispatch()
   const [data, setData] = useState<IGridData[]>([])
+
+  const indexOfLastItem = currentPage * ITEMS_PER_PAGE
+  const indexOfFirstItem = indexOfLastItem - ITEMS_PER_PAGE
+
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem)
+  const totalPages =
+    Math.ceil(data.length / ITEMS_PER_PAGE) > 5
+      ? Math.ceil(data.length / ITEMS_PER_PAGE)
+      : 5
+
+  const handlePageChange = (page: number): void => {
+    setCurrentPage(page)
+  }
 
   const OPTIONS = [
     { id: 1, value: 'PENDENTE' },
@@ -84,6 +101,20 @@ const usePartners = () => {
     },
     {
       label: 'STATUS',
+      grid: 5,
+      action: () => null,
+      order: false,
+      value: 'status',
+      field: 'value',
+      styles: {
+        align: 'left',
+        fontType: FontType.regular,
+        fontSize: 22,
+        color: `${theme.palette.text.dark}`,
+      },
+    },
+    {
+      label: 'ACTION',
       grid: 3,
       action: () => null,
       order: false,
@@ -140,14 +171,13 @@ const usePartners = () => {
                   typesNotification.SUCCESS,
                   'Alterado com sucesso!',
                 )
-
-                dispatch(fetchClients())
               } catch (err) {
                 HandleNotification(
                   typesNotification.ERROR,
                   'Não foi possível alterar!',
                 )
               }
+              dispatch(fetchClients())
             }}
           />
         </>
@@ -186,7 +216,17 @@ const usePartners = () => {
     dispatch(fetchClients())
   }, [dispatch])
 
-  return { data, header, client, setFilter, filter }
+  return {
+    data,
+    header,
+    client,
+    setFilter,
+    filter,
+    handlePageChange,
+    currentItems,
+    totalPages,
+    currentPage,
+  }
 }
 
 export default usePartners

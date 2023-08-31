@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 import { DefaultProps } from '@resources/types'
-import { IPropsStyle } from './types'
+import { IPropsStyle, IStyledProps } from './types'
 
 export const Container = styled.div<DefaultProps>`
   display: flex;
@@ -40,6 +40,8 @@ export const ContainerDataGrid = styled.div<DefaultProps>`
 export const WrapperGrid = styled.div<DefaultProps>`
   background-color: ${({ theme }) => theme.palette.primary.light};
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 10px;
   width: 80vw;
   height: 80vh;
@@ -92,6 +94,46 @@ export const ContainerFilter = styled.div<IPropsStyle & DefaultProps>`
 
   `}
 
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
+export const WrapperPagination = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+export const WrapperButtonPagination = styled.div<DefaultProps & IStyledProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  background-color: ${({ isActive, theme }) =>
+    isActive
+      ? `${theme.palette.tertiary.dark}`
+      : `${theme.palette.primary.lightest}`};
+
+  cursor: ${({ isActive }) => (isActive ? 'default' : 'pointer')};
+
+  border-radius: 100px;
+`
+
+export const Button = styled.button<DefaultProps & IStyledProps>`
+  display: flex;
+  color: ${({ isActive, theme }) =>
+    isActive
+      ? `${theme.palette.primary.light}`
+      : `${theme.palette.text.light}`};
+  border: none;
+  background: none;
 
   &:hover {
     cursor: pointer;

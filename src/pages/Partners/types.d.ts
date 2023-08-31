@@ -11,3 +11,7 @@ export type IObjGrid = {
 export type IPropsStyle = {
   filter: 'PENDENTE' | 'APROVADO' | 'REPROVADO'
 }
+
+export type IStyledProps = {
+  isActive: boolean
+}

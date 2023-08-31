@@ -4,12 +4,23 @@ import Loading from '@components/Loading'
 import Sidebar from '@components/Sidebar'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
+import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import { theme } from '@resources/theme'
 import * as S from './styles'
 import usePartners from './usePartners'
 
 const Partners = () => {
-  const { header, data, client, setFilter, filter } = usePartners()
+  const {
+    header,
+    client,
+    setFilter,
+    filter,
+    currentItems,
+    handlePageChange,
+    totalPages,
+    currentPage,
+  } = usePartners()
 
   return (
     <>
@@ -72,7 +83,28 @@ const Partners = () => {
           <Loading />
         ) : (
           <S.WrapperGrid>
-            <DataGrid header={header} data={data} />
+            <DataGrid header={header} data={currentItems} />
+            <S.WrapperPagination>
+              <NavigateBeforeIcon
+                onClick={() => handlePageChange(currentPage - 1)}
+                sx={{ color: theme.palette.tertiary.dark }}
+              />
+              {Array.from({ length: totalPages }, (_, index: number) => (
+                <S.WrapperButtonPagination
+                  key={index}
+                  isActive={currentPage === index + 1}
+                  onClick={() => handlePageChange(index + 1)}
+                >
+                  <S.Button isActive={currentPage === index + 1}>
+                    {index + 1}
+                  </S.Button>
+                </S.WrapperButtonPagination>
+              ))}
+              <NavigateNextIcon
+                onClick={() => handlePageChange(currentPage + 1)}
+                sx={{ color: theme.palette.tertiary.dark }}
+              />
+            </S.WrapperPagination>
           </S.WrapperGrid>
         )}
       </S.ContainerDataGrid>
