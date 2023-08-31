@@ -1,5 +1,5 @@
 export type IObjGrid = {
-  id: string
+  id: number
   cnpj: string
   estado: string
   segmento: string

@@ -19,6 +19,6 @@ export type IGetClient = {
 }
 
 export type IUpdateStatus = {
-  clienteId: string
+  clienteId: number
   clientestatusaprovacao: string
 }

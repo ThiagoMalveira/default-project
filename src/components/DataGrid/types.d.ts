@@ -18,7 +18,7 @@ export interface IGridHeader {
 }
 
 export interface IGridData {
-  id: string
+  id: number
   select: ReactNode | string
   action: ReactNode | string
   values: {

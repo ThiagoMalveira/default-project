@@ -1,14 +1,18 @@
 import { IGridData, IGridHeader } from '@components/DataGrid/types'
-import SelectDataGrid from '@components/UI/SelectDataGrid'
+import ModalAccept from '@components/ModalAccept'
+import ModalPending from '@components/ModalPending'
+import ModalReject from '@components/ModalReject'
 import { FontType } from '@components/UI/Typography'
 import { useAppDispatch, useAppSelector } from '@hooks/store'
-import HandleNotification from '@resources/helpers/handleNotification'
+import { Backdrop, Modal } from '@material-ui/core'
+import CheckIcon from '@mui/icons-material/Check'
+import CloseIcon from '@mui/icons-material/Close'
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark'
 import { theme } from '@resources/theme'
-import { typesNotification } from '@resources/types/notification'
 import { formatStringToCNPJ } from '@resources/utils/cnpj'
-import { ClientService } from '@services/client'
 import { fetchClients } from '@store/clients/action'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import * as S from './styles'
 import { IObjGrid } from './types'
 
 const ITEMS_PER_PAGE = 10
@@ -18,6 +22,9 @@ const usePartners = () => {
   const [filter, setFilter] = useState<'PENDENTE' | 'APROVADO' | 'REPROVADO'>(
     'PENDENTE',
   )
+  const [openModalAccept, setOpenModalAccept] = useState(false)
+  const [openModalReject, setOpenModalReject] = useState(false)
+  const [openModalPending, setOpenModalPending] = useState(false)
 
   const [currentPage, setCurrentPage] = useState(1)
   const dispatch = useAppDispatch()
@@ -36,11 +43,10 @@ const usePartners = () => {
     setCurrentPage(page)
   }
 
-  const OPTIONS = [
-    { id: 1, value: 'PENDENTE' },
-    { id: 2, value: 'APROVADO' },
-    { id: 3, value: 'REPROVADO' },
-  ]
+  const handleCloseModal = () => {
+    setOpenModalReject(false)
+    setOpenModalAccept(false)
+  }
 
   const header: IGridHeader[] = [
     {
@@ -151,35 +157,57 @@ const usePartners = () => {
       select: '',
       action: (
         <>
-          <SelectDataGrid
-            list={OPTIONS}
-            value={status}
-            inputWidth={150}
-            inputHeight={26}
-            backgroundColor={theme.palette.success.dark}
-            onChange={(event: ChangeEvent<HTMLSelectElement>) => {
-              const clientestatusaprovacao = event.target.value
-              const clienteId = id
+          <S.WrapperIcons>
+            <CheckIcon
+              onClick={() => setOpenModalAccept(true)}
+              sx={{ color: theme.palette.success.dark }}
+            />
 
-              try {
-                ClientService.putClientStatus({
-                  clienteId,
-                  clientestatusaprovacao,
-                })
+            <Modal
+              open={openModalAccept}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+              onClose={handleCloseModal}
+            >
+              <ModalAccept id={id} />
+            </Modal>
 
-                HandleNotification(
-                  typesNotification.SUCCESS,
-                  'Alterado com sucesso!',
-                )
-              } catch (err) {
-                HandleNotification(
-                  typesNotification.ERROR,
-                  'Não foi possível alterar!',
-                )
-              }
-              dispatch(fetchClients())
-            }}
-          />
+            <CloseIcon
+              onClick={() => setOpenModalReject(true)}
+              sx={{ color: theme.palette.error.dark }}
+            />
+
+            <Modal
+              open={openModalReject}
+              onClose={handleCloseModal}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <ModalReject id={id} />
+            </Modal>
+
+            <QuestionMarkIcon
+              onClick={() => setOpenModalPending(true)}
+              sx={{ color: theme.palette.warning.regular }}
+            />
+            <Modal
+              open={openModalPending}
+              onClose={handleCloseModal}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <ModalPending id={id} />
+            </Modal>
+          </S.WrapperIcons>
         </>
       ),
     }
