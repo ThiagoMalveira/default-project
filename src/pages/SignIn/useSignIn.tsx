@@ -41,6 +41,19 @@ const useSignIn = () => {
     if (user.roles.includes('ROLE_ADMIN')) {
       handleNavigate(PathRoutes.PARTNERS)
     }
+    const MOCK = 'APROVADO_NODOC'
+
+    if (user.roles.includes('ROLE_USER')) {
+      if (user.status === 'PENDENTE') {
+        handleNavigate(PathRoutes.PENDING_USER)
+      }
+      if (user.status === 'APROVADO_NODOC' || MOCK) {
+        handleNavigate(PathRoutes.REGISTER)
+      }
+      if (user.status === 'APROVADO') {
+        handleNavigate(PathRoutes.PANEL_PARTNER)
+      }
+    }
   }, [user, credentials, handleNavigate])
 
   useEffect(() => {

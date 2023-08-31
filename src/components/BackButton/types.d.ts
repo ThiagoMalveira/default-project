@@ -5,4 +5,5 @@ export type IViewProps = {
 
 export type IProps = {
   title: string
+  useLogout?: boolean
 }

@@ -5,6 +5,8 @@ type IProps = {
   active?: boolean
 }
 
+export const Span = styled.span<DefaultProps>``
+
 export const Container = styled.div<DefaultProps & IProps>`
   display: flex;
   align-items: center;
@@ -18,6 +20,12 @@ export const Container = styled.div<DefaultProps & IProps>`
 
   > svg {
     margin: 0 20px;
+  }
+
+  @media (max-width: 1366px) {
+    span {
+      display: none;
+    }
   }
 
   ${({ active }) =>

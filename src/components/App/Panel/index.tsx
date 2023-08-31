@@ -1,9 +1,7 @@
 import { Fragment } from 'react'
 
-import Header from './Header'
-
-import { Container, WrapperContent, Content } from './styles'
 import { StyleGlobal } from './styleGlobal'
+import { Container, Content } from './styles'
 import { IProps } from './types'
 
 const Panel = ({ children }: IProps) => {
@@ -11,10 +9,7 @@ const Panel = ({ children }: IProps) => {
     <Fragment>
       <StyleGlobal />
       <Container>
-        <WrapperContent>
-          <Header />
-          <Content>{children}</Content>
-        </WrapperContent>
+        <Content>{children}</Content>
       </Container>
     </Fragment>
   )

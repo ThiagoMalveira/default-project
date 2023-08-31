@@ -1,22 +1,21 @@
 import { Fragment } from 'react'
-import { Routes as ListRoutes, Route } from 'react-router-dom'
+import { Routes as ListRoutes, Navigate, Route } from 'react-router-dom'
 
-// import { Authenticate } from "@resources/helpers/authenticated";
+import Panel from '@components/App/Panel'
 
-// import Panel from "@components/App/Panel";
-
+import useAuthenticated from '@hooks/useAuthenticated'
 import PathRoutes from './PathRoutes'
 import PathScreens from './PathScreens'
 
-/*const PrivateRoute = ({ children }: ReactNode) => {
-  const isAuthenticated = Authenticate();
+const PrivateRoute = ({ children }: any) => {
+  const { Authenticated } = useAuthenticated()
 
-  return isAuthenticated ? (
+  return Authenticated ? (
     <Panel>{children}</Panel>
   ) : (
-    <Navigate to={PathRoutes.PANEL_HOME} replace />
-  );
-};*/
+    <Navigate to={PathRoutes.SIGN_IN} replace />
+  )
+}
 
 const Routes = () => {
   return (
@@ -36,7 +35,19 @@ const Routes = () => {
           path={PathRoutes.FORGOT_PASSWORD}
           element={PathScreens.FORGOT_PASSWORD}
         />
-        <Route path={PathRoutes.PARTNERS} element={PathScreens.PARTNERS} />
+        <Route
+          path={PathRoutes.PARTNERS}
+          element={<PrivateRoute>{PathScreens.PARTNERS}</PrivateRoute>}
+        />
+
+        <Route
+          path={PathRoutes.REGISTER}
+          element={<PrivateRoute>{PathScreens.REGISTER}</PrivateRoute>}
+        />
+        <Route
+          path={PathRoutes.PENDING_USER}
+          element={PathScreens.PENDING_USER}
+        />
 
         {/* Private Routes 
         <Route

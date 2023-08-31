@@ -1,5 +1,5 @@
-import { ReactElement } from 'react'
 import { Global, css } from '@emotion/react'
+import { ReactElement } from 'react'
 
 import { theme } from '@resources/theme'
 
@@ -12,7 +12,7 @@ export const StyleGlobal = (): ReactElement => (
       }
 
       body {
-        background: ${theme.palette.primary.light};
+        background: ${theme.palette.primary.lightest};
       }
     `}
   />
