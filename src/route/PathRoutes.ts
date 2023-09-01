@@ -5,7 +5,6 @@ const PathRoutes = {
   FORGOT_PASSWORD: '/forgot-password',
   PARTNERS: '/operador/parceiros',
 
-  PENDING_USER: '/pending-user',
   REGISTER: '/register',
   PANEL_PARTNER: '/panel/parceiros',
 

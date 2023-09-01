@@ -1,7 +1,6 @@
 import ForgotPassword from '@pages/ForgotPassword'
 import Home from '@pages/Home'
 import Partners from '@pages/Partners'
-import PendingUser from '@pages/PendingUser'
 import Register from '@pages/Register'
 import SignIn from '@pages/SignIn'
 import SignUp from '@pages/SignUp'
@@ -12,7 +11,6 @@ const PathScreens = {
   SIGN_UP: <SignUp />,
   FORGOT_PASSWORD: <ForgotPassword />,
   PARTNERS: <Partners />,
-  PENDING_USER: <PendingUser />,
   REGISTER: <Register />,
   //  PANEL_PARTNER: <PanelPartner />,
 }

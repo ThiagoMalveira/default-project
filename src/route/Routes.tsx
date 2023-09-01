@@ -44,10 +44,6 @@ const Routes = () => {
           path={PathRoutes.REGISTER}
           element={<PrivateRoute>{PathScreens.REGISTER}</PrivateRoute>}
         />
-        <Route
-          path={PathRoutes.PENDING_USER}
-          element={PathScreens.PENDING_USER}
-        />
 
         {/* Private Routes 
         <Route

@@ -44,9 +44,6 @@ const useSignIn = () => {
     const MOCK = 'APROVADO_NODOC'
 
     if (user.roles.includes('ROLE_USER')) {
-      if (user.status === 'PENDENTE') {
-        handleNavigate(PathRoutes.PENDING_USER)
-      }
       if (user.status === 'APROVADO_NODOC' || MOCK) {
         handleNavigate(PathRoutes.REGISTER)
       }
