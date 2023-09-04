@@ -3,14 +3,14 @@ import { Routes as ListRoutes, Navigate, Route } from 'react-router-dom'
 
 import Panel from '@components/App/Panel'
 
-import useAuthenticated from '@hooks/useAuthenticated'
+import useIsAuthenticated from '@hooks/useAuthenticated'
 import PathRoutes from './PathRoutes'
 import PathScreens from './PathScreens'
 
 const PrivateRoute = ({ children }: any) => {
-  const { Authenticated } = useAuthenticated()
+  const { isAuthenticated } = useIsAuthenticated()
 
-  return Authenticated ? (
+  return isAuthenticated ? (
     <Panel>{children}</Panel>
   ) : (
     <Navigate to={PathRoutes.SIGN_IN} replace />

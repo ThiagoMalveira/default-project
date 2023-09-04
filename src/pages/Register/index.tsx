@@ -1,12 +1,15 @@
 import CardRegister from '@components/CardRegister'
+import Dropzone from '@components/Dropzone'
 import ImageLogin from '@components/ImageLogin'
-import ModalTerms from '@components/ModalTerms'
+import TermsText from '@components/ModalTerms/mock'
+import ButtonGradient from '@components/UI/ButtonGradient'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
 import { Backdrop, Modal } from '@material-ui/core'
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
 import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined'
+import CloseIcon from '@mui/icons-material/Close'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined'
 import { theme } from '@resources/theme'
@@ -16,15 +19,187 @@ import useRegister from './useRegister'
 const Register = () => {
   const {
     statusBankAccount,
-    statusContract,
     statusShipping,
+    statusContract,
+    // Modal status
+    modalCreateManualTable,
     modalContract,
+    modalShipping,
+    // modalBankAccount,
+    // Handle close and complete
+    handleCloseAndCompleteModalShipping,
+    // handleCloseAndCompleteModalBankAccount,
+    handleCloseAndCompleteModalContract,
+    // Handle close only
     handleCloseModalContract,
-    handleOpenAndFinishContract,
-    handleOpenAndFinishBankAccount,
-    handleOpenAndFinishShipping,
+    handleCloseModalShipping,
+    // handleCloseModalBankAccount,
+    handleCloseModalCreateManualTable,
+    // handle Open modals
+    handleOpenModalCreateManualTable,
+    handleOpenModalBankAccount,
+    handleOpenModalContract,
+    handleOpenModalShipping,
   } = useRegister()
   const step = '2'
+
+  const ModalCreateManualTable = () => {
+    return (
+      <S.ContainerManualTable>
+        <S.WrapperTitleModal>
+          <Typography size={18} weight="600" color={theme.palette.text.dark}>
+            Tabela de frete
+          </Typography>
+          <S.WrapperIcon onClick={handleCloseModalShipping}>
+            <CloseIcon sx={{ color: theme.palette.text.dark }} />
+          </S.WrapperIcon>
+        </S.WrapperTitleModal>
+        <S.WrapperButtonShipping>
+          <S.WrapperButtonCancelShipping onClick={handleCloseModalShipping}>
+            <Typography
+              color={theme.palette.text.dark}
+              weight="400"
+              size={14}
+              textDecoration="underline"
+            >
+              Cancelar
+            </Typography>
+          </S.WrapperButtonCancelShipping>
+          <ButtonGradient
+            height={59}
+            width={265}
+            onClick={handleCloseAndCompleteModalShipping}
+          >
+            <Typography
+              size={18}
+              weight="600"
+              align="center"
+              color={theme.palette.primary.lightest}
+            >
+              Salvar
+            </Typography>
+          </ButtonGradient>
+        </S.WrapperButtonShipping>
+      </S.ContainerManualTable>
+    )
+  }
+
+  const ModalShipping = () => {
+    return (
+      <S.ContainerModalShipping>
+        <S.WrapperTitleModal>
+          <Typography size={18} weight="600" color={theme.palette.text.dark}>
+            Tabela de frete
+          </Typography>
+          <S.WrapperIcon onClick={handleCloseModalShipping}>
+            <CloseIcon sx={{ color: theme.palette.text.dark }} />
+          </S.WrapperIcon>
+        </S.WrapperTitleModal>
+        <S.WrapperShippingCompany>
+          <Typography size={14} weight="400" color={theme.palette.text.dark}>
+            Nome da transportadora
+          </Typography>
+          <Typography size={16} weight="600" color={theme.palette.text.dark}>
+            Correios
+          </Typography>
+        </S.WrapperShippingCompany>
+        <S.WrapperTable>
+          <Dropzone onFileUploaded={() => console.log('uploaded file')} />
+          <S.WrapperManualTable onClick={handleOpenModalCreateManualTable}>
+            <Typography
+              size={14}
+              weight="600"
+              align="center"
+              color={'#AD8D31'}
+              textDecoration="underline"
+            >
+              Quero criar uma tabela manual
+            </Typography>
+            <Modal
+              onClose={handleCloseModalCreateManualTable}
+              open={modalCreateManualTable}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <ModalCreateManualTable />
+            </Modal>
+          </S.WrapperManualTable>
+        </S.WrapperTable>
+        <S.WrapperButtonShipping>
+          <S.WrapperButtonCancelShipping onClick={handleCloseModalShipping}>
+            <Typography
+              color={theme.palette.text.dark}
+              weight="400"
+              size={14}
+              textDecoration="underline"
+            >
+              Cancelar
+            </Typography>
+          </S.WrapperButtonCancelShipping>
+          <ButtonGradient
+            height={59}
+            width={265}
+            onClick={handleCloseAndCompleteModalShipping}
+          >
+            <Typography
+              size={18}
+              weight="600"
+              align="center"
+              color={theme.palette.primary.lightest}
+            >
+              Salvar
+            </Typography>
+          </ButtonGradient>
+        </S.WrapperButtonShipping>
+      </S.ContainerModalShipping>
+    )
+  }
+
+  const ModalTerms = () => {
+    return (
+      <S.ContainerModalContract>
+        <S.WrapperTitleModal>
+          <Typography size={18} weight="600" color={theme.palette.text.dark}>
+            Termos de parceria
+          </Typography>
+          <S.WrapperIcon onClick={handleCloseModalContract}>
+            <CloseIcon sx={{ color: theme.palette.error.dark }} />
+          </S.WrapperIcon>
+        </S.WrapperTitleModal>
+
+        <S.WrapperTermsText>
+          <Typography
+            size={16}
+            weight="400"
+            lineHeight="20.8px"
+            color={theme.palette.secondary.dark}
+          >
+            {TermsText}
+          </Typography>
+        </S.WrapperTermsText>
+
+        <S.WrapperButton>
+          <ButtonGradient
+            height={59}
+            width={265}
+            onClick={handleCloseAndCompleteModalContract}
+          >
+            <Typography
+              size={18}
+              weight="600"
+              align="center"
+              color={theme.palette.primary.lightest}
+            >
+              Li e estou de acordo
+            </Typography>
+          </ButtonGradient>
+        </S.WrapperButton>
+      </S.ContainerModalContract>
+    )
+  }
 
   return (
     <S.Container>
@@ -92,7 +267,7 @@ const Register = () => {
             status={statusContract}
             buttonName={'Assinar contrato'}
             IconTitle={ModeEditOutlineOutlinedIcon}
-            openModal={handleOpenAndFinishContract}
+            openModal={handleOpenModalContract}
           />
           <Separator verticalSize={10} />
           <CardRegister
@@ -103,7 +278,7 @@ const Register = () => {
             status={statusShipping}
             buttonName={'Cadastrar tabela'}
             IconTitle={LocalShippingOutlinedIcon}
-            openModal={handleOpenAndFinishShipping}
+            openModal={handleOpenModalShipping}
           />
           <Separator verticalSize={10} />
           <CardRegister
@@ -114,7 +289,7 @@ const Register = () => {
             status={statusBankAccount}
             buttonName={'Cadastrar conta'}
             IconTitle={AccountBalanceWalletOutlinedIcon}
-            openModal={handleOpenAndFinishBankAccount}
+            openModal={handleOpenModalBankAccount}
           />
         </S.WrapperCards>
       </S.WrapperForm>
@@ -128,6 +303,17 @@ const Register = () => {
         }}
       >
         <ModalTerms />
+      </Modal>
+      <Modal
+        onClose={handleCloseModalShipping}
+        open={modalShipping}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <ModalShipping />
       </Modal>
     </S.Container>
   )

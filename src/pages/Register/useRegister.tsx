@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const useRegister = () => {
   const [modalContract, setModalContract] = useState(false)
   const [modalShipping, setModalShipping] = useState(false)
   const [modalBankAccount, setModalBankAccount] = useState(false)
+  const [modalCreateManualTable, setModalCreateManualTable] = useState(false)
   const [statusContract, setStatusContract] = useState<
     'PENDENTE' | 'CONCLUIDO'
   >('PENDENTE')
@@ -14,26 +15,54 @@ const useRegister = () => {
     'PENDENTE' | 'CONCLUIDO'
   >('PENDENTE')
 
-  useEffect(() => {
-    console.log(statusContract)
-  }, [statusContract])
+  // All close and complete
+  const handleCloseAndCompleteModalContract = () => {
+    setModalContract(false)
+    setStatusContract('CONCLUIDO')
+  }
+
+  const handleCloseAndCompleteModalShipping = () => {
+    setModalShipping(false)
+    setStatusShipping('CONCLUIDO')
+  }
+
+  const handleCloseAndCompleteModalBankAccount = () => {
+    setModalBankAccount(false)
+    setStatusBankAccount('CONCLUIDO')
+  }
+
+  // All close only
 
   const handleCloseModalContract = () => {
     setModalContract(false)
   }
 
-  const handleOpenAndFinishShipping = () => {
-    setStatusShipping('CONCLUIDO')
+  const handleCloseModalShipping = () => {
+    setModalShipping(false)
+  }
+
+  const handleCloseModalBankAccount = () => {
+    setModalBankAccount(false)
+  }
+
+  const handleCloseModalCreateManualTable = () => {
+    setModalCreateManualTable(false)
+  }
+  // All open modals
+
+  const handleOpenModalCreateManualTable = () => {
+    setModalCreateManualTable(true)
+  }
+
+  const handleOpenModalShipping = () => {
     setModalShipping(true)
   }
 
-  const handleOpenAndFinishContract = () => {
-    setStatusContract('CONCLUIDO')
+  const handleOpenModalContract = () => {
     setModalContract(true)
   }
 
-  const handleOpenAndFinishBankAccount = () => {
-    setStatusBankAccount('CONCLUIDO')
+  const handleOpenModalBankAccount = () => {
     setModalBankAccount(true)
   }
 
@@ -41,13 +70,25 @@ const useRegister = () => {
     statusBankAccount,
     statusShipping,
     statusContract,
-    handleCloseModalContract,
-    handleOpenAndFinishContract,
-    handleOpenAndFinishShipping,
+    // Modal status
     modalContract,
     modalShipping,
     modalBankAccount,
-    handleOpenAndFinishBankAccount,
+    modalCreateManualTable,
+    // Handle close and complete
+    handleCloseAndCompleteModalShipping,
+    handleCloseAndCompleteModalBankAccount,
+    handleCloseAndCompleteModalContract,
+    // Handle close only
+    handleCloseModalContract,
+    handleCloseModalShipping,
+    handleCloseModalBankAccount,
+    handleCloseModalCreateManualTable,
+    // handle Open modals
+    handleOpenModalCreateManualTable,
+    handleOpenModalBankAccount,
+    handleOpenModalContract,
+    handleOpenModalShipping,
   }
 }
 

@@ -1,11 +1,11 @@
 import { useAppSelector } from '@hooks/store'
 
-const useAuthenticated = () => {
+const useIsAuthenticated = () => {
   const { credentials } = useAppSelector((state) => state.auth)
 
-  const Authenticated = !credentials === false
+  const isAuthenticated = Boolean(credentials)
 
-  return { Authenticated }
+  return { isAuthenticated }
 }
 
-export default useAuthenticated
+export default useIsAuthenticated
