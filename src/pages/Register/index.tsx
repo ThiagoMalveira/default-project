@@ -13,6 +13,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined'
 import { theme } from '@resources/theme'
+import { useEffect } from 'react'
 import * as S from './styles'
 import useRegister from './useRegister'
 
@@ -22,7 +23,6 @@ const Register = () => {
     statusShipping,
     statusContract,
     // Modal status
-    modalCreateManualTable,
     modalContract,
     modalShipping,
     // modalBankAccount,
@@ -34,14 +34,19 @@ const Register = () => {
     handleCloseModalContract,
     handleCloseModalShipping,
     // handleCloseModalBankAccount,
-    handleCloseModalCreateManualTable,
     // handle Open modals
-    handleOpenModalCreateManualTable,
     handleOpenModalBankAccount,
     handleOpenModalContract,
     handleOpenModalShipping,
+    nextStepShipping,
+    previousStepShipping,
+    stepShipping,
   } = useRegister()
   const step = '2'
+
+  useEffect(() => {
+    console.log(stepShipping)
+  }, [stepShipping])
 
   const ModalCreateManualTable = () => {
     return (
@@ -50,12 +55,12 @@ const Register = () => {
           <Typography size={18} weight="600" color={theme.palette.text.dark}>
             Tabela de frete
           </Typography>
-          <S.WrapperIcon onClick={handleCloseModalShipping}>
+          <S.WrapperIcon onClick={previousStepShipping}>
             <CloseIcon sx={{ color: theme.palette.text.dark }} />
           </S.WrapperIcon>
         </S.WrapperTitleModal>
         <S.WrapperButtonShipping>
-          <S.WrapperButtonCancelShipping onClick={handleCloseModalShipping}>
+          <S.WrapperButtonCancelShipping onClick={previousStepShipping}>
             <Typography
               color={theme.palette.text.dark}
               weight="400"
@@ -105,7 +110,7 @@ const Register = () => {
         </S.WrapperShippingCompany>
         <S.WrapperTable>
           <Dropzone onFileUploaded={() => console.log('uploaded file')} />
-          <S.WrapperManualTable onClick={handleOpenModalCreateManualTable}>
+          <S.WrapperManualTable onClick={nextStepShipping}>
             <Typography
               size={14}
               weight="600"
@@ -115,17 +120,6 @@ const Register = () => {
             >
               Quero criar uma tabela manual
             </Typography>
-            <Modal
-              onClose={handleCloseModalCreateManualTable}
-              open={modalCreateManualTable}
-              closeAfterTransition
-              BackdropComponent={Backdrop}
-              BackdropProps={{
-                timeout: 500,
-              }}
-            >
-              <ModalCreateManualTable />
-            </Modal>
           </S.WrapperManualTable>
         </S.WrapperTable>
         <S.WrapperButtonShipping>
@@ -199,6 +193,11 @@ const Register = () => {
         </S.WrapperButton>
       </S.ContainerModalContract>
     )
+  }
+
+  const ShippingSetups = {
+    1: <ModalShipping />,
+    2: <ModalCreateManualTable />,
   }
 
   return (
@@ -313,7 +312,7 @@ const Register = () => {
           timeout: 500,
         }}
       >
-        <ModalShipping />
+        {ShippingSetups[stepShipping]}
       </Modal>
     </S.Container>
   )

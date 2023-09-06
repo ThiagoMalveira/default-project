@@ -1,10 +1,13 @@
 import { useState } from 'react'
 
 const useRegister = () => {
+  // Status modals
   const [modalContract, setModalContract] = useState(false)
   const [modalShipping, setModalShipping] = useState(false)
   const [modalBankAccount, setModalBankAccount] = useState(false)
-  const [modalCreateManualTable, setModalCreateManualTable] = useState(false)
+  const [stepShipping, setStepShipping] = useState(1)
+
+  // Status Cards
   const [statusContract, setStatusContract] = useState<
     'PENDENTE' | 'CONCLUIDO'
   >('PENDENTE')
@@ -24,6 +27,7 @@ const useRegister = () => {
   const handleCloseAndCompleteModalShipping = () => {
     setModalShipping(false)
     setStatusShipping('CONCLUIDO')
+    setStepShipping(1)
   }
 
   const handleCloseAndCompleteModalBankAccount = () => {
@@ -44,15 +48,7 @@ const useRegister = () => {
   const handleCloseModalBankAccount = () => {
     setModalBankAccount(false)
   }
-
-  const handleCloseModalCreateManualTable = () => {
-    setModalCreateManualTable(false)
-  }
   // All open modals
-
-  const handleOpenModalCreateManualTable = () => {
-    setModalCreateManualTable(true)
-  }
 
   const handleOpenModalShipping = () => {
     setModalShipping(true)
@@ -66,6 +62,14 @@ const useRegister = () => {
     setModalBankAccount(true)
   }
 
+  const nextStepShipping = () => {
+    setStepShipping(stepShipping + 1)
+  }
+
+  const previousStepShipping = () => {
+    setStepShipping(stepShipping - 1)
+  }
+
   return {
     statusBankAccount,
     statusShipping,
@@ -74,7 +78,6 @@ const useRegister = () => {
     modalContract,
     modalShipping,
     modalBankAccount,
-    modalCreateManualTable,
     // Handle close and complete
     handleCloseAndCompleteModalShipping,
     handleCloseAndCompleteModalBankAccount,
@@ -83,12 +86,14 @@ const useRegister = () => {
     handleCloseModalContract,
     handleCloseModalShipping,
     handleCloseModalBankAccount,
-    handleCloseModalCreateManualTable,
     // handle Open modals
-    handleOpenModalCreateManualTable,
     handleOpenModalBankAccount,
     handleOpenModalContract,
     handleOpenModalShipping,
+    // Steps
+    nextStepShipping,
+    previousStepShipping,
+    stepShipping,
   }
 }
 
