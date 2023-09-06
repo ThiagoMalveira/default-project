@@ -30,6 +30,8 @@ const useSignUp = () => {
     initialValues,
     validationSchema: useSignUpSchema,
     onSubmit: () => handleSignUp(),
+    validateOnBlur: false,
+    validateOnChange: false,
   })
 
   const handleSignUp = async () => {

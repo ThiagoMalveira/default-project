@@ -23,6 +23,8 @@ const useSignIn = () => {
     initialValues,
     validationSchema: useSignInSchema,
     onSubmit: () => handleAuth(),
+    validateOnBlur: false,
+    validateOnChange: false,
   })
 
   const fetchAuthenticate = useCallback((): void => {

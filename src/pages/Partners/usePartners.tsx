@@ -1,4 +1,4 @@
-import { IGridData, IGridHeader } from '@components/DataGrid/types'
+import { IGridData, IGridHeader } from '@components/DataGridPartners/types'
 import ModalAccept from '@components/ModalAccept'
 import ModalPending from '@components/ModalPending'
 import ModalReject from '@components/ModalReject'
@@ -243,6 +243,10 @@ const usePartners = () => {
   useEffect(() => {
     dispatch(fetchClients())
   }, [dispatch])
+
+  useEffect(() => {
+    console.log(data)
+  }, [data])
 
   return {
     data,

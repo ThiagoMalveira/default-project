@@ -1,4 +1,4 @@
-import DataGrid from '@components/DataGrid'
+import DataGrid from '@components/DataGridPartners'
 import HeaderPartner from '@components/HeaderPartner'
 import Loading from '@components/Loading'
 import Sidebar from '@components/Sidebar'

@@ -120,7 +120,7 @@ export const WrapperTermsText = styled.div<DefaultProps>`
 export const WrapperButton = styled.div<DefaultProps>`
   display: flex;
   justify-content: flex-end;
-  width: 80%;
+  width: 60%;
   padding: 20px 0;
 `
 
@@ -189,11 +189,11 @@ export const ContainerManualTable = styled.div<DefaultProps>`
   justify-content: space-around;
   position: absolute;
   top: 25%;
-  right: 40%;
-  width: 950px;
-  height: 578px;
+  right: 30%;
+  width: 1368px;
+  height: 720px;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.palette.primary.lightest};
+  background-color: ${({ theme }) => theme.palette.primary.light};
 `
 
 export const WrapperTable = styled.div<DefaultProps>`
@@ -210,4 +210,64 @@ export const WrapperManualTable = styled.div<DefaultProps>`
     cursor: pointer;
     opacity: 0.8;
   }
+`
+
+export const ContainerTable = styled.div<DefaultProps>`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: ${({ theme }) => theme.palette.primary.light};
+  padding: 0 80px;
+  height: 30vh;
+`
+
+export const WrapperButtonAdd = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 0;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
+
+export const WrapperButtonBack = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
+
+export const ContainerModalAddLine = styled.div<DefaultProps>`
+  display: flex;
+  width: 549px;
+  height: 578px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 25%;
+  right: 40%;
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.palette.primary.light};
+`
+
+export const WrapperFormLine = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const WrapperFields = styled.div<DefaultProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
