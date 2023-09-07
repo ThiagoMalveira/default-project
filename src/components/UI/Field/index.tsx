@@ -22,6 +22,7 @@ const Field = ({
   labelColor = '',
 
   maxLength = 50,
+  borderColor,
   onChange,
   placeholder,
   type = 'text',
@@ -46,8 +47,13 @@ const Field = ({
           inputWidth={inputWidth}
           widthFull={widthFull}
           inputHeight={inputHeight}
+          borderColor={borderColor}
         />
-        <Separator displayLine={true} horizontalSize={0} />
+        {!borderColor ? (
+          <Separator displayLine={true} horizontalSize={0} />
+        ) : (
+          <></>
+        )}
         <Separator verticalSize={4} />
         <Typography
           size={16}

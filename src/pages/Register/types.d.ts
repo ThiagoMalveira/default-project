@@ -1,4 +1,4 @@
-export type InitialValues = {
+export type InitialValuesShipping = {
   uf: string
   peso: string
   comprimento: string
@@ -8,4 +8,11 @@ export type InitialValues = {
   prazo_max: string
   shipping_value: number
   free_shipping: number
+}
+
+export type InitialValuesBank = {
+  bank: string
+  type: string
+  agency: string
+  accountNumber: string
 }

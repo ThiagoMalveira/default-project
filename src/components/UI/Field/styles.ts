@@ -24,7 +24,7 @@ export const Input = styled.input<DefaultProps & IinputStyle>`
   ${({ theme }) => theme.mixins.fonts(FontType.regular)};
   background: ${({ backgroundColor }) => backgroundColor};
   border: 0px;
-  border-bottom: ${({ borderColor }) => `2px solid ${borderColor}`};
+  border-bottom: ${({ borderColor }) => `1px solid ${borderColor}`};
   font-size: 12px;
   height: ${({ inputHeight }) => `${inputHeight}px`};
   padding: 0 8px;

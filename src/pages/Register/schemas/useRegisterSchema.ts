@@ -1,7 +1,7 @@
 import * as Yup from 'yup'
-import { InitialValues } from '../types'
+import { InitialValuesBank, InitialValuesShipping } from '../types'
 
-export const initialValues: InitialValues = {
+export const initialValuesShipping: InitialValuesShipping = {
   uf: '',
   peso: '',
   comprimento: '',
@@ -12,6 +12,20 @@ export const initialValues: InitialValues = {
   shipping_value: 0,
   free_shipping: 0,
 }
+
+export const initialValuesBank: InitialValuesBank = {
+  bank: '',
+  type: '',
+  agency: '',
+  accountNumber: '',
+}
+
+export const useBankAccountSchema = Yup.object().shape({
+  bank: Yup.string().required('Campo obrigatório'),
+  type: Yup.string().required('Campo obrigatório'),
+  agency: Yup.string().required('Campo obrigatório'),
+  accountNumber: Yup.string().required('Campo obrigatório'),
+})
 
 export const useRegisterSchema = Yup.object().shape({
   uf: Yup.string().required('Campo obrigatório').max(2),

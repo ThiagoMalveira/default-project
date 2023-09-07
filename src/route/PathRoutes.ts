@@ -6,6 +6,8 @@ const PathRoutes = {
   PARTNERS: '/operador/parceiros',
 
   REGISTER: '/register',
+  PRODUCTS_REGISTER: '/products',
+
   PANEL_PARTNER: '/panel/parceiros',
 
   NOT_FOUND: '/404',

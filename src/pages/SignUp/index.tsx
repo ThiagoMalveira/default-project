@@ -232,21 +232,21 @@ const SignUp = () => {
           </S.WrapperStep>
           <S.WrapperIcons>
             <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-            {step > '1' ? (
-              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-            ) : (
-              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-            )}
-            {step > '2' ? (
-              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-            ) : (
-              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-            )}
-            {step > '3' ? (
-              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-            ) : (
-              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-            )}
+
+            <S.StepLineIcons isActive={step > '1'} />
+            <Brightness1Icon
+              sx={step > '1' ? { color: '#4BBA4F' } : { color: '#C1C1C1' }}
+            />
+
+            <S.StepLineIcons isActive={step > '2'} />
+            <Brightness1Icon
+              sx={step > '2' ? { color: '#4BBA4F' } : { color: '#C1C1C1' }}
+            />
+
+            <S.StepLineIcons isActive={step > '3'} />
+            <Brightness1Icon
+              sx={step > '3' ? { color: '#4BBA4F' } : { color: '#C1C1C1' }}
+            />
           </S.WrapperIcons>
         </S.WrapperTop>
         {formSetup[step]()}

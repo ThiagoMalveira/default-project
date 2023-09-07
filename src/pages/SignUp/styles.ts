@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { DefaultProps } from '@resources/types'
 
 export const WrapperForm = styled.div`
   display: flex;
@@ -49,6 +50,14 @@ export const WrapperFields = styled.div`
   padding: 20px 0;
 `
 
+export const StepLineIcons = styled.div<DefaultProps & { isActive: boolean }>`
+  display: flex;
+  background-color: ${({ isActive }) => (isActive ? `#4BBA4F` : `#9B9B9B`)};
+  height: 2px;
+  margin: 0 10px;
+  width: 468px;
+`
+
 export const WrapperFieldRow = styled.div`
   display: flex;
   padding: 20px 0;
@@ -78,15 +87,6 @@ export const WrapperIcons = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 50px 0;
-  &:after {
-    content: '';
-    width: 100%;
-    max-width: 500px;
-    border-bottom: 1px solid #ccc;
-    position: absolute;
-    top: 119px;
-    z-index: -9999;
-  }
 `
 
 export const WrapperGoBack = styled.div`

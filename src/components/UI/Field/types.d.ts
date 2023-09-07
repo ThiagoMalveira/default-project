@@ -3,6 +3,7 @@ export interface IViewProps {
   inputHeight?: number
   widthFull?: boolean
   maxLength?: number
+  borderColor?: string
 
   error?: boolean
   labelTop?: string

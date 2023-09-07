@@ -1,16 +1,27 @@
 import { IGridData, IGridHeader } from '@components/DataGridPartners/types'
 import { FontType } from '@components/UI/Typography'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import { theme } from '@resources/theme'
+import PathRoutes from '@route/PathRoutes'
 import { useFormik } from 'formik'
-import { useState } from 'react'
-import { initialValues, useRegisterSchema } from './schemas/useRegisterSchema'
+import { useEffect, useState } from 'react'
+import {
+  initialValuesBank,
+  initialValuesShipping,
+  useBankAccountSchema,
+  useRegisterSchema,
+} from './schemas/useRegisterSchema'
 
 const useRegister = () => {
+  const { handleNavigate } = useHandleNavigate()
   const [data, setData] = useState<IGridData[]>([])
+  const [termAccepted, setTermAccepted] = useState<boolean>(false)
+  const [existBankAccount, setExistBankAccount] = useState<boolean>(false)
+  const [isShippingInserted, setIsShippingInserted] = useState<boolean>(false)
   // Status modals
-  const [modalContract, setModalContract] = useState(false)
-  const [modalShipping, setModalShipping] = useState(false)
-  const [modalBankAccount, setModalBankAccount] = useState(false)
+  const [modalContract, setModalContract] = useState<boolean>(false)
+  const [modalShipping, setModalShipping] = useState<boolean>(false)
+  const [modalBankAccount, setModalBankAccount] = useState<boolean>(false)
   const [stepShipping, setStepShipping] = useState(1)
 
   // Status Cards
@@ -27,12 +38,14 @@ const useRegister = () => {
   // All close and complete
   const handleCloseAndCompleteModalContract = () => {
     setModalContract(false)
+    setTermAccepted(true)
     setStatusContract('CONCLUIDO')
   }
 
   const handleCloseAndCompleteModalShipping = () => {
     setModalShipping(false)
     setStatusShipping('CONCLUIDO')
+    setIsShippingInserted(true)
     setStepShipping(1)
   }
 
@@ -78,12 +91,27 @@ const useRegister = () => {
   }
 
   const forms = useFormik({
-    initialValues,
+    initialValues: initialValuesShipping,
     validationSchema: useRegisterSchema,
     onSubmit: () => handleAddLine(),
     validateOnBlur: false,
     validateOnChange: false,
   })
+
+  const formik = useFormik({
+    initialValues: initialValuesBank,
+    validationSchema: useBankAccountSchema,
+    onSubmit: () => handleAddBankAccount(),
+    validateOnBlur: false,
+    validateOnChange: false,
+  })
+
+  const handleAddBankAccount = () => {
+    handleCloseAndCompleteModalBankAccount()
+    formik.resetForm()
+    setExistBankAccount(true)
+    console.log('enviado pra API :D')
+  }
 
   const handleAddLine = () => {
     const newData = {
@@ -97,8 +125,16 @@ const useRegister = () => {
 
     setData([...data, newData])
     forms.resetForm()
+    setIsShippingInserted(true)
     setStepShipping(stepShipping - 1)
   }
+
+  useEffect(() => {
+    if (isShippingInserted && termAccepted && existBankAccount) {
+      handleNavigate(PathRoutes.PRODUCTS_REGISTER)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isShippingInserted, termAccepted, existBankAccount])
 
   const header: IGridHeader[] = [
     {
@@ -257,6 +293,7 @@ const useRegister = () => {
     data,
     handleAddLine,
     forms,
+    formik,
   }
 }
 

@@ -45,6 +45,11 @@ const Routes = () => {
           element={<PrivateRoute>{PathScreens.REGISTER}</PrivateRoute>}
         />
 
+        <Route
+          path={PathRoutes.PRODUCTS_REGISTER}
+          element={<PrivateRoute>{PathScreens.PRODUCTS_REGISTER}</PrivateRoute>}
+        />
+
         {/* Private Routes 
         <Route
           // path={PathRoutes.PANEL_HOME}

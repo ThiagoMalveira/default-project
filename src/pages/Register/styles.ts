@@ -14,6 +14,15 @@ export const WrapperForm = styled.div`
   height: 100vh;
 `
 
+export const WrapperFormBank = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height: 12vh;
+`
+
 export const WrapperTop = styled.div`
   padding: 20px;
   display: flex;
@@ -32,15 +41,6 @@ export const WrapperIcons = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 50px 0;
-  &:after {
-    content: '';
-    width: 100%;
-    max-width: 500px;
-    border-bottom: 1px solid #ccc;
-    position: absolute;
-    top: 119px;
-    z-index: -9999;
-  }
 `
 
 export const WrapperStep = styled.div`
@@ -69,6 +69,21 @@ export const WrapperTitle = styled.div`
 export const WrapperDescription = styled.div`
   padding: 20px 40px;
   max-width: 412px;
+  width: 100%;
+  display: flex;
+`
+
+export const StepLineIcons = styled.div<DefaultProps & { isActive: boolean }>`
+  display: flex;
+  background-color: ${({ isActive }) => (isActive ? `#4BBA4F` : `#9B9B9B`)};
+  height: 2px;
+  margin: 0 10px;
+  width: 468px;
+`
+
+export const WrapperDescriptionBank = styled.div`
+  padding: 20px 40px;
+  max-width: 447px;
   width: 100%;
   display: flex;
 `
@@ -120,7 +135,7 @@ export const WrapperTermsText = styled.div<DefaultProps>`
 export const WrapperButton = styled.div<DefaultProps>`
   display: flex;
   justify-content: flex-end;
-  width: 60%;
+  width: 80%;
   padding: 20px 0;
 `
 
@@ -270,4 +285,24 @@ export const WrapperFields = styled.div<DefaultProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+export const WrapperFieldsBank = styled.div<DefaultProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ContainerBankAccount = styled.div<DefaultProps>`
+  display: flex;
+  width: 549px;
+  height: 492px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 25%;
+  right: 40%;
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.palette.primary.light};
 `

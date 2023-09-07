@@ -26,15 +26,14 @@ const Register = () => {
     // Modal status
     modalContract,
     modalShipping,
-    // modalBankAccount,
+    modalBankAccount,
     // Handle close and complete
     handleCloseAndCompleteModalShipping,
-    // handleCloseAndCompleteModalBankAccount,
     handleCloseAndCompleteModalContract,
     // Handle close only
     handleCloseModalContract,
     handleCloseModalShipping,
-    // handleCloseModalBankAccount,
+    handleCloseModalBankAccount,
     // handle Open modals
     handleOpenModalBankAccount,
     handleOpenModalContract,
@@ -45,8 +44,117 @@ const Register = () => {
     header,
     data,
     forms,
+    formik,
   } = useRegister()
   const step = '2'
+
+  const ModalBankAccount = () => {
+    return (
+      <S.ContainerBankAccount>
+        <S.WrapperTitleModal>
+          <Typography size={18} weight="600" color={theme.palette.text.dark}>
+            Conta bancária
+          </Typography>
+          <S.WrapperIcon onClick={previousStepShipping}>
+            <CloseIcon sx={{ color: theme.palette.text.dark }} />
+          </S.WrapperIcon>
+        </S.WrapperTitleModal>
+        <S.WrapperDescriptionBank>
+          <Typography
+            size={14}
+            weight="600"
+            color={theme.palette.secondary.dark}
+          >
+            Insira os dados da conta bancária que enviaremos os pagamentos. A
+            conta precisa estar registrada no mesmo CNPJ em que está cadastrado
+            em nossa plataforma.
+          </Typography>
+        </S.WrapperDescriptionBank>
+        <S.WrapperFormBank>
+          <S.WrapperFieldsBank>
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={160}
+              labelTop="Banco"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Banco'}
+              name={'bank'}
+              onChange={formik.handleChange}
+              value={formik.values.bank}
+              errorMessage={formik.errors.bank}
+            />
+
+            <Separator horizontalSize={40} />
+
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={160}
+              labelTop="Tipo de conta"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Corrente'}
+              name={'type'}
+              onChange={formik.handleChange}
+              value={formik.values.type}
+              errorMessage={formik.errors.type}
+            />
+          </S.WrapperFieldsBank>
+          <S.WrapperFieldsBank>
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={160}
+              labelTop="Agência"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Agência'}
+              name={'agency'}
+              onChange={formik.handleChange}
+              value={formik.values.agency}
+              errorMessage={formik.errors.agency}
+            />
+
+            <Separator horizontalSize={40} />
+
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={160}
+              labelTop="Número da conta"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Número da conta'}
+              name={'accountNumber'}
+              onChange={formik.handleChange}
+              value={formik.values.accountNumber}
+              errorMessage={formik.errors.accountNumber}
+            />
+          </S.WrapperFieldsBank>
+        </S.WrapperFormBank>
+        <S.WrapperButtonShipping>
+          <S.WrapperButtonCancelShipping onClick={handleCloseModalBankAccount}>
+            <Typography
+              color={theme.palette.text.dark}
+              weight="400"
+              size={14}
+              textDecoration="underline"
+            >
+              Cancelar
+            </Typography>
+          </S.WrapperButtonCancelShipping>
+          <ButtonGradient height={59} width={265} onClick={formik.handleSubmit}>
+            <Typography
+              size={18}
+              weight="600"
+              align="center"
+              color={theme.palette.primary.lightest}
+            >
+              Salvar
+            </Typography>
+          </ButtonGradient>
+        </S.WrapperButtonShipping>
+      </S.ContainerBankAccount>
+    )
+  }
 
   const ModalCreateManualTable = () => {
     return (
@@ -415,21 +523,21 @@ const Register = () => {
           </S.WrapperStep>
           <S.WrapperIcons>
             <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-            {step > '1' ? (
-              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-            ) : (
-              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-            )}
-            {step > '2' ? (
-              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-            ) : (
-              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-            )}
-            {step > '3' ? (
-              <Brightness1Icon sx={{ color: '#4BBA4F' }} />
-            ) : (
-              <Brightness1Icon sx={{ color: '#C1C1C1' }} />
-            )}
+
+            <S.StepLineIcons isActive={step > '1'} />
+            <Brightness1Icon
+              sx={step > '1' ? { color: '#4BBA4F' } : { color: '#C1C1C1' }}
+            />
+
+            <S.StepLineIcons isActive={step > '2'} />
+            <Brightness1Icon
+              sx={step > '2' ? { color: '#4BBA4F' } : { color: '#C1C1C1' }}
+            />
+
+            <S.StepLineIcons isActive={step > '3'} />
+            <Brightness1Icon
+              sx={step > '3' ? { color: '#4BBA4F' } : { color: '#C1C1C1' }}
+            />
           </S.WrapperIcons>
         </S.WrapperTop>
         <S.WrapperTitleWithIcon>
@@ -511,6 +619,17 @@ const Register = () => {
         }}
       >
         {ShippingSetups[stepShipping]}
+      </Modal>
+      <Modal
+        onClose={handleCloseModalBankAccount}
+        open={modalBankAccount}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <ModalBankAccount />
       </Modal>
     </S.Container>
   )
