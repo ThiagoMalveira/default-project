@@ -69,9 +69,6 @@
       "prettier/prettier": "error"
     }
   },
-  "resolutions": {
-    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
-  },
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@babel/preset-typescript": "^7.22.5",
