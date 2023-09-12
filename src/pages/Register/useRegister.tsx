@@ -294,6 +294,7 @@ const useRegister = () => {
     handleAddLine,
     forms,
     formik,
+    handleAddBankAccount,
   }
 }
 

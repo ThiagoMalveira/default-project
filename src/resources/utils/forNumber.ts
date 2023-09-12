@@ -17,15 +17,15 @@ export const formatCurrency = (value?: number): string => {
 
   const currency = value
     .toFixed(TWO_DECIMAL_PLACES)
-    .replace('.', `${'common.decimalSeparator'}`)
-    .replace(/(\d)(?=(\d{3})+(?!\d))/g, `$1${'common.thousandsSeparator'}`)
-  return `${'common.moneyPrefix'} ${currency}`
+    .replace('.', `,`)
+    .replace(/(\d)(?=(\d{3})+(?!\d))/g, `$1${'.'}`)
+  return `${'R$'} ${currency}`
 }
 
-export const formatPercent = (value: string): string => {
+export const formatPercent = (value: number): string => {
   const valueFormatted = Number(value)
     .toFixed(TWO_DECIMAL_PLACES)
-    .replace('.', 'common.decimalSeparator')
+    .replace('.', ',')
 
   return `${valueFormatted}%`
 }

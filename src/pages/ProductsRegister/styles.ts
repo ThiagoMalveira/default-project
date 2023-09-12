@@ -201,5 +201,49 @@ export const WrapperFields = styled.div<DefaultProps>`
 
 export const WrapperPhotos = styled.div<DefaultProps>`
   display: flex;
+  align-items: center;
+  justify-content: space-around;
   flex-direction: row;
+`
+
+export const ContainerProductsFour = styled.div<DefaultProps>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  top: 35%;
+  right: 42%;
+  width: 462px;
+  height: 407px;
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.palette.primary.light};
+`
+
+export const WrapperTitleModalFour = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  padding: 20px 0px;
+`
+
+export const WrapperTitleWithIconFour = styled.div`
+  display: flex;
+  height: 16vh;
+  width: 80%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+`
+
+export const WrapperTitleFour = styled.div`
+  padding: 40px 0;
+`
+
+export const WrapperDescriptionFour = styled.div`
+  padding: 0 20px;
+  max-width: 412px;
+  justify-content: center;
+  width: 100%;
+  display: flex;
 `

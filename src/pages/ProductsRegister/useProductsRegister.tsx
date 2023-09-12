@@ -1,9 +1,14 @@
-import { useState } from 'react'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
+import PathRoutes from '@route/PathRoutes'
+import { useEffect, useState } from 'react'
 
 const useProductsRegister = () => {
+  const { handleNavigate } = useHandleNavigate()
   const [statusProducts, setStatusProducts] = useState<
     'PENDENTE' | 'CONCLUIDO'
   >('PENDENTE')
+  const [isProductsRegistered, setIsProductsRegistered] =
+    useState<boolean>(false)
   const [stepProduct, setStepProduct] = useState(1)
 
   // status modals
@@ -19,9 +24,13 @@ const useProductsRegister = () => {
   }
 
   const nextStepShipping = () => {
-    if (stepProduct < 3) {
+    if (stepProduct < 4) {
       setStepProduct(stepProduct + 1)
     }
+  }
+
+  const handleCompleteProducts = () => {
+    setIsProductsRegistered(true)
   }
 
   const handleAddProduct = () => {
@@ -36,6 +45,13 @@ const useProductsRegister = () => {
     }
   }
 
+  useEffect(() => {
+    if (isProductsRegistered) {
+      handleNavigate(PathRoutes.SALES_AND_BILLING)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isProductsRegistered])
+
   return {
     statusProducts,
     handleOpenModalProducts,
@@ -45,6 +61,7 @@ const useProductsRegister = () => {
     previousStepShipping,
     stepProduct,
     handleAddProduct,
+    handleCompleteProducts,
   }
 }
 

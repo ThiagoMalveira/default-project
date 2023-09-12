@@ -23,12 +23,8 @@ const Routes = () => {
       <ListRoutes>
         <Route index element={PathScreens.HOME} />
         {/*
-        <Route path="*" element={PathScreens.NOT_FOUND} />
-        <Route path={PathRoutes.SIGN_OUT} element={PathScreens.SIGN_OUT} />
-        <Route
-          path={PathRoutes.RECOVER_PASSWORD}
-          element={PathScreens.RECOVER_PASSWORD}
-        />*/}
+          <Route path="*" element={PathScreens.NOT_FOUND} />
+        */}
         <Route path={PathRoutes.SIGN_IN} element={PathScreens.SIGN_IN} />
         <Route path={PathRoutes.SIGN_UP} element={PathScreens.SIGN_UP} />
         <Route
@@ -50,12 +46,35 @@ const Routes = () => {
           element={<PrivateRoute>{PathScreens.PRODUCTS_REGISTER}</PrivateRoute>}
         />
 
-        {/* Private Routes 
         <Route
-          // path={PathRoutes.PANEL_HOME}
-          element={<PrivateRoute>{PathScreens.PANEL_HOME}</PrivateRoute>}
+          path={PathRoutes.SALES_AND_BILLING}
+          element={<PrivateRoute>{PathScreens.SALES_AND_BILLING}</PrivateRoute>}
         />
-        */}
+
+        <Route
+          path={PathRoutes.PANEL_DASHBOARD}
+          element={<PrivateRoute>{PathScreens.PANEL_DASHBOARD}</PrivateRoute>}
+        />
+
+        <Route
+          path={PathRoutes.PANEL_PRODUCT}
+          element={<PrivateRoute>{PathScreens.PANEL_PRODUCT}</PrivateRoute>}
+        />
+
+        <Route
+          path={PathRoutes.PANEL_REQUESTS}
+          element={<PrivateRoute>{PathScreens.PANEL_REQUESTS}</PrivateRoute>}
+        />
+
+        <Route
+          path={PathRoutes.PANEL_FINANCIAL}
+          element={<PrivateRoute>{PathScreens.PANEL_FINANCIAL}</PrivateRoute>}
+        />
+
+        <Route
+          path={PathRoutes.PANEL_SHIPPING}
+          element={<PrivateRoute>{PathScreens.PANEL_SHIPPING}</PrivateRoute>}
+        />
       </ListRoutes>
     </Fragment>
   )

@@ -44,7 +44,8 @@ const Register = () => {
     header,
     data,
     forms,
-    formik,
+    // formik,
+    handleAddBankAccount,
   } = useRegister()
   const step = '2'
 
@@ -55,7 +56,7 @@ const Register = () => {
           <Typography size={18} weight="600" color={theme.palette.text.dark}>
             Conta bancária
           </Typography>
-          <S.WrapperIcon onClick={previousStepShipping}>
+          <S.WrapperIcon onClick={handleCloseModalBankAccount}>
             <CloseIcon sx={{ color: theme.palette.text.dark }} />
           </S.WrapperIcon>
         </S.WrapperTitleModal>
@@ -80,9 +81,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Banco'}
               name={'bank'}
-              onChange={formik.handleChange}
-              value={formik.values.bank}
-              errorMessage={formik.errors.bank}
             />
 
             <Separator horizontalSize={40} />
@@ -95,9 +93,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Corrente'}
               name={'type'}
-              onChange={formik.handleChange}
-              value={formik.values.type}
-              errorMessage={formik.errors.type}
             />
           </S.WrapperFieldsBank>
           <S.WrapperFieldsBank>
@@ -109,9 +104,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Agência'}
               name={'agency'}
-              onChange={formik.handleChange}
-              value={formik.values.agency}
-              errorMessage={formik.errors.agency}
             />
 
             <Separator horizontalSize={40} />
@@ -124,9 +116,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Número da conta'}
               name={'accountNumber'}
-              onChange={formik.handleChange}
-              value={formik.values.accountNumber}
-              errorMessage={formik.errors.accountNumber}
             />
           </S.WrapperFieldsBank>
         </S.WrapperFormBank>
@@ -141,7 +130,11 @@ const Register = () => {
               Cancelar
             </Typography>
           </S.WrapperButtonCancelShipping>
-          <ButtonGradient height={59} width={265} onClick={formik.handleSubmit}>
+          <ButtonGradient
+            height={59}
+            width={265}
+            onClick={handleAddBankAccount}
+          >
             <Typography
               size={18}
               weight="600"
@@ -233,12 +226,20 @@ const Register = () => {
           </S.WrapperIcon>
         </S.WrapperTitleModal>
         <S.WrapperShippingCompany>
-          <Typography size={14} weight="400" color={theme.palette.text.dark}>
-            Nome da transportadora
-          </Typography>
-          <Typography size={16} weight="600" color={theme.palette.text.dark}>
-            Correios
-          </Typography>
+          <Field
+            marginInputLeft={20}
+            marginInputRight={20}
+            inputWidth={200}
+            fontSize={16}
+            fontWeight={'600'}
+            borderColor={'#E9E9E9'}
+            textInputColor={theme.palette.text.dark}
+            labelTop="Nome da transportadora"
+            labelColor={theme.palette.text.dark}
+            placeholderColor={theme.palette.text.dark}
+            placeholder={'Correios'}
+            name={'productDiscount'}
+          />
         </S.WrapperShippingCompany>
         <S.WrapperTable>
           <Dropzone onFileUploaded={() => console.log('uploaded file')} />
@@ -348,9 +349,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'UF do estado'}
               name={'uf'}
-              onChange={forms.handleChange}
-              value={forms.values.uf}
-              errorMessage={forms.errors.uf}
             />
 
             <Separator horizontalSize={20} />
@@ -363,9 +361,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Peso em kilos'}
               name={'peso'}
-              onChange={forms.handleChange}
-              value={forms.values.peso}
-              errorMessage={forms.errors.peso}
             />
 
             <Separator horizontalSize={20} />
@@ -378,9 +373,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Em centímetros'}
               name={'comprimento'}
-              onChange={forms.handleChange}
-              value={forms.values.comprimento}
-              errorMessage={forms.errors.comprimento}
             />
           </S.WrapperFields>
           <Separator verticalSize={20} />
@@ -393,9 +385,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Em centímetros'}
               name={'altura'}
-              onChange={forms.handleChange}
-              value={forms.values.altura}
-              errorMessage={forms.errors.altura}
             />
 
             <Separator horizontalSize={20} />
@@ -408,9 +397,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Em centímetros'}
               name={'largura'}
-              onChange={forms.handleChange}
-              value={forms.values.largura}
-              errorMessage={forms.errors.largura}
             />
 
             <Separator horizontalSize={20} />
@@ -423,9 +409,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Prazo mínimo'}
               name={'prazo_min'}
-              onChange={forms.handleChange}
-              value={forms.values.prazo_min}
-              errorMessage={forms.errors.prazo_min}
             />
           </S.WrapperFields>
           <Separator verticalSize={20} />
@@ -438,9 +421,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Prazo máximo'}
               name={'prazo_max'}
-              onChange={forms.handleChange}
-              value={forms.values.prazo_max}
-              errorMessage={forms.errors.prazo_max}
             />
 
             <Separator horizontalSize={20} />
@@ -453,9 +433,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Valor frete'}
               name={'shipping_value'}
-              onChange={forms.handleChange}
-              value={forms.values.shipping_value}
-              errorMessage={forms.errors.shipping_value}
             />
 
             <Separator horizontalSize={20} />
@@ -468,9 +445,6 @@ const Register = () => {
               labelColor={theme.palette.text.dark}
               placeholder={'Frete grátis'}
               name={'free_shipping'}
-              onChange={forms.handleChange}
-              value={forms.values.free_shipping}
-              errorMessage={forms.errors.free_shipping}
             />
           </S.WrapperFields>
         </S.WrapperFormLine>

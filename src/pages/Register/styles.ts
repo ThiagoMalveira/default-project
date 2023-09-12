@@ -179,7 +179,6 @@ export const WrapperShippingCompany = styled.div<DefaultProps>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.info.lightest};
   width: 80%;
 `
 
@@ -194,7 +193,7 @@ export const ContainerModalShipping = styled.div<DefaultProps>`
   width: 549px;
   height: 578px;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.palette.primary.lightest};
+  background-color: ${({ theme }) => theme.palette.primary.light};
 `
 
 export const ContainerManualTable = styled.div<DefaultProps>`

@@ -7,8 +7,13 @@ const PathRoutes = {
 
   REGISTER: '/register',
   PRODUCTS_REGISTER: '/products',
+  SALES_AND_BILLING: '/sales-and-billing',
 
-  PANEL_PARTNER: '/panel/parceiros',
+  PANEL_DASHBOARD: '/panel/dashboard',
+  PANEL_PRODUCT: '/panel/produtos',
+  PANEL_REQUESTS: '/panel/pedidos',
+  PANEL_FINANCIAL: '/panel/financeiro',
+  PANEL_SHIPPING: '/panel/fretes',
 
   NOT_FOUND: '/404',
   HOME: '/',

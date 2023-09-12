@@ -23,9 +23,11 @@ export const ContainerInput = styled.div`
 export const Input = styled.input<DefaultProps & IinputStyle>`
   ${({ theme }) => theme.mixins.fonts(FontType.regular)};
   background: ${({ backgroundColor }) => backgroundColor};
+  font-size: ${({ fontSize }) => (`${fontSize}` ? `${fontSize} px` : '12px')};
+  font-weight: ${({ fontWeight }) =>
+    `${fontWeight}` ? `${fontWeight}` : '400'};
   border: 0px;
   border-bottom: ${({ borderColor }) => `1px solid ${borderColor}`};
-  font-size: 12px;
   height: ${({ inputHeight }) => `${inputHeight}px`};
   padding: 0 8px;
   width: ${({ inputWidth, widthFull }) =>

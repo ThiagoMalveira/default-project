@@ -10,6 +10,10 @@ export interface IViewProps {
   labelLeft?: string
   labelRight?: string
 
+  placeholderColor?: string
+  fontSize?: number
+  fontWeight?: string
+
   marginInputTop?: number
   marginInputLeft?: number
   marginInputRight?: number
@@ -55,4 +59,6 @@ export interface IinputStyle {
   inputWidth: number
   inputHeight: number
   widthFull: boolean
+  fontSize?: number
+  fontWeight?: string
 }

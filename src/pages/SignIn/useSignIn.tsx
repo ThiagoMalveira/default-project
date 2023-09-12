@@ -46,11 +46,11 @@ const useSignIn = () => {
     const MOCK = 'APROVADO_NODOC'
 
     if (user.roles.includes('ROLE_USER')) {
-      if (user.status === 'APROVADO_NODOC' || MOCK) {
+      if (user.pending || MOCK) {
         handleNavigate(PathRoutes.REGISTER)
       }
-      if (user.status === 'APROVADO') {
-        handleNavigate(PathRoutes.PANEL_PARTNER)
+      if (!user.pending) {
+        handleNavigate(PathRoutes.PANEL_DASHBOARD)
       }
     }
   }, [user, credentials, handleNavigate])

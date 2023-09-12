@@ -43,7 +43,6 @@ export const DropZoneContainer = styled.div<DefaultProps>`
 
   width: 477px;
   height: 173px;
-  margin-top: 24px;
 
   border: 1px solid ${({ theme }) => theme.palette.info.dark};
   border-radius: 10px;

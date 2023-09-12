@@ -7,23 +7,16 @@ export const WrapperLogo = styled.div`
   align-items: center;
   max-height: 100px;
   height: 100vh;
+  padding: 0 40px;
 `
 
 export const Container = styled.div<DefaultProps>`
   display: flex;
   flex-direction: row;
-  width: 100vw;
-  max-width: 65vw;
+  width: 88vw;
   justify-content: space-between;
   align-items: flex-start;
   background-color: ${({ theme }) => theme.palette.primary.light};
-
-  @media (min-width: 2539px) {
-    max-width: 84vw;
-  }
-  @media (min-width: 1919px) {
-    max-width: 82vw;
-  }
 `
 
 export const WrapperIcons = styled.div`

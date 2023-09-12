@@ -2,7 +2,6 @@ import styled from '@emotion/styled'
 import { DefaultProps } from '@resources/types'
 
 export const ContainerMenu = styled.div`
-  height: 100px;
   display: flex;
   background-color: transparent;
 

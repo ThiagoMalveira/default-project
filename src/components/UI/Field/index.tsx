@@ -20,14 +20,18 @@ const Field = ({
   marginInputRight,
 
   labelColor = '',
+  fontWeight,
 
   maxLength = 50,
   borderColor,
   onChange,
   placeholder,
+  placeholderColor,
+  textInputColor,
   type = 'text',
   value,
   onBlur,
+  fontSize,
   focus = false,
   errorMessage = '',
 }: IViewProps) => {
@@ -43,7 +47,11 @@ const Field = ({
           autoFocus={focus}
           onBlur={onBlur}
           maxLength={maxLength}
+          fontSize={fontSize}
+          textColor={textInputColor}
           type={type}
+          fontWeight={fontWeight}
+          placeholderColor={placeholderColor}
           inputWidth={inputWidth}
           widthFull={widthFull}
           inputHeight={inputHeight}

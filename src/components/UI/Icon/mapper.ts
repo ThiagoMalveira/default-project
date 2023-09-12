@@ -6,6 +6,7 @@ import {
   SliderSVG,
   aspasSVG,
   calendarSVG,
+  chartSVG,
   dashboardSVG,
   documentSVG,
   emailSVG,
@@ -191,6 +192,15 @@ export const mapIcons = [
     dimensions: {
       width: 167,
       height: 42,
+    },
+  },
+  {
+    name: 'ChartSVG',
+    type: typeIcons.SVG,
+    element: chartSVG,
+    dimensions: {
+      width: 250,
+      height: 120,
     },
   },
 ]

@@ -8,6 +8,7 @@ import Typography from '@components/UI/Typography'
 import { Backdrop, Modal } from '@material-ui/core'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined'
 import CloseIcon from '@mui/icons-material/Close'
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined'
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined'
@@ -26,6 +27,7 @@ const ProductsRegister = () => {
     previousStepShipping,
     stepProduct,
     handleAddProduct,
+    handleCompleteProducts,
   } = useProductsRegister()
   const step = '3'
 
@@ -615,7 +617,7 @@ const ProductsRegister = () => {
               Cancelar
             </Typography>
           </S.WrapperButtonCancelProducts>
-          <ButtonGradient height={59} width={265} onClick={handleAddProduct}>
+          <ButtonGradient height={59} width={265} onClick={nextStepShipping}>
             <Typography
               size={18}
               weight="600"
@@ -630,10 +632,65 @@ const ProductsRegister = () => {
     )
   }
 
+  const ModalProductsStepFour = () => {
+    return (
+      <S.ContainerProductsFour>
+        <S.WrapperTitleModalFour>
+          <S.WrapperIcon onClick={previousStepShipping}>
+            <CloseIcon sx={{ color: theme.palette.text.dark }} />
+          </S.WrapperIcon>
+        </S.WrapperTitleModalFour>
+        <S.WrapperTitleWithIconFour>
+          <CheckCircleOutlineOutlinedIcon
+            sx={{ color: '#4BBA4F', fontSize: 61 }}
+          />
+          <S.WrapperTitleFour>
+            <Typography
+              align="center"
+              size={24}
+              weight="600"
+              color={theme.palette.text.dark}
+            >
+              Produto cadastrado com sucesso!
+            </Typography>
+          </S.WrapperTitleFour>
+          <S.WrapperDescriptionFour>
+            <Typography
+              align="center"
+              size={16}
+              weight="400"
+              color={theme.palette.text.dark}
+            >
+              Deseja cadastrar mais itens ou concluir?
+            </Typography>
+          </S.WrapperDescriptionFour>
+        </S.WrapperTitleWithIconFour>
+        <S.WrapperButtonProducts>
+          <S.WrapperButtonCancelProducts onClick={handleCompleteProducts}>
+            <Typography color={'#4BBA4F'} weight="600" size={16}>
+              Concluir
+            </Typography>
+          </S.WrapperButtonCancelProducts>
+          <ButtonGradient height={59} width={265} onClick={handleAddProduct}>
+            <Typography
+              size={18}
+              weight="600"
+              align="center"
+              color={theme.palette.primary.lightest}
+            >
+              + Cadastrar outro
+            </Typography>
+          </ButtonGradient>
+        </S.WrapperButtonProducts>
+      </S.ContainerProductsFour>
+    )
+  }
+
   const ProductSetup = {
     1: <ModalProductsStepOne />,
     2: <ModalProductsStepTwo />,
     3: <ModalProductsStepThree />,
+    4: <ModalProductsStepFour />,
   }
 
   return (
