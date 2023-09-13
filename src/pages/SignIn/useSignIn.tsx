@@ -49,9 +49,9 @@ const useSignIn = () => {
       if (user.pending || MOCK) {
         handleNavigate(PathRoutes.REGISTER)
       }
-      if (!user.pending) {
+      /*if (!user.pending) {
         handleNavigate(PathRoutes.PANEL_DASHBOARD)
-      }
+      }*/
     }
   }, [user, credentials, handleNavigate])
 

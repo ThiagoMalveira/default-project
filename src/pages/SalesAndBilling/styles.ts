@@ -43,6 +43,10 @@ export const WrapperIcons = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 50px 0;
+
+  @media (max-width: 1366px) {
+    padding: 20px 0;
+  }
 `
 
 export const StepLineIcons = styled.div<DefaultProps & { isActive: boolean }>`
@@ -62,6 +66,10 @@ export const WrapperTitleWithIcon = styled.div`
 
 export const WrapperTitle = styled.div`
   padding: 40px 0;
+
+  @media (max-width: 1366px) {
+    padding: 20px 0;
+  }
 `
 
 export const WrapperDescription = styled.div`

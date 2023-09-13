@@ -5,8 +5,6 @@ export const WrapperLogo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-height: 100px;
-  height: 100vh;
   padding: 0 40px;
 `
 
@@ -15,8 +13,13 @@ export const Container = styled.div<DefaultProps>`
   flex-direction: row;
   width: 88vw;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   background-color: ${({ theme }) => theme.palette.primary.light};
+
+  @media (max-width: 1366px) {
+    width: 92vw;
+    max-height: 80px;
+  }
 `
 
 export const WrapperIcons = styled.div`

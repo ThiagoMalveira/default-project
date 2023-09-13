@@ -3,7 +3,7 @@ import { FontType } from '@components/UI/Typography'
 import { theme } from '@resources/theme'
 import { useEffect, useState } from 'react'
 
-const ITEMS_PER_PAGE = 10
+const ITEMS_PER_PAGE = 5
 
 const usePanelProduct = () => {
   const [filter, setFilter] = useState<

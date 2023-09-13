@@ -103,7 +103,6 @@ const SignIn = () => {
             Esqueci a senha
           </Typography>
         </S.WrapperForgotPassword>
-        <Separator verticalSize={80} />
         <S.WrapperSignUp onClick={() => handleNavigate(PathRoutes.SIGN_UP)}>
           <Typography
             align="center"
@@ -114,8 +113,6 @@ const SignIn = () => {
             Crie um novo cadastro
           </Typography>
         </S.WrapperSignUp>
-
-        <Separator verticalSize={40} />
 
         <S.WrapperGoBack onClick={handleGoBack}>
           <Typography

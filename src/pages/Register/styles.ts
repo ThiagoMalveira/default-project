@@ -41,6 +41,10 @@ export const WrapperIcons = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 50px 0;
+
+  @media (max-width: 1366px) {
+    padding: 20px 0;
+  }
 `
 
 export const WrapperStep = styled.div`
@@ -60,6 +64,10 @@ export const WrapperTitleWithIcon = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  @media (max-width: 1366px) {
+    padding: 0px 0 20px 0px;
+  }
 `
 
 export const WrapperTitle = styled.div`
@@ -71,6 +79,10 @@ export const WrapperDescription = styled.div`
   max-width: 412px;
   width: 100%;
   display: flex;
+
+  @media (max-width: 1366px) {
+    display: none;
+  }
 `
 
 export const StepLineIcons = styled.div<DefaultProps & { isActive: boolean }>`
@@ -86,6 +98,10 @@ export const WrapperDescriptionBank = styled.div`
   max-width: 447px;
   width: 100%;
   display: flex;
+
+  @media (max-width: 1366px) {
+    padding: 0px 20px;
+  }
 `
 
 export const WrapperCards = styled.div`
@@ -106,6 +122,11 @@ export const ContainerModalContract = styled.div<DefaultProps>`
   height: 603px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.palette.primary.lightest};
+
+  @media (max-width: 1366px) {
+    top: 10%;
+    right: 15%;
+  }
 `
 
 export const WrapperTermsText = styled.div<DefaultProps>`
@@ -142,6 +163,7 @@ export const WrapperButton = styled.div<DefaultProps>`
 export const WrapperButtonShipping = styled.div<DefaultProps>`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 80%;
   padding: 20px 0;
 `
@@ -194,6 +216,11 @@ export const ContainerModalShipping = styled.div<DefaultProps>`
   height: 578px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.palette.primary.light};
+
+  @media (max-width: 1366px) {
+    top: 10%;
+    right: 30%;
+  }
 `
 
 export const ContainerManualTable = styled.div<DefaultProps>`
@@ -208,6 +235,13 @@ export const ContainerManualTable = styled.div<DefaultProps>`
   height: 720px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.palette.primary.light};
+
+  @media (max-width: 1366px) {
+    width: 1280px;
+    height: 650px;
+    top: 5%;
+    right: 2.5%;
+  }
 `
 
 export const WrapperTable = styled.div<DefaultProps>`
@@ -234,6 +268,10 @@ export const ContainerTable = styled.div<DefaultProps>`
   background-color: ${({ theme }) => theme.palette.primary.light};
   padding: 0 80px;
   height: 30vh;
+
+  @media (max-width: 1366px) {
+    padding: 0 30px;
+  }
 `
 
 export const WrapperButtonAdd = styled.div`
@@ -304,4 +342,9 @@ export const ContainerBankAccount = styled.div<DefaultProps>`
   right: 40%;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.palette.primary.light};
+
+  @media (max-width: 1366px) {
+    top: 15%;
+    right: 30%;
+  }
 `

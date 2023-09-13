@@ -10,6 +10,10 @@ export const Container = styled.div<DefaultProps>`
   height: 60px;
   padding: 30px 30px 30px 10px;
   border-bottom: 1px solid ${({ theme }) => theme.palette.secondary.dark};
+
+  @media (max-width: 1366px) {
+    justify-content: space-between;
+  }
 `
 export const WrapperLogo = styled.div``
 export const WrapperMenu = styled.div`

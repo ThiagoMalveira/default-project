@@ -53,7 +53,7 @@ export const WrapperIcons = styled.div`
 
 export const WrapperTitleWithIcon = styled.div`
   display: flex;
-  height: 16vh;
+  height: 50vh;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -92,6 +92,11 @@ export const ContainerProducts = styled.div<DefaultProps>`
   height: 759px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.palette.primary.light};
+
+  @media (max-width: 1366px) {
+    top: 0.5%;
+    right: 9%;
+  }
 `
 
 export const WrapperTitleModal = styled.div`
@@ -218,6 +223,11 @@ export const ContainerProductsFour = styled.div<DefaultProps>`
   height: 407px;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.palette.primary.light};
+
+  @media (max-width: 1366px) {
+    top: 20%;
+    right: 30%;
+  }
 `
 
 export const WrapperTitleModalFour = styled.div`
@@ -234,6 +244,10 @@ export const WrapperTitleWithIconFour = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  @media (max-width: 1366px) {
+    height: 25vh;
+  }
 `
 
 export const WrapperTitleFour = styled.div`

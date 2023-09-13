@@ -22,7 +22,7 @@ export const Container = styled.div<DefaultProps & IProps>`
     margin: 0 20px;
   }
 
-  @media (max-width: 1366px) {
+  @media (max-width: 1920px) {
     span {
       display: none;
     }

@@ -75,7 +75,9 @@ export const WrapperForm = styled.div`
   align-items: center;
   width: 50%;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1366px) {
+    height: 87vh;
+    justify-content: space-evenly;
   }
 `
 
@@ -89,9 +91,16 @@ export const WrapperFields = styled.div`
 
 export const WrapperButton = styled.div`
   padding: 50px 0;
+
+  @media (max-width: 1366px) {
+    padding: 0;
+  }
 `
 
 export const WrapperForgotPassword = styled.div`
+  display: flex;
+  padding: 20px 0px 20px 0px;
+
   &:hover {
     cursor: pointer;
     opacity: 0.8;
@@ -99,6 +108,9 @@ export const WrapperForgotPassword = styled.div`
 `
 
 export const WrapperSignUp = styled.div`
+  display: flex;
+  padding: 20px 0 20px 0px;
+
   &:hover {
     cursor: pointer;
     opacity: 0.8;
@@ -106,6 +118,9 @@ export const WrapperSignUp = styled.div`
 `
 
 export const WrapperGoBack = styled.div`
+  display: flex;
+  padding: 20px 0px;
+
   &:hover {
     cursor: pointer;
     opacity: 0.8;

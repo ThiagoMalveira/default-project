@@ -22,6 +22,10 @@ export const ContainerSLAInside = styled.div<DefaultProps>`
     padding: 20px;
     max-width: 80vw;
   }
+
+  @media (max-width: 1366px) {
+    max-width: 90vw;
+  }
 `
 
 export const ContainerSLA = styled.div<DefaultProps>`
@@ -30,6 +34,10 @@ export const ContainerSLA = styled.div<DefaultProps>`
   justify-content: center;
   align-items: center;
   width: 99vw;
+
+  @media (max-width: 1366px) {
+    width: 98vw;
+  }
 
   @media (max-width: 480px) {
     padding: 70px 0px;
@@ -49,6 +57,10 @@ export const ContainerTextSLA = styled.div<DefaultProps>`
     align-items: center;
     max-width: 350px;
     text-align: center;
+  }
+
+  @media (max-width: 1366px) {
+    padding: 20px;
   }
 `
 

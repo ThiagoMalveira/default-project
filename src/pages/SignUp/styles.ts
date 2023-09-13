@@ -8,6 +8,10 @@ export const WrapperForm = styled.div`
   align-items: center;
   width: 50%;
   height: 100vh;
+
+  @media (max-width: 1366px) {
+    height: 100vh;
+  }
 `
 
 export const WrapperAnalysis = styled.div`
@@ -26,6 +30,9 @@ export const WrapperTop = styled.div`
   width: 100%;
   max-width: 520px;
   align-items: center;
+  @media (max-width: 1366px) {
+    padding: 10px;
+  }
 `
 
 export const Container = styled.div`
@@ -37,17 +44,30 @@ export const Container = styled.div`
 
 export const WrapperTitle = styled.div`
   padding: 40px 0;
+
+  @media (max-width: 1366px) {
+    padding: 0;
+  }
 `
 
 export const WrapperDescription = styled.div`
   padding: 20px 40px;
+
   max-width: 412px;
   width: 100%;
   display: flex;
+
+  @media (max-width: 1366px) {
+    padding: 10px 20px;
+  }
 `
 
 export const WrapperFields = styled.div`
   padding: 20px 0;
+
+  @media (max-width: 1366px) {
+    padding: 0;
+  }
 `
 
 export const StepLineIcons = styled.div<DefaultProps & { isActive: boolean }>`
@@ -62,10 +82,18 @@ export const WrapperFieldRow = styled.div`
   display: flex;
   padding: 20px 0;
   flex-direction: row;
+
+  @media (max-width: 1366px) {
+    padding: 10px 0;
+  }
 `
 
 export const WrapperButton = styled.div`
   padding: 50px 0;
+
+  @media (max-width: 1366px) {
+    padding: 20px 0;
+  }
 `
 
 export const WrapperStep = styled.div`
@@ -77,6 +105,10 @@ export const WrapperStep = styled.div`
   gap: 10px;
   border-radius: 100px;
   background: rgba(237, 222, 171, 0.5);
+
+  @media (max-width: 1366px) {
+    display: none;
+  }
 `
 
 export const WrapperIcons = styled.div`
@@ -87,6 +119,10 @@ export const WrapperIcons = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 50px 0;
+
+  @media (max-width: 1366px) {
+    padding: 20px 0;
+  }
 `
 
 export const WrapperGoBack = styled.div`

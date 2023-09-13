@@ -27,7 +27,7 @@ export const WrapperLogo = styled.div<DefaultProps>`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 1366px) {
+  @media (max-width: 1920px) {
     display: none;
   }
 `
@@ -39,7 +39,10 @@ export const Container = styled.div<DefaultProps>`
   top: 0px;
   left: 0px;
   width: 12%;
-  animation: showSidebar 0.4s;
+
+  @media (max-width: 1366px) {
+    width: 110px;
+  }
 
   > svg {
     position: fixed;
@@ -49,17 +52,6 @@ export const Container = styled.div<DefaultProps>`
     margin-top: 32px;
     margin-left: 32px;
     cursor: pointer;
-  }
-
-  @keyframes showSidebar {
-    from {
-      opacity: 0;
-      width: 0;
-    }
-    to {
-      opacity: 1;
-      width: 300px;
-    }
   }
 `
 
