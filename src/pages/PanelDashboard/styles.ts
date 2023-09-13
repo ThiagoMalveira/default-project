@@ -183,4 +183,5 @@ export const WrapperIcon = styled.div`
 
 export const WrapperChart = styled.div`
   display: flex;
+  padding: 20px;
 `

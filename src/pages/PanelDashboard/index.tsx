@@ -9,11 +9,15 @@ import StarHalfIcon from '@mui/icons-material/StarHalf'
 import { theme } from '@resources/theme'
 import { formatCurrency, formatPercent } from '@resources/utils/forNumber'
 import { generateKey } from '@resources/utils/generateKey'
+import { ArcElement, Chart as ChartJs, Tooltip } from 'chart.js'
+import { Doughnut } from 'react-chartjs-2'
 import * as S from './styles'
 import usePanelDashboard from './usePanelDashboard'
 
 const PanelDashboard = () => {
-  const { datasets /*data, colors, getArcLabel*/ } = usePanelDashboard()
+  ChartJs.register(ArcElement, Tooltip)
+
+  const { datasets, data } = usePanelDashboard()
   const pedidos = '68'
   const pendente = '12'
   const faturamento = formatCurrency(12345.9)
@@ -249,23 +253,7 @@ const PanelDashboard = () => {
             </Typography>
           </S.WrapperTitleCard>
           <S.WrapperChart>
-            {/*<PieChart
-              colors={colors}
-              sx={{ background: '#B3B3B3' }}
-              series={[
-                {
-                  paddingAngle: 5,
-                  innerRadius: 60,
-                  outerRadius: 80,
-                  data,
-                  arcLabel: getArcLabel,
-                },
-              ]}
-              margin={{ right: 5 }}
-              width={200}
-              height={200}
-              legend={{ hidden: true }}
-            />*/}
+            <Doughnut data={data} />
           </S.WrapperChart>
         </S.WrapperSelling>
       </S.WrapperDashboard>
