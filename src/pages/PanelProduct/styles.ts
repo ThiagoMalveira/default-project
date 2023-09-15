@@ -52,7 +52,6 @@ export const WrapperFilters = styled.div<DefaultProps>`
   border-radius: 10px;
   width: 80vw;
   margin: 20px 0 20px 330px;
-  padding: 20px;
 
   @media (max-width: 1366px) {
     margin: 0px 0px 10px 60px;
@@ -64,6 +63,7 @@ export const ContainerFilter = styled.div<DefaultProps>`
   display: flex;
   padding: 10px 0px;
   align-items: center;
+  width: 100vw;
 
   @media (max-width: 1366px) {
     width: 1200px;
@@ -85,7 +85,7 @@ export const WrapperGrid = styled.div<DefaultProps>`
   justify-content: space-between;
   border-radius: 10px;
   width: 80vw;
-  height: 80vh;
+  height: 78vh;
   margin: 0 0 0 330px;
   padding: 20px;
 
