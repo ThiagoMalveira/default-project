@@ -2,23 +2,24 @@ import DataGrid from '@components/DataGridPartners'
 import HeaderPartner from '@components/HeaderPartner'
 import Loading from '@components/Loading'
 import Sidebar from '@components/Sidebar'
-import Separator from '@components/UI/Separator'
+import ButtonGradient from '@components/UI/ButtonGradient'
 import Typography from '@components/UI/Typography'
+import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import { theme } from '@resources/theme'
+import PathRoutes from '@route/PathRoutes'
 import * as S from './styles'
 import usePanelProduct from './usePanelProduct'
 
 const PanelProduct = () => {
+  const { handleNavigate } = useHandleNavigate()
   const {
     currentItems,
     currentPage,
     data,
-    filter,
     handlePageChange,
     header,
-    setFilter,
     totalPages,
   } = usePanelProduct()
   return (
@@ -30,68 +31,36 @@ const PanelProduct = () => {
 
       <S.ContainerDataGrid>
         <S.WrapperFilters>
-          <S.ContainerFilter filter={filter}>
-            <Typography
-              onClick={() => setFilter('PENDENTE')}
-              align="center"
-              size={28}
-              weight="700"
-              color={
-                filter === 'PENDENTE'
-                  ? `${theme.palette.warning.lightest}`
-                  : `${theme.palette.text.dark}`
-              }
-            >
-              Pendentes
-            </Typography>
-          </S.ContainerFilter>
-          <Separator horizontalSize={10} />
-          <S.ContainerFilter filter={filter}>
-            <Typography
-              onClick={() => setFilter('EM TRANSITO')}
-              align="center"
-              size={28}
-              weight="700"
-              color={
-                filter === 'EM TRANSITO'
-                  ? `${theme.palette.warning.lightest}`
-                  : `${theme.palette.text.dark}`
-              }
-            >
-              Em trânsito
-            </Typography>
-          </S.ContainerFilter>
-          <Separator horizontalSize={10} />
-          <S.ContainerFilter filter={filter}>
-            <Typography
-              onClick={() => setFilter('ENTREGUES')}
-              align="center"
-              size={28}
-              weight="700"
-              color={
-                filter === 'ENTREGUES'
-                  ? `${theme.palette.warning.lightest}`
-                  : `${theme.palette.text.dark}`
-              }
-            >
-              Entregues
-            </Typography>
-          </S.ContainerFilter>
-          <Separator horizontalSize={10} />
-          <S.ContainerFilter filter={filter}>
-            <Typography
-              onClick={() => setFilter('CANCELADOS')}
-              align="center"
-              size={28}
-              weight="700"
-              color={
-                filter === 'CANCELADOS'
-                  ? `${theme.palette.warning.lightest}`
-                  : `${theme.palette.text.dark}`
-              }
-            >
-              Cancelados
-            </Typography>
+          <S.ContainerFilter>
+            <S.WrapperText>
+              <Typography
+                align="center"
+                size={18}
+                weight="600"
+                color={theme.palette.text.dark}
+              >
+                Listagem de produtos
+              </Typography>
+            </S.WrapperText>
+
+            <S.WrapperButton>
+              <ButtonGradient
+                onClick={() =>
+                  handleNavigate(PathRoutes.PANEL_PRODUCT_REGISTER)
+                }
+                width={172}
+                height={45}
+              >
+                <Typography
+                  size={16}
+                  weight="600"
+                  align="center"
+                  color={theme.palette.primary.light}
+                >
+                  + Novo produto
+                </Typography>
+              </ButtonGradient>
+            </S.WrapperButton>
           </S.ContainerFilter>
         </S.WrapperFilters>
         {!data ? (

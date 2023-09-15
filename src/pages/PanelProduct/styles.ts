@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
-import { IStyledProps } from '@pages/Partners/types'
+import { IStyledProps } from '@pages/OperatorPartners/types'
 import { DefaultProps } from '@resources/types'
-import { IPropsStyle } from './types'
 
 export const Container = styled.div`
   display: flex;
@@ -48,7 +47,7 @@ export const ContainerDataGrid = styled.div<DefaultProps>`
 `
 
 export const WrapperFilters = styled.div<DefaultProps>`
-  background-color: ${({ theme }) => theme.palette.primary.light};
+  background-color: ${({ theme }) => theme.palette.primary.lightest};
   display: flex;
   border-radius: 10px;
   width: 80vw;
@@ -57,55 +56,25 @@ export const WrapperFilters = styled.div<DefaultProps>`
 
   @media (max-width: 1366px) {
     margin: 0px 0px 10px 60px;
+    padding: 0;
   }
 `
 
-export const ContainerFilter = styled.div<IPropsStyle & DefaultProps>`
+export const ContainerFilter = styled.div<DefaultProps>`
   display: flex;
   padding: 10px 0px;
+  align-items: center;
 
-  ${({ filter, theme }) =>
-    filter === 'PENDENTE' &&
-    `
-    &:nth-child(1) {
-      border-bottom: 1px solid ${theme.palette.warning.lightest};
-    }
-    `}
+  @media (max-width: 1366px) {
+    width: 1200px;
+  }
+`
 
-  ${({ filter, theme }) =>
-    filter === 'EM TRANSITO' &&
-    `
-    &:nth-child(3){
-      
-      border-bottom: 1px solid ${theme.palette.warning.lightest};
-    }
+export const WrapperText = styled.div<DefaultProps>`
+  display: flex;
 
-  `}
-
-  ${({ filter, theme }) =>
-    filter === 'ENTREGUES' &&
-    `
-    &:nth-child(5){
-      
-      border-bottom: 1px solid ${theme.palette.warning.lightest};
-    }
-
-  `}
-
-  ${({ filter, theme }) =>
-    filter === 'CANCELADOS' &&
-    `
-    &:nth-child(7){
-      
-      border-bottom: 1px solid ${theme.palette.warning.lightest};
-    }
-
-  `}
-
-
-  &:hover {
-    cursor: pointer;
-    opacity: 0.8;
+  @media (max-width: 1366px) {
+    width: 300px;
   }
 `
 
@@ -145,7 +114,7 @@ export const WrapperButtonPagination = styled.div<DefaultProps & IStyledProps>`
   background-color: ${({ isActive, theme }) =>
     isActive
       ? `${theme.palette.tertiary.dark}`
-      : `${theme.palette.primary.lightest}`};
+      : `${theme.palette.primary.light}`};
 
   cursor: ${({ isActive }) => (isActive ? 'default' : 'pointer')};
 
@@ -165,4 +134,11 @@ export const Button = styled.button<DefaultProps & IStyledProps>`
     cursor: pointer;
     opacity: 0.8;
   }
+`
+
+export const WrapperButton = styled.div<DefaultProps>`
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  padding: 20px 0;
 `

@@ -120,7 +120,7 @@ export const WrapperButtonPagination = styled.div<DefaultProps & IStyledProps>`
   background-color: ${({ isActive, theme }) =>
     isActive
       ? `${theme.palette.tertiary.dark}`
-      : `${theme.palette.primary.lightest}`};
+      : `${theme.palette.primary.light}`};
 
   cursor: ${({ isActive }) => (isActive ? 'default' : 'pointer')};
 

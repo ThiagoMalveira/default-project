@@ -3,7 +3,7 @@ const PathRoutes = {
   SIGN_OUT: '/sing-out',
   SIGN_UP: '/sign-up',
   FORGOT_PASSWORD: '/forgot-password',
-  PARTNERS: '/operador/parceiros',
+  OPERATOR_PARTNERS: '/operador/parceiros',
 
   REGISTER: '/register',
   PRODUCTS_REGISTER: '/products',
@@ -13,6 +13,7 @@ const PathRoutes = {
   PANEL_PRODUCT: '/panel/produtos',
   PANEL_REQUESTS: '/panel/pedidos',
   PANEL_FINANCIAL: '/panel/financeiro',
+  PANEL_PRODUCT_REGISTER: '/panel/cadastro-de-produto',
   PANEL_SHIPPING: '/panel/fretes',
 
   NOT_FOUND: '/404',

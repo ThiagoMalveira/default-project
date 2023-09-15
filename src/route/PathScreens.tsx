@@ -1,11 +1,11 @@
 import ForgotPassword from '@pages/ForgotPassword'
 import Home from '@pages/Home'
+import Partners from '@pages/OperatorPartners'
 import PanelDashboard from '@pages/PanelDashboard'
 import PanelFinancial from '@pages/PanelFinancial'
+import PanelRequests from '@pages/PanelPedidos'
 import PanelProduct from '@pages/PanelProduct'
-import PanelRequests from '@pages/PanelRequests'
 import PanelShipping from '@pages/PanelShipping'
-import Partners from '@pages/Partners'
 import ProductsRegister from '@pages/ProductsRegister'
 import Register from '@pages/Register'
 import SalesAndBilling from '@pages/SalesAndBilling'
@@ -22,7 +22,7 @@ const PathScreens = {
   PRODUCTS_REGISTER: <ProductsRegister />,
   SALES_AND_BILLING: <SalesAndBilling />,
 
-  PARTNERS: <Partners />,
+  OPERATOR_PARTNERS: <Partners />,
 
   PANEL_DASHBOARD: <PanelDashboard />,
   PANEL_PRODUCT: <PanelProduct />,

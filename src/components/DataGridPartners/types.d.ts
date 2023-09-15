@@ -10,7 +10,7 @@ export interface IGridHeader {
   value: string
   field: 'value' | 'interaction' | 'select'
   styles: {
-    align: 'left' | 'right'
+    align: 'left' | 'right' | 'center'
     fontType: Fonts | undefined
     fontSize: number
     color: string | undefined

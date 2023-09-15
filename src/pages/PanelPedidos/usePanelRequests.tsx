@@ -36,7 +36,7 @@ const usePanelRequests = () => {
       styles: {
         align: 'left',
         fontType: FontType.bold,
-        fontSize: 22,
+        fontSize: 14,
         color: `${theme.palette.text.dark}`,
       },
     },
@@ -50,7 +50,7 @@ const usePanelRequests = () => {
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 22,
+        fontSize: 14,
         color: `${theme.palette.text.dark}`,
       },
     },
@@ -64,7 +64,7 @@ const usePanelRequests = () => {
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 22,
+        fontSize: 14,
         color: `${theme.palette.text.dark}`,
       },
     },
@@ -78,7 +78,7 @@ const usePanelRequests = () => {
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 22,
+        fontSize: 14,
         color: `${theme.palette.text.dark}`,
       },
     },
@@ -92,7 +92,7 @@ const usePanelRequests = () => {
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 22,
+        fontSize: 14,
         color: `${theme.palette.text.dark}`,
       },
     },
@@ -106,12 +106,12 @@ const usePanelRequests = () => {
       styles: {
         align: 'left',
         fontType: FontType.regular,
-        fontSize: 22,
+        fontSize: 14,
         color: `${theme.palette.text.dark}`,
       },
     },
     {
-      label: 'ACTION',
+      label: 'STATUS',
       grid: 3,
       action: () => null,
       order: false,

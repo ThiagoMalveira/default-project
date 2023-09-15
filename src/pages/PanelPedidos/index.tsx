@@ -34,12 +34,12 @@ const PanelRequests = () => {
             <Typography
               onClick={() => setFilter('PENDENTE')}
               align="center"
-              size={28}
+              size={18}
               weight="700"
               color={
                 filter === 'PENDENTE'
                   ? `${theme.palette.warning.lightest}`
-                  : `${theme.palette.text.dark}`
+                  : `#9B9B9B`
               }
             >
               Pendentes
@@ -50,12 +50,12 @@ const PanelRequests = () => {
             <Typography
               onClick={() => setFilter('EM TRANSITO')}
               align="center"
-              size={28}
+              size={18}
               weight="700"
               color={
                 filter === 'EM TRANSITO'
                   ? `${theme.palette.warning.lightest}`
-                  : `${theme.palette.text.dark}`
+                  : `#9B9B9B`
               }
             >
               Em trânsito
@@ -66,12 +66,12 @@ const PanelRequests = () => {
             <Typography
               onClick={() => setFilter('ENTREGUES')}
               align="center"
-              size={28}
+              size={18}
               weight="700"
               color={
                 filter === 'ENTREGUES'
                   ? `${theme.palette.warning.lightest}`
-                  : `${theme.palette.text.dark}`
+                  : `#9B9B9B`
               }
             >
               Entregues
@@ -82,12 +82,12 @@ const PanelRequests = () => {
             <Typography
               onClick={() => setFilter('CANCELADOS')}
               align="center"
-              size={28}
+              size={18}
               weight="700"
               color={
                 filter === 'CANCELADOS'
                   ? `${theme.palette.warning.lightest}`
-                  : `${theme.palette.text.dark}`
+                  : `#9B9B9B`
               }
             >
               Cancelados

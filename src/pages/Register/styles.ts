@@ -311,6 +311,11 @@ export const ContainerModalAddLine = styled.div<DefaultProps>`
   right: 40%;
   border-radius: 20px;
   background-color: ${({ theme }) => theme.palette.primary.light};
+
+  @media (max-width: 1366px) {
+    top: 10%;
+    right: 30%;
+  }
 `
 
 export const WrapperFormLine = styled.div`

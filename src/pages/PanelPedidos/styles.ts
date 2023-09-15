@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { IStyledProps } from '@pages/Partners/types'
+import { IStyledProps } from '@pages/OperatorPartners/types'
 import { DefaultProps } from '@resources/types'
 import { IPropsStyle } from './types'
 
@@ -48,7 +48,7 @@ export const ContainerDataGrid = styled.div<DefaultProps>`
 `
 
 export const WrapperFilters = styled.div<DefaultProps>`
-  background-color: ${({ theme }) => theme.palette.primary.light};
+  background-color: ${({ theme }) => theme.palette.primary.lightest};
   display: flex;
   border-radius: 10px;
   width: 80vw;
@@ -56,7 +56,7 @@ export const WrapperFilters = styled.div<DefaultProps>`
   padding: 20px;
 
   @media (max-width: 1366px) {
-    margin: 10px 0px 10px 40px;
+    margin: 0px 0px 10px 60px;
   }
 `
 
@@ -121,7 +121,7 @@ export const WrapperGrid = styled.div<DefaultProps>`
   padding: 20px;
 
   @media (max-width: 1366px) {
-    margin: 0 0px 0 40px;
+    margin: 0 0px 0 60px;
     height: 65vh;
   }
 `
@@ -145,7 +145,7 @@ export const WrapperButtonPagination = styled.div<DefaultProps & IStyledProps>`
   background-color: ${({ isActive, theme }) =>
     isActive
       ? `${theme.palette.tertiary.dark}`
-      : `${theme.palette.primary.lightest}`};
+      : `${theme.palette.primary.light}`};
 
   cursor: ${({ isActive }) => (isActive ? 'default' : 'pointer')};
 
