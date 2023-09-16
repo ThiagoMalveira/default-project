@@ -35,7 +35,7 @@ const Sidebar = () => {
               <SidebarItem
                 Icon={PersonIcon}
                 Text="Parceiros"
-                path={() => handleNavigate(PathRoutes.PARTNERS)}
+                path={() => handleNavigate(PathRoutes.OPERATOR_PARTNERS)}
                 Active={pageTitle === 'Parceiros'}
               />
             )}

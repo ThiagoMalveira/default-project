@@ -41,7 +41,7 @@ const useSignIn = () => {
     if (!credentials) return
 
     if (user.roles.includes('ROLE_ADMIN')) {
-      handleNavigate(PathRoutes.PARTNERS)
+      handleNavigate(PathRoutes.OPERATOR_PARTNERS)
     }
     const MOCK = 'APROVADO_NODOC'
 
