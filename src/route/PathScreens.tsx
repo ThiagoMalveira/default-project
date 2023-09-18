@@ -5,6 +5,7 @@ import PanelDashboard from '@pages/PanelDashboard'
 import PanelFinancial from '@pages/PanelFinancial'
 import PanelRequests from '@pages/PanelPedidos'
 import PanelProduct from '@pages/PanelProduct'
+import PanelRegisterProducts from '@pages/PanelRegisterProducts'
 import PanelShipping from '@pages/PanelShipping'
 import ProductsRegister from '@pages/ProductsRegister'
 import Register from '@pages/Register'
@@ -29,6 +30,7 @@ const PathScreens = {
   PANEL_REQUESTS: <PanelRequests />,
   PANEL_FINANCIAL: <PanelFinancial />,
   PANEL_SHIPPING: <PanelShipping />,
+  PANEL_PRODUCT_REGISTER: <PanelRegisterProducts />,
 }
 
 export default PathScreens

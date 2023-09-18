@@ -13,7 +13,7 @@ const PathRoutes = {
   PANEL_PRODUCT: '/panel/produtos',
   PANEL_REQUESTS: '/panel/pedidos',
   PANEL_FINANCIAL: '/panel/financeiro',
-  PANEL_PRODUCT_REGISTER: '/panel/cadastro-de-produto',
+  PANEL_PRODUCT_REGISTER: '/panel/cadastro',
   PANEL_SHIPPING: '/panel/fretes',
 
   NOT_FOUND: '/404',

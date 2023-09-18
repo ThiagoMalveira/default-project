@@ -75,6 +75,13 @@ const Routes = () => {
           path={PathRoutes.PANEL_SHIPPING}
           element={<PrivateRoute>{PathScreens.PANEL_SHIPPING}</PrivateRoute>}
         />
+
+        <Route
+          path={PathRoutes.PANEL_PRODUCT_REGISTER}
+          element={
+            <PrivateRoute>{PathScreens.PANEL_PRODUCT_REGISTER}</PrivateRoute>
+          }
+        />
       </ListRoutes>
     </Fragment>
   )
