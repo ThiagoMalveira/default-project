@@ -8,6 +8,8 @@ const usePanelShipping = () => {
 
   const [data, setData] = useState<IGridData[]>([])
 
+  console.log(setData)
+
   const header: IGridHeader[] = [
     {
       label: 'UF',

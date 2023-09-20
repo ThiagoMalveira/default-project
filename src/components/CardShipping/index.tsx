@@ -5,7 +5,7 @@ import { theme } from '@resources/theme'
 import * as S from './styles'
 import { IProps } from './types'
 
-const CardShipping = ({ company, shippingDate, state, status, id }: IProps) => {
+const CardShipping = ({ company, shippingDate, state, status }: IProps) => {
   return (
     <S.Container>
       <S.WrapperIcon>
