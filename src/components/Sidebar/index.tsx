@@ -1,4 +1,4 @@
-import Logo from '@assets/images/logo.png'
+import Logo from '@assets/images/Logo.png'
 import { useAppSelector } from '@hooks/store'
 import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import usePageTitle from '@hooks/usePageTitle'
