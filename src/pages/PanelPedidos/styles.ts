@@ -57,6 +57,7 @@ export const WrapperFilters = styled.div<DefaultProps>`
 
   @media (max-width: 1366px) {
     margin: 0px 0px 10px 60px;
+    width: 85vw;
   }
 `
 
@@ -123,6 +124,7 @@ export const WrapperGrid = styled.div<DefaultProps>`
   @media (max-width: 1366px) {
     margin: 0 0px 0 60px;
     height: 65vh;
+    width: 85vw;
   }
 `
 

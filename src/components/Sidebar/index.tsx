@@ -1,4 +1,4 @@
-import Icon from '@components/UI/Icon'
+import Logo from '@assets/images/logo.png'
 import { useAppSelector } from '@hooks/store'
 import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import usePageTitle from '@hooks/usePageTitle'
@@ -10,7 +10,7 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import PersonIcon from '@mui/icons-material/Person'
 import PathRoutes from '@route/PathRoutes'
 import SidebarItem from '../SidebarItem'
-import { Container, ContainerMenu, Content, WrapperLogo } from './styles'
+import { Container, ContainerMenu, Content, Image, WrapperLogo } from './styles'
 
 const Sidebar = () => {
   const { handleNavigate } = useHandleNavigate()
@@ -22,7 +22,7 @@ const Sidebar = () => {
       <ContainerMenu>
         <Container>
           <WrapperLogo>
-            <Icon name="logo" />
+            <Image src={Logo} />
           </WrapperLogo>
           <Content>
             <SidebarItem

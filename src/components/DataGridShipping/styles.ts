@@ -30,6 +30,10 @@ export const Row = styled.div<{ item?: boolean } & DefaultProps>`
   padding: 5px 10px;
   margin: 5px 0;
 
+  @media (max-width: 1366px) {
+    width: 1056px;
+  }
+
   &:before,
   &:after {
     content: '';
@@ -88,6 +92,10 @@ export const AllRows = styled.div<{ item?: boolean } & DefaultProps>`
   box-sizing: border-box;
   padding: 5px 0;
   margin: 5px 0;
+
+  @media (max-width: 1366px) {
+    width: 1056px;
+  }
 
   &:before,
   &:after {

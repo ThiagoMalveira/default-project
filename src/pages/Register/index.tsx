@@ -7,6 +7,7 @@ import ButtonGradient from '@components/UI/ButtonGradient'
 import Field from '@components/UI/Field'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import useHandleLogout from '@hooks/useHandleLogout'
 import { Backdrop, Modal } from '@material-ui/core'
 import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
@@ -47,6 +48,9 @@ const Register = () => {
     // formik,
     handleAddBankAccount,
   } = useRegister()
+
+  const { handleLogout } = useHandleLogout()
+
   const step = '2'
 
   const ModalBankAccount = () => {
@@ -571,7 +575,22 @@ const Register = () => {
             openModal={handleOpenModalBankAccount}
           />
         </S.WrapperCards>
+        <S.WrapperButtons>
+          <S.WrapperButton>
+            <Typography
+              onClick={handleLogout}
+              size={14}
+              align="center"
+              weight="600"
+              textDecoration="underline"
+              color={theme.palette.text.dark}
+            >
+              Sair
+            </Typography>
+          </S.WrapperButton>
+        </S.WrapperButtons>
       </S.WrapperForm>
+
       <Modal
         onClose={handleCloseModalContract}
         open={modalContract}

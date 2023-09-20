@@ -5,6 +5,8 @@ import ButtonGradient from '@components/UI/ButtonGradient'
 import Field from '@components/UI/Field'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import { useGoBack } from '@hooks/useGoBack'
+import useHandleLogout from '@hooks/useHandleLogout'
 import { Backdrop, Modal } from '@material-ui/core'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
@@ -29,6 +31,9 @@ const ProductsRegister = () => {
     handleAddProduct,
     handleCompleteProducts,
   } = useProductsRegister()
+
+  const { handleLogout } = useHandleLogout()
+  const { handleGoBack } = useGoBack()
   const step = '3'
 
   const ModalProductsStepOne = () => {
@@ -761,7 +766,33 @@ const ProductsRegister = () => {
             openModal={handleOpenModalProducts}
           />
         </S.WrapperCard>
+        <S.WrapperButtons>
+          <S.WrapperButton>
+            <Typography
+              onClick={handleLogout}
+              size={16}
+              align="center"
+              weight="600"
+              textDecoration="underline"
+              color={theme.palette.text.dark}
+            >
+              Sair
+            </Typography>
+          </S.WrapperButton>
+          <S.WrapperGoBack onClick={handleGoBack}>
+            <Typography
+              align="center"
+              size={16}
+              textDecoration="underline"
+              weight="600"
+              color={theme.palette.text.dark}
+            >
+              Voltar
+            </Typography>
+          </S.WrapperGoBack>
+        </S.WrapperButtons>
       </S.WrapperForm>
+
       <Modal
         onClose={handleCloseModalProducts}
         open={modalProducts}

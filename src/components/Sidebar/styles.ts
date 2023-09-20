@@ -22,12 +22,14 @@ export const ContainerMenu = styled.div`
   }
 `
 
+export const Image = styled.img``
+
 export const WrapperLogo = styled.div<DefaultProps>`
   display: flex;
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 1920px) {
+  @media (max-width: 1366px) {
     display: none;
   }
 `

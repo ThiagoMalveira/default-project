@@ -30,7 +30,7 @@ export const AuthService = {
         header,
       )
 
-      if (![HttpCodes.SUCCESS, HttpCodes.CREATED].includes(response.status)) {
+      if (![HttpCodes.SUCCESS].includes(response.status)) {
         return initialAuthState
       }
 

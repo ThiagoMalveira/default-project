@@ -9,9 +9,11 @@ import { useCallback, useEffect, useState } from 'react'
 import { initialValues, useSignInSchema } from './schemas/useSignInSchema'
 
 const useSignIn = () => {
-  const { authLoading, credentials, signError, user } = useAppSelector(
+  const { authLoading, credentials, error, user } = useAppSelector(
     (state) => state.auth,
   )
+
+  console.log(error)
   const { handleNavigate } = useHandleNavigate()
   const dispatch = useAppDispatch()
   const [passwordType, setPasswordType] = useState<'password' | 'text'>(
@@ -23,19 +25,22 @@ const useSignIn = () => {
     initialValues,
     validationSchema: useSignInSchema,
     onSubmit: () => handleAuth(),
-    validateOnBlur: false,
     validateOnChange: false,
   })
 
-  const fetchAuthenticate = useCallback((): void => {
-    dispatch(fetchAuth(formik.values))
+  const fetchAuthenticate = useCallback(async (): Promise<void> => {
+    await dispatch(fetchAuth(formik.values))
   }, [formik, dispatch])
 
   const handleAuth = useCallback((): void => {
     if (!formik.values.email || !formik.values.password) return
 
     fetchAuthenticate()
-  }, [formik, fetchAuthenticate])
+
+    if (error) {
+      HandleNotification(typesNotification.ERROR, 'Login e/ou senha incorretos')
+    }
+  }, [formik, fetchAuthenticate, error])
 
   useEffect(() => {
     if (!credentials) return
@@ -54,12 +59,6 @@ const useSignIn = () => {
       }*/
     }
   }, [user, credentials, handleNavigate])
-
-  useEffect(() => {
-    if (signError) {
-      HandleNotification(typesNotification.ERROR, 'Login e/ou senha incorretos')
-    }
-  }, [signError])
 
   const togglePasswordType = () => {
     if (passwordType === 'password') {

@@ -24,6 +24,36 @@ export const WrapperTop = styled.div`
   align-items: center;
 `
 
+export const WrapperButton = styled.div`
+  padding: 50px 0;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  @media (max-width: 1366px) {
+    padding: 20px 0;
+  }
+`
+
+export const WrapperGoBack = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
+
+export const WrapperButtons = styled.div<DefaultProps>`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+`
+
 export const WrapperStep = styled.div`
   display: flex;
   width: 96px;

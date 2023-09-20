@@ -11,7 +11,7 @@ export const Container = styled.div<DefaultProps & IProps>`
   display: flex;
   align-items: center;
   background-color: transparent;
-  font-size: 20px;
+  font-size: 14px;
   color: #9b9b9b;
   padding: 10px;
   cursor: pointer;
@@ -22,7 +22,7 @@ export const Container = styled.div<DefaultProps & IProps>`
     margin: 0 20px;
   }
 
-  @media (max-width: 1920px) {
+  @media (max-width: 1366px) {
     span {
       display: none;
     }

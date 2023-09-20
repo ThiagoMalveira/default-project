@@ -1,4 +1,6 @@
 import { AnyAction, ThunkAction } from '@reduxjs/toolkit'
+import HandleNotification from '@resources/helpers/handleNotification'
+import { typesNotification } from '@resources/types/notification'
 import { RootState } from '@resources/types/store'
 import { AuthService } from '@services/auth'
 import { authCredentials, authError, authLoading } from './slice'
@@ -15,11 +17,15 @@ export function fetchAuth(
     try {
       const result = await AuthService.signIn(email, password)
 
-      if (!result) return dispatch(authError())
+      if (result.accessToken === '') return dispatch(authError())
 
       dispatch(authCredentials(result))
     } catch (err) {
       console.log(err)
+      HandleNotification(
+        typesNotification.ERROR,
+        `Senha ou password incorreto!`,
+      )
       dispatch(authError())
     }
   }

@@ -5,6 +5,17 @@ export const Container = styled.div`
   display: flex;
 `
 
+export const WrapperGoBack = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`
+
 export const WrapperForm = styled.div`
   display: flex;
   justify-content: space-between;
@@ -104,6 +115,12 @@ export const WrapperDescriptionBank = styled.div`
   }
 `
 
+export const WrapperButtons = styled.div<DefaultProps>`
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+`
+
 export const WrapperCards = styled.div`
   display: flex;
   flex-direction: column;
@@ -156,8 +173,12 @@ export const WrapperTermsText = styled.div<DefaultProps>`
 export const WrapperButton = styled.div<DefaultProps>`
   display: flex;
   justify-content: flex-end;
-  width: 80%;
-  padding: 20px 0;
+  padding: 20px;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `
 
 export const WrapperButtonShipping = styled.div<DefaultProps>`

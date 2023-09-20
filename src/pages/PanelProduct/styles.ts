@@ -56,6 +56,7 @@ export const WrapperFilters = styled.div<DefaultProps>`
   @media (max-width: 1366px) {
     margin: 0px 0px 10px 60px;
     padding: 0;
+    width: 85vw;
   }
 `
 
