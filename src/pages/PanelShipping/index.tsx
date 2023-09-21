@@ -1,16 +1,35 @@
 import CardShipping from '@components/CardShipping'
 import DataGridShipping from '@components/DataGridShipping'
+import Dropzone from '@components/Dropzone'
 import HeaderPartner from '@components/HeaderPartner'
 import Sidebar from '@components/Sidebar'
+import ButtonGradient from '@components/UI/ButtonGradient'
+import Field from '@components/UI/Field'
 import Separator from '@components/UI/Separator'
 import Typography from '@components/UI/Typography'
+import { Backdrop, Modal } from '@material-ui/core'
+import CloseIcon from '@mui/icons-material/Close'
 import { theme } from '@resources/theme'
 import { generateKey } from '@resources/utils/generateKey'
 import * as S from './styles'
 import usePanelShipping from './usePanelShipping'
 
 const PanelShipping = () => {
-  const { filter, setFilter, data, header, tables } = usePanelShipping()
+  const {
+    filter,
+    setFilter,
+    data,
+    header,
+    tables,
+    handleOpenModalShipping,
+    modalShipping,
+    nextStepShipping,
+    previousStepShipping,
+    handleCloseModalShipping,
+    handleCloseAndCompleteModalShipping,
+    stepShipping,
+    forms,
+  } = usePanelShipping()
 
   const ManualTable = () => {
     return (
@@ -51,9 +70,297 @@ const PanelShipping = () => {
     )
   }
 
+  const ModalShipping = () => {
+    return (
+      <S.ContainerModalShipping>
+        <S.WrapperTitleModal>
+          <Typography size={18} weight="600" color={theme.palette.text.dark}>
+            Tabela de frete
+          </Typography>
+          <S.WrapperIcon onClick={handleCloseModalShipping}>
+            <CloseIcon sx={{ color: theme.palette.text.dark }} />
+          </S.WrapperIcon>
+        </S.WrapperTitleModal>
+        <S.WrapperShippingCompany>
+          <Field
+            marginInputLeft={20}
+            marginInputRight={20}
+            inputWidth={200}
+            fontSize={16}
+            fontWeight={'600'}
+            borderColor={'#E9E9E9'}
+            textInputColor={theme.palette.text.dark}
+            labelTop="Nome da transportadora"
+            labelColor={theme.palette.text.dark}
+            placeholderColor={theme.palette.text.dark}
+            placeholder={'Correios'}
+            name={'productDiscount'}
+          />
+        </S.WrapperShippingCompany>
+        <S.WrapperTable>
+          <Dropzone onFileUploaded={() => console.log('uploaded file')} />
+          <S.WrapperManualTable onClick={nextStepShipping}>
+            <Typography
+              size={14}
+              weight="600"
+              align="center"
+              color={'#AD8D31'}
+              textDecoration="underline"
+            >
+              Quero criar uma tabela manual
+            </Typography>
+          </S.WrapperManualTable>
+        </S.WrapperTable>
+        <S.WrapperButtonShipping>
+          <S.WrapperButtonCancelShipping onClick={handleCloseModalShipping}>
+            <Typography
+              color={theme.palette.text.dark}
+              weight="400"
+              size={14}
+              textDecoration="underline"
+            >
+              Cancelar
+            </Typography>
+          </S.WrapperButtonCancelShipping>
+          <ButtonGradient
+            height={59}
+            width={265}
+            onClick={handleCloseAndCompleteModalShipping}
+          >
+            <Typography
+              size={18}
+              weight="600"
+              align="center"
+              color={theme.palette.primary.lightest}
+            >
+              Salvar
+            </Typography>
+          </ButtonGradient>
+        </S.WrapperButtonShipping>
+      </S.ContainerModalShipping>
+    )
+  }
+
+  const ModalCreateManualTable = () => {
+    return (
+      <S.ContainerManualTable>
+        <S.WrapperTitleModal>
+          <Typography size={18} weight="600" color={theme.palette.text.dark}>
+            Tabela de frete
+          </Typography>
+          <S.WrapperIcon onClick={previousStepShipping}>
+            <CloseIcon sx={{ color: theme.palette.text.dark }} />
+          </S.WrapperIcon>
+        </S.WrapperTitleModal>
+        <S.WrapperTable>
+          <S.ContainerTable>
+            <DataGridShipping header={header} data={data} />
+            <S.WrapperButtonAdd onClick={nextStepShipping}>
+              <Typography
+                size={14}
+                weight="600"
+                color={theme.palette.warning.lightest}
+              >
+                + Adicionar uma nova linha
+              </Typography>
+            </S.WrapperButtonAdd>
+            <S.WrapperButtonBack onClick={previousStepShipping}>
+              <Typography
+                size={14}
+                weight="600"
+                textDecoration="underline"
+                color={theme.palette.warning.lightest}
+              >
+                Quero fazer upload de uma tabela
+              </Typography>
+            </S.WrapperButtonBack>
+          </S.ContainerTable>
+        </S.WrapperTable>
+        <S.WrapperButtonShipping>
+          <S.WrapperButtonCancelShipping onClick={previousStepShipping}>
+            <Typography
+              color={theme.palette.text.dark}
+              weight="400"
+              size={14}
+              textDecoration="underline"
+            >
+              Cancelar
+            </Typography>
+          </S.WrapperButtonCancelShipping>
+          <ButtonGradient
+            height={59}
+            width={265}
+            onClick={handleCloseAndCompleteModalShipping}
+          >
+            <Typography
+              size={18}
+              weight="600"
+              align="center"
+              color={theme.palette.primary.lightest}
+            >
+              Salvar
+            </Typography>
+          </ButtonGradient>
+        </S.WrapperButtonShipping>
+      </S.ContainerManualTable>
+    )
+  }
+
+  const ModalAddLine = () => {
+    return (
+      <S.ContainerModalAddLine>
+        <S.WrapperTitleModal>
+          <Typography size={18} weight="600" color={theme.palette.text.dark}>
+            Adicionar Linha
+          </Typography>
+          <S.WrapperIcon onClick={previousStepShipping}>
+            <CloseIcon sx={{ color: theme.palette.error.dark }} />
+          </S.WrapperIcon>
+        </S.WrapperTitleModal>
+        <S.WrapperFormLine>
+          <S.WrapperFields>
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="UF"
+              labelColor={theme.palette.text.dark}
+              placeholder={'UF do estado'}
+              name={'uf'}
+            />
+
+            <Separator horizontalSize={20} />
+
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="PESO (KG)"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Peso em kilos'}
+              name={'peso'}
+            />
+
+            <Separator horizontalSize={20} />
+
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="COMPRIMENTO"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Em centímetros'}
+              name={'comprimento'}
+            />
+          </S.WrapperFields>
+          <Separator verticalSize={20} />
+          <S.WrapperFields>
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="ALTURA (CM)"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Em centímetros'}
+              name={'altura'}
+            />
+
+            <Separator horizontalSize={20} />
+
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="LARGURA (CM)"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Em centímetros'}
+              name={'largura'}
+            />
+
+            <Separator horizontalSize={20} />
+
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="PRAZO MIN"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Prazo mínimo'}
+              name={'prazo_min'}
+            />
+          </S.WrapperFields>
+          <Separator verticalSize={20} />
+          <S.WrapperFields>
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="PRAZO MAX"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Prazo máximo'}
+              name={'prazo_max'}
+            />
+
+            <Separator horizontalSize={20} />
+
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="VALOR FRETE"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Valor frete'}
+              name={'shipping_value'}
+            />
+
+            <Separator horizontalSize={20} />
+
+            <Field
+              marginInputLeft={20}
+              marginInputRight={20}
+              inputWidth={100}
+              labelTop="FAIXA GRÁTIS"
+              labelColor={theme.palette.text.dark}
+              placeholder={'Frete grátis'}
+              name={'free_shipping'}
+            />
+          </S.WrapperFields>
+        </S.WrapperFormLine>
+        <S.WrapperButtonShipping>
+          <S.WrapperButtonCancelShipping onClick={previousStepShipping}>
+            <Typography
+              color={theme.palette.text.dark}
+              weight="400"
+              size={14}
+              textDecoration="underline"
+            >
+              Cancelar
+            </Typography>
+          </S.WrapperButtonCancelShipping>
+          <ButtonGradient height={59} width={265} onClick={forms.handleSubmit}>
+            <Typography
+              size={18}
+              weight="600"
+              align="center"
+              color={theme.palette.primary.lightest}
+            >
+              Salvar
+            </Typography>
+          </ButtonGradient>
+        </S.WrapperButtonShipping>
+      </S.ContainerModalAddLine>
+    )
+  }
+
   const filterSetup = {
     MANUAIS: <ManualTable />,
     ENVIADAS: <SendedTables />,
+  }
+
+  const ShippingSetups = {
+    1: <ModalShipping />,
+    2: <ModalCreateManualTable />,
+    3: <ModalAddLine />,
   }
 
   return (
@@ -95,8 +402,37 @@ const PanelShipping = () => {
             Tabelas manuais
           </Typography>
         </S.ContainerFilter>
+        <S.WrapperButtonAddNewTable>
+          <S.ContainerFilter>
+            <ButtonGradient
+              width={179}
+              height={45}
+              onClick={handleOpenModalShipping}
+            >
+              <Typography
+                align="center"
+                size={16}
+                weight="600"
+                color={theme.palette.primary.light}
+              >
+                + Nova tabela
+              </Typography>
+            </ButtonGradient>
+          </S.ContainerFilter>
+        </S.WrapperButtonAddNewTable>
       </S.WrapperFilters>
       {filterSetup[filter]}
+      <Modal
+        onClose={handleCloseModalShipping}
+        open={modalShipping}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        {ShippingSetups[stepShipping]}
+      </Modal>
     </S.Container>
   )
 }

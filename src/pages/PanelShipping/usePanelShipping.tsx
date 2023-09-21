@@ -1,14 +1,66 @@
 import { IGridData, IGridHeader } from '@components/DataGridShipping/types'
 import { FontType } from '@components/UI/Typography'
+import {
+  initialValuesShipping,
+  useRegisterSchema,
+} from '@pages/Register/schemas/useRegisterSchema'
 import { theme } from '@resources/theme'
+import { useFormik } from 'formik'
 import { useState } from 'react'
 
 const usePanelShipping = () => {
   const [filter, setFilter] = useState<'ENVIADAS' | 'MANUAIS'>('ENVIADAS')
+  const [modalShipping, setModalShipping] = useState<boolean>(false)
+  const [stepShipping, setStepShipping] = useState(1)
 
   const [data, setData] = useState<IGridData[]>([])
 
   console.log(setData)
+
+  const handleOpenModalShipping = () => {
+    setModalShipping(true)
+  }
+
+  const nextStepShipping = () => {
+    setStepShipping(stepShipping + 1)
+  }
+
+  const previousStepShipping = () => {
+    setStepShipping(stepShipping - 1)
+  }
+
+  const handleCloseModalShipping = () => {
+    setModalShipping(false)
+    setStepShipping(1)
+  }
+
+  const handleCloseAndCompleteModalShipping = () => {
+    setModalShipping(false)
+    setStepShipping(1)
+  }
+
+  const forms = useFormik({
+    initialValues: initialValuesShipping,
+    validationSchema: useRegisterSchema,
+    onSubmit: () => handleAddLine(),
+    validateOnBlur: false,
+    validateOnChange: false,
+  })
+
+  const handleAddLine = () => {
+    const newData = {
+      id: data.length + 1,
+      select: '',
+      action: '',
+      values: {
+        ...forms.values,
+      },
+    }
+
+    setData([...data, newData])
+    forms.resetForm()
+    setStepShipping(stepShipping - 1)
+  }
 
   const header: IGridHeader[] = [
     {
@@ -169,6 +221,14 @@ const usePanelShipping = () => {
     data,
     header,
     tables,
+    handleOpenModalShipping,
+    modalShipping,
+    nextStepShipping,
+    previousStepShipping,
+    handleCloseModalShipping,
+    handleCloseAndCompleteModalShipping,
+    stepShipping,
+    forms,
   }
 }
 

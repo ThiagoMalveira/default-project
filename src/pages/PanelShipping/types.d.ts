@@ -1,3 +1,3 @@
 export type IPropsStyle = {
-  filter: 'ENVIADAS' | 'MANUAIS'
+  filter?: 'ENVIADAS' | 'MANUAIS'
 }
