@@ -168,6 +168,7 @@ export const WrapperFilters = styled.div<DefaultProps>`
 
   @media (max-width: 1366px) {
     margin: 0px 0px 10px 20px;
+    padding: 20px 20px;
   }
 `
 
@@ -202,6 +203,10 @@ export const ContainerFilter = styled.div<IPropsStyle & DefaultProps>`
   &:hover {
     cursor: pointer;
     opacity: 0.8;
+  }
+
+  @media (max-width: 1366px) {
+    padding: 0;
   }
 `
 

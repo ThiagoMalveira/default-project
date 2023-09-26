@@ -23,12 +23,12 @@ const PanelShipping = () => {
     tables,
     handleOpenModalShipping,
     modalShipping,
-    nextStepShipping,
-    previousStepShipping,
     handleCloseModalShipping,
     handleCloseAndCompleteModalShipping,
-    stepShipping,
     forms,
+    handleCloseModalAddLine,
+    handleOpenModalAddLine,
+    modalAddLine,
   } = usePanelShipping()
 
   const ManualTable = () => {
@@ -36,7 +36,7 @@ const PanelShipping = () => {
       <S.ContainerManualTable>
         <S.ContainerTable>
           <DataGridShipping header={header} data={data} />
-          <S.WrapperButtonAdd>
+          <S.WrapperButtonAdd onClick={handleOpenModalAddLine}>
             <Typography
               size={14}
               weight="600"
@@ -99,17 +99,6 @@ const PanelShipping = () => {
         </S.WrapperShippingCompany>
         <S.WrapperTable>
           <Dropzone onFileUploaded={() => console.log('uploaded file')} />
-          <S.WrapperManualTable onClick={nextStepShipping}>
-            <Typography
-              size={14}
-              weight="600"
-              align="center"
-              color={'#AD8D31'}
-              textDecoration="underline"
-            >
-              Quero criar uma tabela manual
-            </Typography>
-          </S.WrapperManualTable>
         </S.WrapperTable>
         <S.WrapperButtonShipping>
           <S.WrapperButtonCancelShipping onClick={handleCloseModalShipping}>
@@ -141,71 +130,6 @@ const PanelShipping = () => {
     )
   }
 
-  const ModalCreateManualTable = () => {
-    return (
-      <S.ContainerManualTable>
-        <S.WrapperTitleModal>
-          <Typography size={18} weight="600" color={theme.palette.text.dark}>
-            Tabela de frete
-          </Typography>
-          <S.WrapperIcon onClick={previousStepShipping}>
-            <CloseIcon sx={{ color: theme.palette.text.dark }} />
-          </S.WrapperIcon>
-        </S.WrapperTitleModal>
-        <S.WrapperTable>
-          <S.ContainerTable>
-            <DataGridShipping header={header} data={data} />
-            <S.WrapperButtonAdd onClick={nextStepShipping}>
-              <Typography
-                size={14}
-                weight="600"
-                color={theme.palette.warning.lightest}
-              >
-                + Adicionar uma nova linha
-              </Typography>
-            </S.WrapperButtonAdd>
-            <S.WrapperButtonBack onClick={previousStepShipping}>
-              <Typography
-                size={14}
-                weight="600"
-                textDecoration="underline"
-                color={theme.palette.warning.lightest}
-              >
-                Quero fazer upload de uma tabela
-              </Typography>
-            </S.WrapperButtonBack>
-          </S.ContainerTable>
-        </S.WrapperTable>
-        <S.WrapperButtonShipping>
-          <S.WrapperButtonCancelShipping onClick={previousStepShipping}>
-            <Typography
-              color={theme.palette.text.dark}
-              weight="400"
-              size={14}
-              textDecoration="underline"
-            >
-              Cancelar
-            </Typography>
-          </S.WrapperButtonCancelShipping>
-          <ButtonGradient
-            height={59}
-            width={265}
-            onClick={handleCloseAndCompleteModalShipping}
-          >
-            <Typography
-              size={18}
-              weight="600"
-              align="center"
-              color={theme.palette.primary.lightest}
-            >
-              Salvar
-            </Typography>
-          </ButtonGradient>
-        </S.WrapperButtonShipping>
-      </S.ContainerManualTable>
-    )
-  }
-
   const ModalAddLine = () => {
     return (
       <S.ContainerModalAddLine>
@@ -213,7 +137,7 @@ const PanelShipping = () => {
           <Typography size={18} weight="600" color={theme.palette.text.dark}>
             Adicionar Linha
           </Typography>
-          <S.WrapperIcon onClick={previousStepShipping}>
+          <S.WrapperIcon onClick={handleCloseModalAddLine}>
             <CloseIcon sx={{ color: theme.palette.error.dark }} />
           </S.WrapperIcon>
         </S.WrapperTitleModal>
@@ -327,7 +251,7 @@ const PanelShipping = () => {
           </S.WrapperFields>
         </S.WrapperFormLine>
         <S.WrapperButtonShipping>
-          <S.WrapperButtonCancelShipping onClick={previousStepShipping}>
+          <S.WrapperButtonCancelShipping onClick={handleCloseModalAddLine}>
             <Typography
               color={theme.palette.text.dark}
               weight="400"
@@ -355,12 +279,6 @@ const PanelShipping = () => {
   const filterSetup = {
     MANUAIS: <ManualTable />,
     ENVIADAS: <SendedTables />,
-  }
-
-  const ShippingSetups = {
-    1: <ModalShipping />,
-    2: <ModalCreateManualTable />,
-    3: <ModalAddLine />,
   }
 
   return (
@@ -431,7 +349,18 @@ const PanelShipping = () => {
           timeout: 500,
         }}
       >
-        {ShippingSetups[stepShipping]}
+        <ModalShipping />
+      </Modal>
+      <Modal
+        onClose={handleCloseModalAddLine}
+        open={modalAddLine}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <ModalAddLine />
       </Modal>
     </S.Container>
   )

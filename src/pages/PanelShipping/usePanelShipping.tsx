@@ -11,6 +11,7 @@ import { useState } from 'react'
 const usePanelShipping = () => {
   const [filter, setFilter] = useState<'ENVIADAS' | 'MANUAIS'>('ENVIADAS')
   const [modalShipping, setModalShipping] = useState<boolean>(false)
+  const [modalAddLine, setModalAddLine] = useState<boolean>(false)
   const [stepShipping, setStepShipping] = useState(1)
 
   const [data, setData] = useState<IGridData[]>([])
@@ -21,17 +22,17 @@ const usePanelShipping = () => {
     setModalShipping(true)
   }
 
-  const nextStepShipping = () => {
-    setStepShipping(stepShipping + 1)
-  }
-
-  const previousStepShipping = () => {
-    setStepShipping(stepShipping - 1)
+  const handleOpenModalAddLine = () => {
+    setModalAddLine(true)
   }
 
   const handleCloseModalShipping = () => {
     setModalShipping(false)
     setStepShipping(1)
+  }
+
+  const handleCloseModalAddLine = () => {
+    setModalAddLine(false)
   }
 
   const handleCloseAndCompleteModalShipping = () => {
@@ -223,12 +224,12 @@ const usePanelShipping = () => {
     tables,
     handleOpenModalShipping,
     modalShipping,
-    nextStepShipping,
-    previousStepShipping,
     handleCloseModalShipping,
     handleCloseAndCompleteModalShipping,
-    stepShipping,
     forms,
+    handleCloseModalAddLine,
+    handleOpenModalAddLine,
+    modalAddLine,
   }
 }
 

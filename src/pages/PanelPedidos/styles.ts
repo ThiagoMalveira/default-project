@@ -124,7 +124,6 @@ export const WrapperGrid = styled.div<DefaultProps>`
   @media (max-width: 1366px) {
     margin: 0 0px 0 60px;
     height: 65vh;
-    width: 85vw;
   }
 `
 
