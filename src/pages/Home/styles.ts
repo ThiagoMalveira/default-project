@@ -119,6 +119,18 @@ export const WrapperIcon = styled.div<DefaultProps>`
   }
 `
 
+export const WrapperIconWhatsApp = styled.div<DefaultProps>`
+  height: 96px;
+  width: 96px;
+  left: calc(100% - 10%);
+  top: calc(100% - 15%);
+  position: fixed;
+
+  @media (max-width: 480px) {
+    left: calc(100% - 30%);
+  }
+`
+
 export const ContainerWhatsApp = styled.div`
   display: flex;
 

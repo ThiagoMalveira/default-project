@@ -5,6 +5,7 @@ import { useUpdateStatus } from '@hooks/useUpdateStatus'
 import CloseIcon from '@mui/icons-material/Close'
 import SummarizeIcon from '@mui/icons-material/Summarize'
 import { theme } from '@resources/theme'
+import { memo } from 'react'
 import * as S from './styles'
 import { IProps } from './types'
 
@@ -57,4 +58,4 @@ const ModalAccept = ({ id }: IProps) => {
   )
 }
 
-export default ModalAccept
+export default memo(ModalAccept)

@@ -9,6 +9,7 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import { theme } from '@resources/theme'
 import PathRoutes from '@route/PathRoutes'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import usePanelProduct from './usePanelProduct'
 
@@ -24,6 +25,10 @@ const PanelProduct = () => {
   } = usePanelProduct()
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Produtos | Konekte</title>
+      </Helmet>
       <Sidebar />
       <S.WrapperHeader>
         <HeaderPartner />

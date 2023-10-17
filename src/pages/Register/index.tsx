@@ -16,6 +16,7 @@ import CloseIcon from '@mui/icons-material/Close'
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined'
 import { theme } from '@resources/theme'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import useRegister from './useRegister'
 
@@ -486,6 +487,10 @@ const Register = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cadastro | Konekte</title>
+      </Helmet>
       <ImageLogin />
       <S.WrapperForm>
         <S.WrapperTop>

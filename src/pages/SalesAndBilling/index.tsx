@@ -8,6 +8,7 @@ import Brightness1Icon from '@mui/icons-material/Brightness1'
 import ChecklistIcon from '@mui/icons-material/Checklist'
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt'
 import { theme } from '@resources/theme'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import useSalesAndBilling from './useSalesAndBilling'
 
@@ -124,6 +125,10 @@ const SalesAndBilling = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Próximos passos | Konekte</title>
+      </Helmet>
       <ImageLogin />
       <S.WrapperForm>
         <S.WrapperTop>

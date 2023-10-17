@@ -4,6 +4,7 @@ import { useUpdateStatus } from '@hooks/useUpdateStatus'
 import CloseIcon from '@mui/icons-material/Close'
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark'
 import { theme } from '@resources/theme'
+import { memo } from 'react'
 import * as S from './styles'
 import { IProps } from './types'
 
@@ -48,4 +49,4 @@ const ModalPending = ({ id }: IProps) => {
   )
 }
 
-export default ModalPending
+export default memo(ModalPending)

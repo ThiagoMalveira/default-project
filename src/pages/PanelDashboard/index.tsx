@@ -11,6 +11,7 @@ import { formatCurrency, formatPercent } from '@resources/utils/forNumber'
 import { generateKey } from '@resources/utils/generateKey'
 import { ArcElement, Chart as ChartJs, Tooltip } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import usePanelDashboard from './usePanelDashboard'
 
@@ -27,6 +28,10 @@ const PanelDashboard = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Dashboard | Konekte</title>
+      </Helmet>
       <Sidebar />
       <S.WrapperHeader>
         <HeaderPartner />

@@ -16,6 +16,7 @@ import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBullet
 import NoteAddOutlinedIcon from '@mui/icons-material/NoteAddOutlined'
 import RuleIcon from '@mui/icons-material/Rule'
 import { theme } from '@resources/theme'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import useProductsRegister from './useProductsRegister'
 
@@ -700,6 +701,10 @@ const ProductsRegister = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Registro de produtos | Konekte</title>
+      </Helmet>
       <ImageLogin />
       <S.WrapperForm>
         <S.WrapperTop>

@@ -19,7 +19,10 @@ export const WrapperLogo = styled.div<DefaultProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px;
+
+  @media (max-width: 1368px) {
+    padding: 50px;
+  }
 `
 
 export const WrapperImage = styled.div<DefaultProps>`

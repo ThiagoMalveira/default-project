@@ -10,6 +10,7 @@ import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined'
 import RuleIcon from '@mui/icons-material/Rule'
 import { theme } from '@resources/theme'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import usePanelRegisterProducts from './usePanelRegisterProducts'
 
@@ -434,6 +435,10 @@ const PanelRegisterProducts = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Registrar produtos | Konekte</title>
+      </Helmet>
       <Sidebar />
       <S.WrapperHeader>
         <HeaderPartner />

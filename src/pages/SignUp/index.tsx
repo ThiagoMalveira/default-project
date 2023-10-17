@@ -10,6 +10,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime'
 import Brightness1Icon from '@mui/icons-material/Brightness1'
 import { theme } from '@resources/theme'
 import { ChangeEvent } from 'react'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import useSignUp from './useSignUp'
 
@@ -217,6 +218,10 @@ const SignUp = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cadastro | Konekte</title>
+      </Helmet>
       <ImageLogin />
       <S.WrapperForm>
         <S.WrapperTop>

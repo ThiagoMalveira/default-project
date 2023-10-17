@@ -11,6 +11,7 @@ import { Backdrop, Modal } from '@material-ui/core'
 import CloseIcon from '@mui/icons-material/Close'
 import { theme } from '@resources/theme'
 import { generateKey } from '@resources/utils/generateKey'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import usePanelShipping from './usePanelShipping'
 
@@ -283,6 +284,10 @@ const PanelShipping = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Fretes | Konekte</title>
+      </Helmet>
       <Sidebar />
       <S.WrapperHeader>
         <HeaderPartner />

@@ -7,6 +7,7 @@ import Typography from '@components/UI/Typography'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import { theme } from '@resources/theme'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import usePartners from './usePartners'
 
@@ -24,6 +25,10 @@ const Partners = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Parceiros | Konekte</title>
+      </Helmet>
       <S.Container>
         <Sidebar />
         <HeaderPartner />

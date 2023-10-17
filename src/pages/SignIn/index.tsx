@@ -9,6 +9,7 @@ import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import { Visibility, VisibilityOff } from '@material-ui/icons'
 import { theme } from '@resources/theme'
 import PathRoutes from '@route/PathRoutes'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import useSignIn from './useSignIn'
 
@@ -26,6 +27,10 @@ const SignIn = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login | Konekte</title>
+      </Helmet>
       <ImageLogin />
       <S.WrapperForm>
         <S.WrapperTitle>

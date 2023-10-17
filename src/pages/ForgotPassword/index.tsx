@@ -4,6 +4,7 @@ import Field from '@components/UI/Field'
 import Typography from '@components/UI/Typography'
 import { useGoBack } from '@hooks/useGoBack'
 import { theme } from '@resources/theme'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import useForgotPassword from './useForgotPassword'
 
@@ -13,6 +14,10 @@ const ForgotPassword = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Esqueci minha senha | Konekte</title>
+      </Helmet>
       <ImageLogin />
       <S.WrapperForm>
         <S.WrapperTitle>

@@ -8,6 +8,7 @@ import { formatCurrency } from '@resources/utils/forNumber'
 import { generateKey } from '@resources/utils/generateKey'
 import { ArcElement, Chart as ChartJs, Tooltip } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import usePanelFinancial from './usePanelFinancial'
 
@@ -24,6 +25,10 @@ const PanelFinancial = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Financeiro | Konekte</title>
+      </Helmet>
       <Sidebar />
       <S.WrapperHeader>
         <HeaderPartner />

@@ -13,7 +13,6 @@ const useSignIn = () => {
     (state) => state.auth,
   )
 
-  console.log(error)
   const { handleNavigate } = useHandleNavigate()
   const dispatch = useAppDispatch()
   const [passwordType, setPasswordType] = useState<'password' | 'text'>(

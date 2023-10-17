@@ -7,6 +7,7 @@ import Typography from '@components/UI/Typography'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import { theme } from '@resources/theme'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 import usePanelRequests from './usePanelRequests'
 
@@ -23,6 +24,10 @@ const PanelRequests = () => {
   } = usePanelRequests()
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Pedidos | Konekte</title>
+      </Helmet>
       <Sidebar />
       <S.WrapperHeader>
         <HeaderPartner />

@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, memo } from 'react'
 
 import Typography, { FontType } from '@components/UI/Typography'
 import { generateKey } from '@resources/utils/generateKey'
@@ -74,4 +74,4 @@ const DataGridShipping: FunctionComponent<IViewProps> = ({ header, data }) => {
   )
 }
 
-export default DataGridShipping
+export default memo(DataGridShipping)

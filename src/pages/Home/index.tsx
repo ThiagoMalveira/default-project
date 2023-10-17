@@ -24,6 +24,7 @@ import Typography from '@components/UI/Typography'
 import { useHandleNavigate } from '@hooks/useHandleNavigate'
 import { theme } from '@resources/theme'
 import PathRoutes from '@route/PathRoutes'
+import { Helmet } from 'react-helmet'
 import * as S from './styles'
 
 const Home = () => {
@@ -31,6 +32,10 @@ const Home = () => {
 
   return (
     <S.Container>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home | Konekte</title>
+      </Helmet>
       <Header />
       <S.ContainerContent>
         <S.ContentsLeft>
@@ -117,9 +122,9 @@ const Home = () => {
             </Typography>
           </Typography>
         </S.ContainerTitle>
-        <S.WrapperIcon>
+        <S.WrapperIconWhatsApp>
           <Icon name="whatsapp" />
-        </S.WrapperIcon>
+        </S.WrapperIconWhatsApp>
       </S.ContainerWhatsApp>
       <S.ContainerStep>
         <Card
